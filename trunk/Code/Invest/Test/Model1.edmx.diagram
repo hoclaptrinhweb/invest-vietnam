@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f3e78e4103d644fab866b1c56b1451c8" Name="Diagram1" ZoomLevel="10">
+        <EntityTypeShape EntityType="nopModel.AclRecord" Width="1.5" PointX="17.25" PointY="52" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ActivityLog" Width="1.5" PointX="12" PointY="59.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ActivityLogType" Width="1.5" PointX="9.75" PointY="53" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Address" Width="1.5" PointX="7.5" PointY="57" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Affiliate" Width="1.5" PointX="9.75" PointY="49.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.BackInStockSubscription" Width="1.5" PointX="15" PointY="59.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.BlogComment" Width="1.5" PointX="12" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.BlogPost" Width="1.5" PointX="9.75" PointY="66.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Campaign" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Category" Width="1.5" PointX="9.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.CategoryTemplate" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.CheckoutAttribute" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.CheckoutAttributeValue" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Country" Width="1.5" PointX="3" PointY="47.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.CrossSellProduct" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Currency" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Customer" Width="1.5" PointX="9.75" PointY="56.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.CustomerRole" Width="1.5" PointX="15" PointY="55.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.DeliveryDate" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Discount" Width="1.5" PointX="7.5" PointY="35.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.DiscountRequirement" Width="1.5" PointX="9.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.DiscountUsageHistory" Width="1.5" PointX="23.25" PointY="59.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Download" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.EmailAccount" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ExternalAuthenticationRecord" Width="1.5" PointX="12" PointY="65.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Forums_Forum" Width="1.5" PointX="15.75" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Forums_Group" Width="1.5" PointX="13.5" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Forums_Post" Width="1.5" PointX="15" PointY="63.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Forums_PrivateMessage" Width="1.5" PointX="12" PointY="72.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Forums_Subscription" Width="1.5" PointX="12" PointY="76.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Forums_Topic" Width="1.5" PointX="18" PointY="59" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.GenericAttribute" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.GiftCard" Width="1.5" PointX="28.5" PointY="59" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.GiftCardUsageHistory" Width="1.5" PointX="23.25" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.GoogleProduct" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Language" Width="1.5" PointX="7.5" PointY="67.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.LocaleStringResource" Width="1.5" PointX="9.75" PointY="72.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.LocalizedProperty" Width="1.5" PointX="9.75" PointY="75.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Log" Width="1.5" PointX="12" PointY="84.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Manufacturer" Width="1.5" PointX="12.75" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ManufacturerTemplate" Width="1.5" PointX="6.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.MeasureDimension" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.MeasureWeight" Width="1.5" PointX="11.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.MessageTemplate" Width="1.5" PointX="11.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.News" Width="1.5" PointX="15.75" PointY="42.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.NewsComment" Width="1.5" PointX="18" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.NewsLetterSubscription" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Order" Width="1.5" PointX="21" PointY="54.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.OrderItem" Width="1.5" PointX="26.25" PointY="58.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.OrderNote" Width="1.5" PointX="23.25" PointY="68" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.PermissionRecord" Width="1.5" PointX="12.75" PointY="45" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Picture" Width="1.5" PointX="9.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Poll" Width="1.5" PointX="13.5" PointY="88.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.PollAnswer" Width="1.5" PointX="15.75" PointY="88.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.PollVotingRecord" Width="1.5" PointX="18" PointY="63.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Product" Width="1.5" PointX="9.75" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Product_Category_Mapping" Width="1.5" PointX="12" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Product_Manufacturer_Mapping" Width="1.5" PointX="15" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Product_Picture_Mapping" Width="1.5" PointX="12" PointY="41.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Product_ProductAttribute_Mapping" Width="1.5" PointX="18" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Product_SpecificationAttribute_Mapping" Width="1.5" PointX="15" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ProductAttribute" Width="1.5" PointX="15.75" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ProductReview" Width="1.5" PointX="12" PointY="51.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ProductReviewHelpfulness" Width="1.5" PointX="14.25" PointY="48" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ProductTag" Width="1.5" PointX="12" PointY="48.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ProductTemplate" Width="1.5" PointX="13.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ProductVariantAttributeCombination" Width="1.5" PointX="12" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ProductVariantAttributeValue" Width="1.5" PointX="20.25" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.QueuedEmail" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.RecurringPayment" Width="1.5" PointX="23.25" PointY="71" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.RecurringPaymentHistory" Width="1.5" PointX="25.5" PointY="71.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.RelatedProduct" Width="1.5" PointX="13.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ReturnRequest" Width="1.5" PointX="12" PointY="112.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.RewardPointsHistory" Width="1.5" PointX="23.25" PointY="63.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ScheduleTask" Width="1.5" PointX="6.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.SearchTerm" Width="1.5" PointX="13.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Setting" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Shipment" Width="1.5" PointX="23.25" PointY="78.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ShipmentItem" Width="1.5" PointX="25.5" PointY="78.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ShippingByWeight" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ShippingMethod" Width="1.5" PointX="0.75" PointY="48.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.ShoppingCartItem" Width="1.5" PointX="15" PointY="51.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.SpecificationAttribute" Width="1.5" PointX="10.5" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.SpecificationAttributeOption" Width="1.5" PointX="12.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.StateProvince" Width="1.5" PointX="5.25" PointY="69.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Store" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.StoreMapping" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.sysdiagram" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.TaxCategory" Width="1.5" PointX="14.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.TaxRate" Width="1.5" PointX="15.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.TierPrice" Width="1.5" PointX="20.25" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Topic" Width="1.5" PointX="15.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.UrlRecord" Width="1.5" PointX="14.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Vendor" Width="1.5" PointX="16.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nopModel.Warehouse" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="nopModel.AclRecord_CustomerRole" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ActivityLog_ActivityLogType" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ActivityLog_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Address_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Address_StateProvince" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Affiliate_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Customer_BillingAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Customer_ShippingAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Order_BillingAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Order_ShippingAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.BackInStockSubscription_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.BackInStockSubscription_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.BlogComment_BlogPost" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.BlogComment_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.BlogPost_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ProductCategory_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.CheckoutAttributeValue_CheckoutAttribute" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.StateProvince_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ExternalAuthenticationRecord_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ForumPost_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ForumSubscription_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ForumTopic_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Log_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.NewsComment_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Order_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.PollVotingRecord_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.PrivateMessage_FromCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.PrivateMessage_ToCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ProductReview_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ReturnRequest_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.RewardPointsHistory_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ShoppingCartItem_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.TierPrice_CustomerRole" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Discount_DiscountRequirements" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.DiscountUsageHistory_Discount" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.DiscountUsageHistory_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.QueuedEmail_EmailAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Forum_ForumGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ForumTopic_Forum" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ForumPost_ForumTopic" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.GiftCard_PurchasedWithOrderItem" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.GiftCardUsageHistory_GiftCard" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.GiftCardUsageHistory_UsedWithOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.LocaleStringResource_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.LocalizedProperty_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.NewsItem_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Poll_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ProductManufacturer_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.NewsComment_NewsItem" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.OrderItem_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.OrderNote_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.RecurringPayment_InitialOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.RewardPointsHistory_UsedWithOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Shipment_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.OrderItem_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ProductPicture_Picture" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.PollAnswer_Poll" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.PollVotingRecord_PollAnswer" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ProductCategory_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ProductManufacturer_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ProductPicture_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ProductReview_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ProductSpecificationAttribute_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ProductVariantAttribute_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ProductVariantAttributeCombination_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ShoppingCartItem_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.TierPrice_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ProductVariantAttribute_ProductAttribute" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ProductVariantAttributeValue_ProductVariantAttribute" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ProductSpecificationAttribute_SpecificationAttributeOption" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ProductReviewHelpfulness_ProductReview" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.RecurringPaymentHistory_RecurringPayment" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ShipmentItem_Shipment" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.SpecificationAttributeOption_SpecificationAttribute" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.StoreMapping_Store" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Customer_CustomerRole_Mapping" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.CustomerAddresses" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Discount_AppliedToCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Discount_AppliedToProducts" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.PermissionRecord_Role_Mapping" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.Product_ProductTag_Mapping" ManuallyRouted="false" />
+        <AssociationConnector Association="nopModel.ShippingMethodRestrictions" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
