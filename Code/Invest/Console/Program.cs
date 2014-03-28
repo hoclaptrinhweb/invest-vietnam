@@ -14,6 +14,7 @@ namespace Console
         static void Main(string[] args)
         {
             CreateDatabase();
+
         }
 
         public static void CreateDatabase()
