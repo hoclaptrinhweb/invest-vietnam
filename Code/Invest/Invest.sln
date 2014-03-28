@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainClasses", "DomainClasses\DomainClasses.csproj", "{460118A5-3AE7-4039-8877-A67FD600F15F}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{B4B39513-375B-451D-BF52-ECD0DC426AE3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{B0F1E569-F519-4F74-8087-CA1CB53CF97B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{3BB6041F-C2D3-4B5D-BE93-5B59F252808B}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
@@ -37,6 +39,10 @@ Global
 		{B0F1E569-F519-4F74-8087-CA1CB53CF97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0F1E569-F519-4F74-8087-CA1CB53CF97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0F1E569-F519-4F74-8087-CA1CB53CF97B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BB6041F-C2D3-4B5D-BE93-5B59F252808B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BB6041F-C2D3-4B5D-BE93-5B59F252808B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BB6041F-C2D3-4B5D-BE93-5B59F252808B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BB6041F-C2D3-4B5D-BE93-5B59F252808B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
