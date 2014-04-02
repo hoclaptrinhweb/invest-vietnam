@@ -1,5 +1,9 @@
-﻿@{
+﻿@inherits  Invest.Web.Framework.ViewEngines.Razor.WebViewPage<string>
+@using Invest.Core
+
+@{
     ViewBag.Title = "Home Page";
+    _language.Id = 2;
 }
 
 <div class="jumbotron">

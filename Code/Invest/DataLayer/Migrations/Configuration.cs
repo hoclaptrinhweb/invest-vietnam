@@ -4,7 +4,7 @@
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-    using DomainClasses;
+    using Invest.Core;
 
     public class Configuration : DbMigrationsConfiguration<DataLayer.InvestContext>
     {
