@@ -1,0 +1,4 @@
+D:\1.Document\5. Invest-vietnam\Code\Invest\Invest.Core\bin\Debug\Invest.Core.dll
+D:\1.Document\5. Invest-vietnam\Code\Invest\Invest.Core\bin\Debug\Invest.Core.pdb
+D:\1.Document\5. Invest-vietnam\Code\Invest\Invest.Core\obj\Debug\Invest.Core.dll
+D:\1.Document\5. Invest-vietnam\Code\Invest\Invest.Core\obj\Debug\Invest.Core.pdb
