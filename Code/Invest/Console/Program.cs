@@ -7,7 +7,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using DataLayer;
 using DataLayer.Migrations;
-using DomainClasses;
 
 namespace ConsoleTest
 {
