@@ -15,15 +15,18 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
-            var task =Task.Factory.StartNew<int>(SlowOperation);
-            for(var i=0;i<100;i++)
+            CreateDatabase();
+        }
+
+        static void TestAsync()
+        {
+            var task = Task.Factory.StartNew<int>(SlowOperation);
+            for (var i = 0; i < 100; i++)
             {
                 Console.WriteLine(i);
             }
             Console.WriteLine("Slow operation result: {0}", task.Result);
             Console.WriteLine("Main complete on {0}", Thread.CurrentThread.ManagedThreadId);
-
-           // CreateDatabase();
         }
 
         static int SlowOperation()
