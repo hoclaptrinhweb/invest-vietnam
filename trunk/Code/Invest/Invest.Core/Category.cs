@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DomainClasses
+namespace Invest.Core
 {
     public class Category
     {

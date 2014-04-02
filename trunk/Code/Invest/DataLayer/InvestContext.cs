@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
-using DomainClasses;
+using Invest.Core;
 
 namespace DataLayer
 {
