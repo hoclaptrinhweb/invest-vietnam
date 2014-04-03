@@ -1,7 +1,9 @@
-﻿@{
+﻿@inherits  Invest.Web.Framework.ViewEngines.Razor.WebViewPage<string>
+
+@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title. @Resource("Search")</h2>
 <h3>@ViewBag.Message</h3>
 
 <address>

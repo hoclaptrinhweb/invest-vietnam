@@ -74,13 +74,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
-      <Project>{b23c4f73-ab98-4daf-847d-97bbe0b9c2d4}</Project>
-      <Name>DataLayer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Invest.Core\Invest.Core.csproj">
       <Project>{babb0173-40b1-416b-9cf8-ef5d25dd583a}</Project>
       <Name>Invest.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Invest.Services\Invest.Services.csproj">
+      <Project>{51495a16-a27a-4b22-8659-eb26ab778727}</Project>
+      <Name>Invest.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

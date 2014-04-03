@@ -13,6 +13,13 @@ namespace Invest.Web.Controllers
             return View();
         }
 
+        public ActionResult ChangeCulture(string lang)
+        {
+            var langCookie = new HttpCookie("lang", lang) { HttpOnly = true };
+            Response.AppendCookie(langCookie);
+            return RedirectToAction("Index", "Home", new { culture = lang.Substring(0,2) });
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
