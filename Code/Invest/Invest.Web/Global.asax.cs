@@ -27,6 +27,11 @@ namespace Invest.Web
         }
         protected void Application_AcquireRequestState(object sender, EventArgs e)
         {
+            CheckLanguage();
+        }
+
+        public void CheckLanguage()
+        {
             var handler = Context.Handler as MvcHandler;
             var routeData = handler != null ? handler.RequestContext.RouteData : null;
             var routeCulture = routeData != null ? (routeData.Values["culture"] != null ? routeData.Values["culture"].ToString() : null) : null;
