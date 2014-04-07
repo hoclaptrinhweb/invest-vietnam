@@ -109,7 +109,8 @@
                 <div class="well nav-collapse sidebar-nav">
                     <ul class="nav nav-tabs nav-stacked main-menu">
                         <li class="nav-header hidden-tablet">Main</li>
-                        <li><a class="ajax-link" href="index.html"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+                        <li><a class="ajax-link" href="@Url.Action("", "", new { area = "Admin" },null)"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+                        <li><a class="ajax-link" href="@Url.Action("", "Language", new { area = "Admin" },null)"><i class="icon-home"></i><span class="hidden-tablet">Language</span></a></li>
                         <li class="nav-header hidden-tablet">Sample Section</li>
                         <li><a href="tour.html"><i class="icon-globe"></i><span class="hidden-tablet"> Tour</span></a></li>
                         <li><a class="ajax-link" href="icon.html"><i class="icon-star"></i><span class="hidden-tablet"> Icons</span></a></li>
@@ -163,60 +164,64 @@
     <script src="~/Content/js/bootstrap-alert.js"></script>
     <!-- modal / dialog library -->
     <script src="~/Content/js/bootstrap-modal.js"></script>
+    <!-- library for cookie management -->
+    <script src="~/Content/js/jquery.cookie.js"></script>
+    <!-- library for advanced tooltip -->
+    <script src="~/Content/js/bootstrap-tooltip.js"></script>
+    @RenderSection("ScriptCustom")
     <!-- custom dropdown library -->
     <script src="~/Content/js/bootstrap-dropdown.js"></script>
     <!-- scrolspy library -->
-    <script src="~/Content/js/bootstrap-scrollspy.js"></script>
-    <!-- library for creating tabs -->
-    <script src="~/Content/js/bootstrap-tab.js"></script>
-    <!-- library for advanced tooltip -->
-    <script src="~/Content/js/bootstrap-tooltip.js"></script>
-    <!-- popover effect library -->
-    <script src="~/Content/js/bootstrap-popover.js"></script>
-    <!-- button enhancer library -->
-    <script src="~/Content/js/bootstrap-button.js"></script>
-    <!-- accordion library (optional, not used in demo) -->
-    <script src="~/Content/js/bootstrap-collapse.js"></script>
-    <!-- carousel slideshow library (optional, not used in demo) -->
-    <script src="~/Content/js/bootstrap-carousel.js"></script>
-    <!-- autocomplete library -->
-    <script src="~/Content/js/bootstrap-typeahead.js"></script>
-    <!-- tour library -->
-    <script src="~/Content/js/bootstrap-tour.js"></script>
-    <!-- library for cookie management -->
-    <script src="~/Content/js/jquery.cookie.js"></script>
-    <!-- calander plugin -->
-    <script src='~/Content/js/fullcalendar.min.js'></script>
-    <!-- data table plugin -->
-    <script src='~/Content/js/jquery.dataTables.min.js'></script>
+    @* <script src="~/Content/js/bootstrap-scrollspy.js"></script>
+        <!-- library for creating tabs -->
+        <script src="~/Content/js/bootstrap-tab.js"></script>
 
-    <!-- chart libraries start -->
-    <script src="~/Content/js/excanvas.js"></script>
-    <script src="~/Content/js/jquery.flot.min.js"></script>
-    <script src="~/Content/js/jquery.flot.pie.min.js"></script>
-    <script src="~/Content/js/jquery.flot.stack.js"></script>
-    <script src="~/Content/js/jquery.flot.resize.min.js"></script>
-    <!-- chart libraries end -->
-    <!-- select or dropdown enhancer -->
-    <script src="~/Content/js/jquery.chosen.min.js"></script>
-    <!-- checkbox, radio, and file input styler -->
-    <script src="~/Content/js/jquery.uniform.min.js"></script>
-    <!-- plugin for gallery image view -->
-    <script src="~/Content/js/jquery.colorbox.min.js"></script>
-    <!-- rich text editor library -->
-    <script src="~/Content/js/jquery.cleditor.min.js"></script>
-    <!-- notification plugin -->
-    <script src="~/Content/js/jquery.noty.js"></script>
-    <!-- file manager library -->
-    <script src="~/Content/js/jquery.elfinder.min.js"></script>
-    <!-- star rating plugin -->
-    <script src="~/Content/js/jquery.raty.min.js"></script>
-    <!-- for iOS style toggle switch -->
-    <script src="~/Content/js/jquery.iphone.toggle.js"></script>
-    <!-- autogrowing textarea plugin -->
-    <script src="~/Content/js/jquery.autogrow-textarea.js"></script>
-    <!-- multiple file upload plugin -->
-    <script src="~/Content/js/jquery.uploadify-3.1.min.js"></script>
+        <!-- popover effect library -->
+        <script src="~/Content/js/bootstrap-popover.js"></script>
+        <!-- button enhancer library -->
+        <script src="~/Content/js/bootstrap-button.js"></script>
+        <!-- accordion library (optional, not used in demo) -->
+        <script src="~/Content/js/bootstrap-collapse.js"></script>
+        <!-- carousel slideshow library (optional, not used in demo) -->
+        <script src="~/Content/js/bootstrap-carousel.js"></script>
+        <!-- autocomplete library -->
+        <script src="~/Content/js/bootstrap-typeahead.js"></script>
+        <!-- tour library -->
+        <script src="~/Content/js/bootstrap-tour.js"></script>
+
+
+        <!-- calander plugin -->
+        <script src='~/Content/js/fullcalendar.min.js'></script>
+        <!-- data table plugin -->
+        <script src='~/Content/js/jquery.dataTables.min.js'></script>
+
+        <!-- chart libraries start -->
+        <script src="~/Content/js/excanvas.js"></script>
+        <script src="~/Content/js/jquery.flot.min.js"></script>
+        <script src="~/Content/js/jquery.flot.pie.min.js"></script>
+        <script src="~/Content/js/jquery.flot.stack.js"></script>
+        <script src="~/Content/js/jquery.flot.resize.min.js"></script>
+        <!-- chart libraries end -->
+        <!-- select or dropdown enhancer -->
+        <script src="~/Content/js/jquery.chosen.min.js"></script>
+        <!-- checkbox, radio, and file input styler -->
+        <script src="~/Content/js/jquery.uniform.min.js"></script>
+        <!-- plugin for gallery image view -->
+        <script src="~/Content/js/jquery.colorbox.min.js"></script>
+        <!-- rich text editor library -->
+        <script src="~/Content/js/jquery.cleditor.min.js"></script>
+        <!-- notification plugin -->
+        <script src="~/Content/js/jquery.noty.js"></script>
+        <!-- file manager library -->
+        <script src="~/Content/js/jquery.elfinder.min.js"></script>
+        <!-- star rating plugin -->
+        <script src="~/Content/js/jquery.raty.min.js"></script>
+        <!-- for iOS style toggle switch -->
+        <script src="~/Content/js/jquery.iphone.toggle.js"></script>
+        <!-- autogrowing textarea plugin -->
+        <script src="~/Content/js/jquery.autogrow-textarea.js"></script>
+        <!-- multiple file upload plugin -->
+        <script src="~/Content/js/jquery.uploadify-3.1.min.js"></script>*@
     <!-- history.js for cross-browser state change on ajax -->
     <script src="~/Content/js/jquery.history.js"></script>
     <!-- application script for Charisma demo -->
