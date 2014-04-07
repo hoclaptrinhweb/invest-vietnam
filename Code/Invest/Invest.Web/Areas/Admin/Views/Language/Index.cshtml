@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Invest.Core.Language>
+@{
+    ViewBag.Title = "Control Language";
+}
+
+@Html.Partial("Breadcrumb", new Dictionary<string, string> { { "QUẢN LÝ NHÀ CUNG CẤP", Url.Action("", "Language", new { area = "Admin" }, null) } })
+<div class="row-fluid">
+    <div class="box span12">
+        <div class="box-header well">
+            <i class="icon-th"></i>
+        </div>
+        <div class="box-content">
+            @Html.Partial("PartialLanguage", Model)
+        </div>
+    </div>
+</div>
+@section ScriptCustom {
+
+}
