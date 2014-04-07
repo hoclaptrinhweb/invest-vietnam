@@ -417,6 +417,7 @@
     <Content Include="Areas\Admin\Views\Index\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Language\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\PartialLanguage.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Breadcrumb.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
