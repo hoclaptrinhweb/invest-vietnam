@@ -16,5 +16,11 @@ namespace Invest.Services
             var result = invest.Language.Where(l => l.LanguageCulture == value).FirstOrDefault();
             return result;
         }
+
+        public IEnumerable<Language> GetAll()
+        {
+            var invest = new InvestContext();
+            return invest.Language.ToList();
+        }
     }
 }

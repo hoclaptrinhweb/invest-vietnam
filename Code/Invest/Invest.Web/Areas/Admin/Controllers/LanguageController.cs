@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using DataLayer;
+using Invest.Services;
 
 namespace Invest.Web.Areas.Admin.Controllers
 {
@@ -13,8 +13,8 @@ namespace Invest.Web.Areas.Admin.Controllers
         // GET: /Admin/Language/
         public ActionResult Index()
         {
-            var invest = new InvestContext();
-            return View(invest.Language.ToList());
+            var langService = new LanguageServices();
+            return View(langService.GetAll());
         }
 	}
 }
