@@ -29,6 +29,11 @@ namespace Invest.Web.Framework.ViewEngines.Razor
             _localeResourceServices = new LocaleStringResourceServices();
             _languageServices = new LanguageServices();
             _language = _languageServices.GetLanguage(CultureInfo.CurrentCulture.Name);
+            if (_language == null)
+            {
+                _language = new Language();
+                _language.Id = 1; // Mặc định
+            }
         }
     }
 

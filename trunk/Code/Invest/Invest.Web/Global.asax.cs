@@ -19,7 +19,7 @@ namespace Invest.Web
         {
             //Nếu chạy lần đầu thì sử dụng cái này hoặc nếu thay đổi model,db
             // Luôn luôn chạy hàm này cũng được nhưng ko cần thiết nó sẽ làm chậm lúc start
-            // CreateDatabase();
+            //CreateDatabase();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

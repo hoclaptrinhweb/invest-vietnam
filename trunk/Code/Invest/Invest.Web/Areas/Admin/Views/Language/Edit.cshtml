@@ -1,0 +1,110 @@
+﻿@model Invest.Core.Language
+
+
+@Html.Partial("Breadcrumb", new Dictionary<string, string> { { "Language", "/Language" }, { "Edit", "#" } })
+
+<div class="row-fluid">
+    <div class="box span12">
+        <div class="box-header well">
+            <i class="icon-th"></i>
+        </div>
+        <div class="box-content">
+            @using (Html.BeginForm("Edit", "Language", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <fieldset>
+                    <legend>Edit Language</legend>
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.Id)
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.Name, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.EditorFor(model => model.Name, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.LanguageCulture, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.EditorFor(model => model.LanguageCulture, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.LanguageCulture)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.UniqueSeoCode, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.EditorFor(model => model.UniqueSeoCode, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.UniqueSeoCode)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.FlagImageFileName, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.EditorFor(model => model.FlagImageFileName, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.FlagImageFileName)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.LimitedToStores, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.EditorFor(model => model.LimitedToStores, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.LimitedToStores)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.Published, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.EditorFor(model => model.Published, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.Published)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.DisplayOrder, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.EditorFor(model => model.DisplayOrder, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.DisplayOrder)
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button id="btnSave" type="submit" class="btn btn-primary">Save</button>
+                        <a class="btn btn-cancel" href="/Language">Thoát</a>
+                    </div>
+
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('.btn-primary').click(function (event) {
+            showPopUpStatus("Đang cập nhật dữ liệu");
+            event.preventDefault();
+            $.post('@Url.Action("Edit", "Language")', $('form').serialize(), function (data) {
+                debugger;
+                if (data.success) {
+                    popUp(false, "Cập nhật thành công! Trở về trang trước", true, document.referrer);
+                } else {
+                    popUp(true, data.message, false);
+                }
+            });
+        });
+
+    });
+
+</script>
+
+@section ScriptCustom {
+
+}

@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\IndexController.cs" />
     <Compile Include="Areas\Admin\Controllers\LanguageController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -377,6 +378,7 @@
     <Content Include="Content\js\bootstrap-transition.js" />
     <Content Include="Content\js\bootstrap-typeahead.js" />
     <Content Include="Content\js\charisma.js" />
+    <Content Include="Content\js\common.js" />
     <Content Include="Content\js\excanvas.js" />
     <Content Include="Content\js\fullcalendar.min.js" />
     <Content Include="Content\js\jquery-1.7.2.min.js" />
@@ -418,6 +420,7 @@
     <Content Include="Areas\Admin\Views\Language\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\PartialLanguage.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\Breadcrumb.cshtml" />
+    <Content Include="Areas\Admin\Views\Language\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
