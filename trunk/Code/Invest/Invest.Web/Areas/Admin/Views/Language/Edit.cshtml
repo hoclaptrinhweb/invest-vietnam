@@ -92,7 +92,6 @@
             showPopUpStatus("Đang cập nhật dữ liệu");
             event.preventDefault();
             $.post('@Url.Action("Edit", "Language")', $('form').serialize(), function (data) {
-                debugger;
                 if (data.success) {
                     popUp(false, "Cập nhật thành công! Trở về trang trước", true, document.referrer);
                 } else {
