@@ -40,6 +40,10 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!-- The fav icon -->
+    <!-- jQuery -->
+    <script src="~/Content/js/jquery-1.7.2.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="~/Content/js/jquery-ui-1.8.21.custom.min.js"></script>
     <link rel="shortcut icon" href="img/favicon.ico">
 </head>
 <body>
@@ -154,12 +158,18 @@
         </footer>
 
     </div><!--/.fluid-container-->
-    <!-- jQuery -->
-    <script src="~/Content/js/jquery-1.7.2.min.js"></script>
-    <!-- jQuery UI -->
-    <script src="~/Content/js/jquery-ui-1.8.21.custom.min.js"></script>
+
+
+    <div class="noty_bar noty_theme_default noty_layout_top noty_error" id="divPopupError" style="cursor: pointer;">
+        <div class="noty_message"><span id="spanError" class="noty_text">This is a success information</span></div>
+    </div>
+    <div class="noty_bar noty_theme_default noty_layout_top noty_information" id="divPopupInfo" style="cursor: pointer;">
+        <div class="noty_message"><span id="spanInfo" class="noty_text">This is a success information</span></div>
+    </div>
+
     <!-- transition / effect library -->
     <script src="~/Content/js/bootstrap-transition.js"></script>
+    <script src="~/Content/js/common.js"></script>
     <!-- alert enhancer library -->
     <script src="~/Content/js/bootstrap-alert.js"></script>
     <!-- modal / dialog library -->
