@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Invest-VietNam.vn</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
     <meta name="author" content="Muhammad Usman">
@@ -56,8 +56,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <a class="brand" href="index.html"> <img alt="Charisma Logo" src="img/logo20.png" /> <span>Invest-VietNam</span></a>
-
+                <a class="brand" href="index.html">
+                    <img alt="Charisma Logo" src="~/Content/img/logo20.png" />
+                    <span>Invest</span>
+                </a>
                 <!-- theme selector starts -->
                 <div class="btn-group pull-right theme-container">
                     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -115,6 +117,7 @@
                         <li class="nav-header hidden-tablet">Main</li>
                         <li><a class="ajax-link" href="@Url.Action("", "", new { area = "Admin" },null)"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
                         <li><a class="ajax-link" href="@Url.Action("", "Language", new { area = "Admin" },null)"><i class="icon-home"></i><span class="hidden-tablet">Language</span></a></li>
+                        <li><a class="ajax-link" href="@Url.Action("", "Category", new { area = "Admin" },null)"><i class="icon-home"></i><span class="hidden-tablet">Category</span></a></li>
                         <li class="nav-header hidden-tablet">Sample Section</li>
                         <li><a href="tour.html"><i class="icon-globe"></i><span class="hidden-tablet"> Tour</span></a></li>
                         <li><a class="ajax-link" href="icon.html"><i class="icon-star"></i><span class="hidden-tablet"> Icons</span></a></li>
@@ -132,9 +135,7 @@
             </noscript>
 
             <div id="content" class="span10">
-                <!-- content starts -->
                 @RenderBody()
-                <!-- content ends -->
             </div><!--/#content.span10-->
         </div><!--/fluid-row-->
         <hr>
