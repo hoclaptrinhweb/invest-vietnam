@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Invest.Core.Infrastructure;
 using Invest.Services;
 using Invest.Web.Framework.MVC;
 
@@ -25,14 +26,8 @@ namespace Invest.Web.Framework
         {
             get
             {
-                //do not cache resources because it causes issues when you have multiple languages
-                //if (!_resourceValueRetrived)
-                //{
-                var n = 1;
                 var localService = new LocaleStringResourceServices();
-                _resourceValue = localService.GetResource(ResourceKey, n);
-                //    _resourceValueRetrived = true;
-                //}
+                _resourceValue = localService.GetResource(ResourceKey, EngineContext.WorkingLanguage.Id);
                 return _resourceValue;
             }
         }
