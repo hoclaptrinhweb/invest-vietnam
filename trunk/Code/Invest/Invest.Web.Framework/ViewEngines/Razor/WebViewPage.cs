@@ -6,6 +6,7 @@ using System.IO;
 using System.Web.Mvc;
 using System.Web.WebPages;
 using Invest.Core;
+using Invest.Core.Infrastructure;
 using Invest.Services;
 
 #endregion
@@ -20,7 +21,7 @@ namespace Invest.Web.Framework.ViewEngines.Razor
         public Language _language;
         public string Resource(string value)
         {
-            return _localeResourceServices.GetResource(value, _language.Id);
+            return _localeResourceServices.GetResource(value, EngineContext.WorkingLanguage.Id);
         }
         public override void InitHelpers()
         {
@@ -34,6 +35,7 @@ namespace Invest.Web.Framework.ViewEngines.Razor
                 _language = new Language();
                 _language.Id = 1; // Mặc định
             }
+            EngineContext.WorkingLanguage = _language;
         }
     }
 
