@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryServices.cs" />
     <Compile Include="LanguageServices.cs" />
     <Compile Include="LocaleStringResourceServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
