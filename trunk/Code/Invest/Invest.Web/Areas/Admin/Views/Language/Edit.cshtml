@@ -19,7 +19,6 @@
                     @Html.HiddenFor(model => model.Id)
 
                     <div class="control-group">
-                        @Html.NopLabelFor(model => model.Name)
                         @Html.LabelFor(model => model.Name, new { @class = "control-label" })
                         <div class="controls">
                             @Html.EditorFor(model => model.Name, new { @class = "span4 typeahead" })
