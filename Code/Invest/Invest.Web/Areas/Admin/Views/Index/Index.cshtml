@@ -2,10 +2,62 @@
 @{
     ViewBag.Title = "Index";
 }
+@Html.Partial("Breadcrumb", new Dictionary<string, string> { })
 
-@Html.LabelFor(t => t.Name)
-@Html.LabelFor(t => t.Equals)
-@Html.LabelFor(t => t.Name)
+<div class="row-fluid">
+    <a data-rel="tooltip" title="6 new members." class="well span3 top-block" href="#">
+        <span class="icon32 icon-color icon-star-on"></span>
+        <div>
+            Hàng mới
+        </div>
+        <div>
+            120
+        </div> <span class="notification">120</span>
+    </a>
+
+    <a data-rel="tooltip" title="4 new pro members." class="well span3 top-block" href="#">
+        <span class="icon32 icon-color icon-user"></span>
+        <div>
+            Thành viên mới
+        </div>
+        <div>
+            30
+        </div> <span class="notification green">30</span>
+    </a>
+
+    <a data-rel="tooltip" title="$34 new sales." class="well span3 top-block" href="#">
+        <span class="icon32 icon-color icon-document"></span>
+        <div>
+            Đơn hàng mới
+        </div>
+        <div>
+            50
+        </div> <span class="notification yellow">50</span>
+    </a>
+
+    <a data-rel="tooltip" title="12 new messages." class="well span3 top-block" href="#">
+        <span class="icon32 icon-color icon-cart"></span>
+        <div>
+            Doanh số
+        </div>
+        <div>
+            250.000.000
+        </div> <span class="notification red">250.000.000</span>
+    </a>
+</div>
+
+<div class="row-fluid">
+    <div class="box span12">
+        <div class="box-header well" data-original-title="">
+            <i class="icon-th"></i>
+        </div>
+        <div class="box-content">
+
+
+
+        </div>
+    </div>
+</div>
 
 
 @section ScriptCustom {
