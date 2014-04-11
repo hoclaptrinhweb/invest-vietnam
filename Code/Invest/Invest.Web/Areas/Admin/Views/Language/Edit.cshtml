@@ -1,7 +1,7 @@
 ﻿@model Invest.Core.Language
 
 
-@Html.Partial("Breadcrumb", new Dictionary<string, string> { { "Language", "/Language" }, { "Edit", "#" } })
+@Html.Partial("Breadcrumb", new Dictionary<string, string> { { "Language", "/Admin/Language" }, { "Edit", "#" } })
 
 <div class="row-fluid">
     <div class="box span12">
@@ -93,7 +93,7 @@
             event.preventDefault();
             $.post('@Url.Action("Edit", "Language")', $('form').serialize(), function (data) {
                 if (data.success) {
-                    popUp(false, "Cập nhật thành công! Trở về trang trước", true, document.referrer);
+                    popUp(false, "Cập nhật thành công! Trở về trang trước", true, "@Url.Action("", "Language", new { area = "Admin" },null)");
                 } else {
                     popUp(true, data.message, false);
                 }

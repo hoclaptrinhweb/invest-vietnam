@@ -427,6 +427,7 @@
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_PartialCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
