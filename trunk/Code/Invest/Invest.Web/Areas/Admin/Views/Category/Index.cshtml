@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Invest.Core.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.Partial("Breadcrumb", new Dictionary<string, string> { { "Category", Url.Action("", "Category", new { area = "Admin" }, null) } })
+
+
+<div class="row-fluid">
+    <div class="box span12">
+        <div class="box-header well">
+            <i class="icon-th"></i>
+        </div>
+        <div class="box-content">
+            @Html.Partial("_PartialCategory", Model)
+        </div>
+    </div>
+</div>
+
+
+@section ScriptCustom {
+}

@@ -5,12 +5,12 @@
 
 <div class="span3 pull-left">
     <div class="btn-group">
-        <a class="btn btn-small" href="@Url.Action("Create", "Language", new { area ="Admin"},null)"><i class="icon icon-color icon-add"></i>Thêm Mới</a>
+        <a class="btn btn-small" href="@Url.Action("Create", "Language", new { area ="Admin"},null)"><i class="icon icon-color icon-add"></i>Create New</a>
     </div>
 </div>
 <div class="span3 pull-right">
     <div class="btn-group pull-right">
-        <a class="btn btn-cancel" href="#">Chức năng</a>
+        <a class="btn btn-cancel" href="#">Actions</a>
         <a class="btn btn-cancel dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
         <ul class="dropdown-menu">
             <li><a id="btnChangeStatusSupp"><i class="icon-pencil"></i>Đổi trạng thái</a></li>
@@ -26,9 +26,9 @@
         <tr>
             <th style=" width:10px" class="center">@Html.CheckBox("Select", false, new { id = "suppCheckALL" })</th>
             <th style=" width:25px">Stt</th>
-            <th>Tên ngôn ngữ</th>
-            <th>mã ngôn ngữ</th>
-            <th class="centerheader" style=" width:75px; text-align:center">Thao tác</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.UniqueSeoCode)</th>
+            <th class="centerheader" style=" width:75px; text-align:center">Action</th>
         </tr>
     </thead>
     <tbody>
