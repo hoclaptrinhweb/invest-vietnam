@@ -17,17 +17,6 @@
         protected override void Seed(DataLayer.InvestContext context)
         {
             //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
             try
             {
                 var invest = new InvestContext();
@@ -40,7 +29,16 @@
                     new Category { Name = "Life in Korea", DisplayOrder = 4, ParentCategoryId = 0 },
                     new Category { Name = "Resources", DisplayOrder = 5, ParentCategoryId = 0 },
                     new Category { Name = "About Us", DisplayOrder = 6, ParentCategoryId = 0 },
-                    new Category { Name = "Investment Consulting", DisplayOrder = 7, ParentCategoryId = 0 }
+                    new Category { Name = "Investment Consulting", DisplayOrder = 7, ParentCategoryId = 0 },
+
+                    new Category { Name = "8 Reasons to Choose Korea", DisplayOrder = 1, ParentCategoryId = 1 },
+                    new Category { Name = "Success Stories", DisplayOrder = 2, ParentCategoryId = 1 },
+                    new Category { Name = "Facts & Stats", DisplayOrder = 3, ParentCategoryId = 1 },
+
+                    new Category { Name = "Parts and Materials", DisplayOrder = 1, ParentCategoryId = 2 },
+                    new Category { Name = "Auto Parts", DisplayOrder = 1, ParentCategoryId = 2 },
+                    new Category { Name = "Displays", DisplayOrder = 2, ParentCategoryId = 2 }
+                    
                     );
                 invest.Language.AddOrUpdate(
                     p => p.Name,
