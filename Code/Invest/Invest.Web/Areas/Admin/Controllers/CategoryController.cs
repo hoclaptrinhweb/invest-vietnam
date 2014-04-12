@@ -15,8 +15,14 @@ namespace Invest.Web.Areas.Admin.Controllers
         public ActionResult Index()
         {
             var CategoryServices = new CategoryServices();
-            var result = CategoryServices.GetAllByParent(0);
-            return View(result);
+            var result = CategoryServices.GetAll();
+            var data = result.Select(c =>
+             {
+                 var categoryModel = c;
+                 categoryModel.Name = c.GetFormattedBreadCrumb(CategoryServices);
+                 return categoryModel;
+             });
+            return View(data);
         }
 
         public ActionResult Edit(int id = 0)
@@ -63,5 +69,5 @@ namespace Invest.Web.Areas.Admin.Controllers
                 return jsonResult(false, ex.Message);
             }
         }
-	}
+    }
 }
