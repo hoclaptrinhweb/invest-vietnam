@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Invest.Core
 {
-    public class Category : BaseEntity
+    public partial class Category : BaseEntity
     {
         public Category()
         {
