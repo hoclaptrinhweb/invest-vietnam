@@ -28,13 +28,20 @@ namespace Invest.Web.Areas.Admin.Controllers
         public ActionResult Edit(int id = 0)
         {
             var catService = new CategoryServices();
-            var cat = catService.GetCategoryByID(id);
-            var test = cat.ToModel();
-            var name = cat.GetLocalized(x => x.Name, 1, false, false);
-            var pub = cat.GetLocalized(x => x.Published, 1, false, false);
-            if (cat == null)
+            var category = catService.GetCategoryByID(id);
+            var _languageService = new LanguageServices();
+            var model = category.ToModel();
+            AddLocales(_languageService, model.Locales, (locale, languageId) =>
+            {
+                locale.Name = category.GetLocalized(x => x.Name, languageId, false, false);
+                locale.Description = category.GetLocalized(x => x.Description, languageId, false, false);
+                locale.MetaKeywords = category.GetLocalized(x => x.MetaKeywords, languageId, false, false);
+                locale.MetaDescription = category.GetLocalized(x => x.MetaDescription, languageId, false, false);
+                locale.MetaTitle = category.GetLocalized(x => x.MetaTitle, languageId, false, false);
+            });
+            if (model == null)
                 return HttpNotFound();
-            return View(cat);
+            return View(model);
         }
 
         [HttpPost]

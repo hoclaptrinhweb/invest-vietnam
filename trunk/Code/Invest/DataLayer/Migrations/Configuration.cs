@@ -40,6 +40,7 @@
                     new Category { Name = "Displays", DisplayOrder = 2, ParentCategoryId = 2 }
 
                     );
+                invest.SaveChanges();
                 invest.Language.AddOrUpdate(
                     p => p.Name,
                     new Language { Name = "English", LanguageCulture = "en-US", UniqueSeoCode = "en" },
@@ -54,6 +55,13 @@
                     new LocaleStringResource { LanguageId = 2, ResourceName = "Search", ResourceValue = "Tìm kiếm" },
                     new LocaleStringResource { LanguageId = 2, ResourceName = "Save", ResourceValue = "Lưu" },
                     new LocaleStringResource { LanguageId = 2, ResourceName = "Delete", ResourceValue = "Xóa" }
+                    );
+
+                invest.LocalizedProperty.AddOrUpdate(
+                    p => new { p.LanguageId, p.EntityId },
+                    new LocalizedProperty { EntityId = 1, LanguageId = 1, LocaleKeyGroup = "Category", LocaleKey = "Name", LocaleValue = "Why VietNam" },
+                    new LocalizedProperty { EntityId = 1, LanguageId = 2, LocaleKeyGroup = "Category", LocaleKey = "Name", LocaleValue = "なぜベトナム" },
+                    new LocalizedProperty { EntityId = 1, LanguageId = 3, LocaleKeyGroup = "Category", LocaleKey = "Name", LocaleValue = "왜 베트남" }
                     );
                 invest.SaveChanges();
             }

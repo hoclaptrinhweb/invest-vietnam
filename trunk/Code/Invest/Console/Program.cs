@@ -5,8 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
+using ConsoleTest.Catalog;
 using DataLayer;
 using DataLayer.Migrations;
+using Invest.Core;
 
 namespace ConsoleTest
 {
@@ -14,7 +17,9 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
-            TestAction();
+            var invest = new InvestContext();
+            var cat = invest.Category.FirstOrDefault();
+            var test = Mapper.DynamicMap<Category, CategoryModel>(cat);
             //CreateDatabase();
         }
 
@@ -31,7 +36,6 @@ namespace ConsoleTest
             example2.Invoke(2, 3);
             example3.Invoke();
         }
-
 
         static void TestAsync()
         {
