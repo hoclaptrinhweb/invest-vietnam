@@ -1,4 +1,4 @@
-﻿@model Invest.Core.Category
+﻿@model Invest.Web.Areas.Admin.Models.Catalog.CategoryModel
 
 @{
     ViewBag.Title = "Edit";
@@ -30,82 +30,31 @@
                                 <div class="box-header well">
                                     <h2></h2>
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#en">English</a></li>
-                                        <li><a href="#ja">Japan</a></li>
-                                        <li><a href="#ko">Korea</a></li>
+                                        <li class="active"><a href="#1">English</a></li>
+                                        <li><a href="#2">Japan</a></li>
+                                        <li><a href="#3">Korea</a></li>
                                     </ul>
                                 </div>
                                 <div class="box-content">
                                     <div class="tab-content">
-                                        <div class="tab-pane active" id="en">
-                                            <div class="control-group">
-                                                @Html.LabelFor(model => model.Name, new { @class = "control-label" })
-                                                <div class="controls">
-                                                    @Html.EditorFor(model => model.Name, new { @class = "span4 typeahead" })
-                                                    @Html.ValidationMessageFor(model => model.Name)
+                                        @foreach (var itemlocal in Model.Locales)
+                                        {
+                                            var active = @itemlocal.LanguageId == 1 ? "active" : "";
+                                            <div class="tab-pane @active" id="@itemlocal.LanguageId">
+                                                <div class="control-group">
+                                                    @Html.LabelFor(model => itemlocal.Name, new { @class = "control-label" })
+                                                    <div class="controls">
+                                                        @Html.EditorFor(model => itemlocal.Name, new { @class = "span4 typeahead" })
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    @Html.LabelFor(model => itemlocal.Description, new { @class = "control-label" })
+                                                    <div class="controls">
+                                                        @Html.EditorFor(model => itemlocal.Description, new { @class = "span4 typeahead" })
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="control-group">
-                                                @Html.LabelFor(model => model.Description, new { @class = "control-label" })
-                                                <div class="controls">
-                                                    @Html.EditorFor(model => model.Description, new { @class = "span4 typeahead" })
-                                                    @Html.ValidationMessageFor(model => model.Description)
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                @Html.LabelFor(model => model.Published, new { @class = "control-label" })
-                                                <div class="controls">
-                                                    @Html.EditorFor(model => model.Published, new { @class = "span4 typeahead" })
-                                                    @Html.ValidationMessageFor(model => model.Published)
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane" id="ja">
-                                            <div class="control-group">
-                                                @Html.LabelFor(model => model.Name, new { @class = "control-label" })
-                                                <div class="controls">
-                                                    @Html.EditorFor(model => model.Name, new { @class = "span4 typeahead" })
-                                                    @Html.ValidationMessageFor(model => model.Name)
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                @Html.LabelFor(model => model.Description, new { @class = "control-label" })
-                                                <div class="controls">
-                                                    @Html.EditorFor(model => model.Description, new { @class = "span4 typeahead" })
-                                                    @Html.ValidationMessageFor(model => model.Description)
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                @Html.LabelFor(model => model.Published, new { @class = "control-label" })
-                                                <div class="controls">
-                                                    @Html.EditorFor(model => model.Published, new { @class = "span4 typeahead" })
-                                                    @Html.ValidationMessageFor(model => model.Published)
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane" id="ko">
-                                            <div class="control-group">
-                                                @Html.LabelFor(model => model.Name, new { @class = "control-label" })
-                                                <div class="controls">
-                                                    @Html.EditorFor(model => model.Name, new { @class = "span4 typeahead" })
-                                                    @Html.ValidationMessageFor(model => model.Name)
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                @Html.LabelFor(model => model.Description, new { @class = "control-label" })
-                                                <div class="controls">
-                                                    @Html.EditorFor(model => model.Description, new { @class = "span4 typeahead" })
-                                                    @Html.ValidationMessageFor(model => model.Description)
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                @Html.LabelFor(model => model.Published, new { @class = "control-label" })
-                                                <div class="controls">
-                                                    @Html.EditorFor(model => model.Published, new { @class = "span4 typeahead" })
-                                                    @Html.ValidationMessageFor(model => model.Published)
-                                                </div>
-                                            </div>
-                                        </div>
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -205,30 +154,45 @@
                         </fieldset>
                     </div>
                     <div class="tab-pane" id="seo">
-                        <h3>Seo <small>small text</small></h3>
-                        <div class="control-group">
-                            @Html.LabelFor(model => model.MetaKeywords, new { @class = "control-label" })
-                            <div class="controls">
-                                @Html.EditorFor(model => model.MetaKeywords, new { @class = "span4 typeahead" })
-                                @Html.ValidationMessageFor(model => model.MetaKeywords)
+                        <div class="box">
+                            <div class="box-header well">
+                                <h2></h2>
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#seo_1">English</a></li>
+                                    <li><a href="#seo_2">Japan</a></li>
+                                    <li><a href="#seo_3">Korea</a></li>
+                                </ul>
+                            </div>
+                            <div class="box-content">
+                                <div class="tab-content">
+                                    @foreach (var itemlocal in Model.Locales)
+                                    {
+                                        var active = @itemlocal.LanguageId == 1 ? "active" : "";
+                                        <div class="tab-pane @active" id="seo_@itemlocal.LanguageId">
+                                            <div class="control-group">
+                                                @Html.LabelFor(model => itemlocal.MetaTitle, new { @class = "control-label" })
+                                                <div class="controls">
+                                                    @Html.EditorFor(model => itemlocal.MetaTitle, new { @class = "span4 typeahead" })
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                @Html.LabelFor(model => itemlocal.MetaDescription, new { @class = "control-label" })
+                                                <div class="controls">
+                                                    @Html.EditorFor(model => itemlocal.MetaDescription, new { @class = "span4 typeahead" })
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                @Html.LabelFor(model => itemlocal.MetaKeywords, new { @class = "control-label" })
+                                                <div class="controls">
+                                                    @Html.EditorFor(model => itemlocal.MetaKeywords, new { @class = "span4 typeahead" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
                             </div>
                         </div>
 
-                        <div class="control-group">
-                            @Html.LabelFor(model => model.MetaDescription, new { @class = "control-label" })
-                            <div class="controls">
-                                @Html.EditorFor(model => model.MetaDescription, new { @class = "span4 typeahead" })
-                                @Html.ValidationMessageFor(model => model.MetaDescription)
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            @Html.LabelFor(model => model.MetaTitle, new { @class = "control-label" })
-                            <div class="controls">
-                                @Html.EditorFor(model => model.MetaTitle, new { @class = "span4 typeahead" })
-                                @Html.ValidationMessageFor(model => model.MetaTitle)
-                            </div>
-                        </div>
                     </div>
                     <div class="tab-pane" id="news">
                         <h3>Custom <small>small text</small></h3>

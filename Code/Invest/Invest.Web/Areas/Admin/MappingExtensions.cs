@@ -13,7 +13,7 @@ namespace Invest.Web.Areas.Admin
 
         public static CategoryModel ToModel(this Category entity)
         {
-            return Mapper.Map<Category, CategoryModel>(entity);
+            return Mapper.DynamicMap<Category, CategoryModel>(entity);
         }
     }
 }
