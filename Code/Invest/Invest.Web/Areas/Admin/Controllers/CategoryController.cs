@@ -29,6 +29,8 @@ namespace Invest.Web.Areas.Admin.Controllers
         {
             var catService = new CategoryServices();
             var cat = catService.GetCategoryByID(id);
+            var name = cat.GetLocalized(x => x.Name, 1, false, false);
+            var pub = cat.GetLocalized(x => x.Published, 1, false, false);
             if (cat == null)
                 return HttpNotFound();
             return View(cat);

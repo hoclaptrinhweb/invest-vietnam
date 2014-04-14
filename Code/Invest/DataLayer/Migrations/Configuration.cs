@@ -31,19 +31,20 @@
                     new Category { Name = "About Us", DisplayOrder = 6, ParentCategoryId = 0 },
                     new Category { Name = "Investment Consulting", DisplayOrder = 7, ParentCategoryId = 0 },
 
-                    new Category { Name = "8 Reasons to Choose Korea", DisplayOrder = 1, ParentCategoryId = 1 },
+                    new Category { Name = "8 Reasons to Choose VietNam", DisplayOrder = 1, ParentCategoryId = 1 },
                     new Category { Name = "Success Stories", DisplayOrder = 2, ParentCategoryId = 1 },
                     new Category { Name = "Facts & Stats", DisplayOrder = 3, ParentCategoryId = 1 },
 
                     new Category { Name = "Parts and Materials", DisplayOrder = 1, ParentCategoryId = 2 },
                     new Category { Name = "Auto Parts", DisplayOrder = 1, ParentCategoryId = 2 },
                     new Category { Name = "Displays", DisplayOrder = 2, ParentCategoryId = 2 }
-                    
+
                     );
                 invest.Language.AddOrUpdate(
                     p => p.Name,
                     new Language { Name = "English", LanguageCulture = "en-US", UniqueSeoCode = "en" },
-                    new Language { Name = "Việt Nam", LanguageCulture = "vi-VN", UniqueSeoCode = "vn" }
+                    new Language { Name = "Japan", LanguageCulture = "ja-JP", UniqueSeoCode = "ja" },
+                    new Language { Name = "Korea", LanguageCulture = "ko-KR", UniqueSeoCode = "ko" }
                     );
                 invest.LocaleStringResource.AddOrUpdate(
                     p => new { p.LanguageId, p.ResourceName },

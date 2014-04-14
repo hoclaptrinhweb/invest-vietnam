@@ -50,6 +50,8 @@
     <Compile Include="CategoryServices.cs" />
     <Compile Include="LanguageServices.cs" />
     <Compile Include="LocaleStringResourceServices.cs" />
+    <Compile Include="LocalizationExtentions.cs" />
+    <Compile Include="LocalizedEntityService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

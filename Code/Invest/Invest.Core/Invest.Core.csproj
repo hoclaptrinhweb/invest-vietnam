@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseEntity.cs" />
+    <Compile Include="CommonHelper.cs" />
     <Compile Include="Domain\Category.cs" />
     <Compile Include="Domain\Language.cs" />
     <Compile Include="Domain\LocaleStringResource.cs" />

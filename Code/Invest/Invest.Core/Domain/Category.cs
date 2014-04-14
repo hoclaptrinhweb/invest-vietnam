@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Invest.Core
 {
-    public class Category
+    public class Category : BaseEntity
     {
         public Category()
         {
@@ -21,7 +21,6 @@ namespace Invest.Core
             CreatedDate = DateTime.Now;
             UpdatedDate = DateTime.Now;
         }
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string MetaKeywords { get; set; }
