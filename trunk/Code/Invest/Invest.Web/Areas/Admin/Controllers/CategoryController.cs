@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Invest.Core;
 using Invest.Services;
 using Invest.Web.Areas.Admin.Models.Catalog;
+using Invest.Web.Framework.MVC;
 
 namespace Invest.Web.Areas.Admin.Controllers
 {
@@ -29,9 +30,21 @@ namespace Invest.Web.Areas.Admin.Controllers
         public ActionResult Edit(int id = 0)
         {
             var catService = new CategoryServices();
+
             var category = catService.GetCategoryByID(id);
+            if (id == 0)
+                category = new Category();
             var _languageService = new LanguageServices();
             var model = category.ToModel();
+            model.ParentCategories = new List<DropDownItem> { new DropDownItem { Text = "[None]", Value = "0" } };
+            if (model.ParentCategoryId > 0)
+            {
+                var parentCategory = catService.GetCategoryByID(model.ParentCategoryId);
+                if (parentCategory != null && !parentCategory.Deleted)
+                    model.ParentCategories.Add(new DropDownItem { Text = parentCategory.GetFormattedBreadCrumb(catService), Value = parentCategory.Id.ToString() });
+                else
+                    model.ParentCategoryId = 0;
+            }
             AddLocales(_languageService, model.Locales, (locale, languageId) =>
             {
                 locale.Name = category.GetLocalized(x => x.Name, languageId, false, false);
@@ -41,6 +54,7 @@ namespace Invest.Web.Areas.Admin.Controllers
                 locale.MetaTitle = category.GetLocalized(x => x.MetaTitle, languageId, false, false);
                 locale.Published = category.GetLocalized(x => x.Published, languageId, false, false);
             });
+            PrepareTemplatesModel(model);
             if (model == null)
                 return HttpNotFound();
             return View(model);
@@ -121,6 +135,23 @@ namespace Invest.Web.Areas.Admin.Controllers
                                                            localized.LanguageId);
 
             }
+        }
+
+        protected void PrepareTemplatesModel(CategoryModel model)
+        {
+            if (model == null)
+                throw new ArgumentNullException("model");
+            var catService = new CategoryServices();
+
+            var result = catService.GetAll();
+            var data = result.Select(c => new SelectListItem()
+                {
+                    Text = c.GetFormattedBreadCrumb(catService),
+                    Value = c.Id.ToString()
+                }
+            ).ToList();
+
+            model.AvailableCategoryTemplates = data;
         }
     }
 }

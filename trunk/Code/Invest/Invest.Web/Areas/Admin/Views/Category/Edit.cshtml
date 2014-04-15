@@ -93,7 +93,7 @@
                             <div class="control-group">
                                 @Html.LabelFor(model => model.ParentCategoryId, new { @class = "control-label" })
                                 <div class="controls">
-                                    @Html.EditorFor(model => model.ParentCategoryId, new { @class = "span4 typeahead" })
+                                    @Html.DropDownListFor(model => model.ParentCategoryId, new SelectList(Model.AvailableCategoryTemplates, "Value", "Text"), new { @data_rel = "chosen" })
                                     @Html.ValidationMessageFor(model => model.ParentCategoryId)
                                 </div>
                             </div>
@@ -103,30 +103,6 @@
                                 <div class="controls">
                                     @Html.EditorFor(model => model.PictureId, new { @class = "span4 typeahead" })
                                     @Html.ValidationMessageFor(model => model.PictureId)
-                                </div>
-                            </div>
-
-                            <div class="control-group">
-                                @Html.LabelFor(model => model.PageSize, new { @class = "control-label" })
-                                <div class="controls">
-                                    @Html.EditorFor(model => model.PageSize, new { @class = "span4 typeahead" })
-                                    @Html.ValidationMessageFor(model => model.PageSize)
-                                </div>
-                            </div>
-
-                            <div class="control-group">
-                                @Html.LabelFor(model => model.AllowCustomersToSelectPageSize, new { @class = "control-label" })
-                                <div class="controls">
-                                    @Html.EditorFor(model => model.AllowCustomersToSelectPageSize, new { @class = "span4 typeahead" })
-                                    @Html.ValidationMessageFor(model => model.AllowCustomersToSelectPageSize)
-                                </div>
-                            </div>
-
-                            <div class="control-group">
-                                @Html.LabelFor(model => model.PageSizeOptions, new { @class = "control-label" })
-                                <div class="controls">
-                                    @Html.EditorFor(model => model.PageSizeOptions, new { @class = "span4 typeahead" })
-                                    @Html.ValidationMessageFor(model => model.PageSizeOptions)
                                 </div>
                             </div>
 
@@ -143,14 +119,6 @@
                                 <div class="controls">
                                     @Html.EditorFor(model => model.IncludeInTopMenu, new { @class = "span4 typeahead" })
                                     @Html.ValidationMessageFor(model => model.IncludeInTopMenu)
-                                </div>
-                            </div>
-
-                            <div class="control-group">
-                                @Html.LabelFor(model => model.Deleted, new { @class = "control-label" })
-                                <div class="controls">
-                                    @Html.EditorFor(model => model.Deleted, new { @class = "span4 typeahead" })
-                                    @Html.ValidationMessageFor(model => model.Deleted)
                                 </div>
                             </div>
 
@@ -279,10 +247,17 @@
     #content .nav-tabs > li > a {
         line-height: 15px !important;
     }
+
+    .chzn-container .chzn-results .active-result {
+        color: black;
+        text-shadow: none;
+    }
 </style>
 
 @section ScriptCustom {
     <script src="~/Content/js/bootstrap-tab.js"></script>
+    <!-- select or dropdown enhancer -->
+    <script src="~/Content/js/jquery.chosen.min.js"></script>
     <script>
         $(document).ready(function () {
             $('.nav-tabs a:first').tab('show');
@@ -290,7 +265,8 @@
                 e.preventDefault();
                 $(this).tab('show');
             });
-
+            //chosen - improves select
+            $('[data-rel="chosen"],[rel="chosen"]').chosen();
         });
     </script>
 }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Invest.Core;
 using Invest.Web.Framework;
+using Invest.Web.Framework.MVC;
 
 namespace Invest.Web.Areas.Admin.Models.Catalog
 {
@@ -34,6 +35,8 @@ namespace Invest.Web.Areas.Admin.Models.Catalog
         public DateTime UpdatedDate { get; set; }
 
         public IList<CategoryLocalizedModel> Locales { get; set; }
+        public IList<DropDownItem> ParentCategories { get; set; }
+        public IList<SelectListItem> AvailableCategoryTemplates { get; set; }
 
     }
 
