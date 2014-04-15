@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="HtmlExtensions.cs" />
     <Compile Include="ILocalizedModelLocal.cs" />
+    <Compile Include="MVC\DropDownItem.cs" />
     <Compile Include="MVC\IModelAttribute.cs" />
     <Compile Include="MVC\NopMetadataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
