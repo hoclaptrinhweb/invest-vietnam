@@ -39,6 +39,11 @@ namespace Invest.Web.Areas.Admin.Models.Catalog
 
     public partial class CategoryLocalizedModel : ILocalizedModelLocal
     {
+    
+        public CategoryLocalizedModel()
+        {
+            Published = true;
+        }
         public int LanguageId { get; set; }
 
         public string Name { get; set; }
@@ -50,5 +55,7 @@ namespace Invest.Web.Areas.Admin.Models.Catalog
         public string MetaDescription { get; set; }
 
         public string MetaTitle { get; set; }
+        public bool Published { get; set; }
+
     }
 }

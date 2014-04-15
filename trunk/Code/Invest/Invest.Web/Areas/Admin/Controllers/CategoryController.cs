@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Invest.Core;
 using Invest.Services;
+using Invest.Web.Areas.Admin.Models.Catalog;
 
 namespace Invest.Web.Areas.Admin.Controllers
 {
@@ -38,6 +39,7 @@ namespace Invest.Web.Areas.Admin.Controllers
                 locale.MetaKeywords = category.GetLocalized(x => x.MetaKeywords, languageId, false, false);
                 locale.MetaDescription = category.GetLocalized(x => x.MetaDescription, languageId, false, false);
                 locale.MetaTitle = category.GetLocalized(x => x.MetaTitle, languageId, false, false);
+                locale.Published = category.GetLocalized(x => x.Published, languageId, false, false);
             });
             if (model == null)
                 return HttpNotFound();
@@ -45,14 +47,17 @@ namespace Invest.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Category Category)
+        public ActionResult Edit(CategoryModel model)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
+                    var Category = model.ToEntity();
                     var catService = new CategoryServices();
+                    Category.UpdatedDate = DateTime.Now;
                     catService.Add(Category);
+                    UpdateLocales(Category, model);
                     return base.jsonResult();
                 }
                 throw new Exception("lỗi");
@@ -77,6 +82,44 @@ namespace Invest.Web.Areas.Admin.Controllers
             catch (Exception ex)
             {
                 return jsonResult(false, ex.Message);
+            }
+        }
+
+        protected void UpdateLocales(Category category, CategoryModel model)
+        {
+            var _localizedEntityService = new LocalizedEntityService();
+
+            foreach (var localized in model.Locales)
+            {
+                _localizedEntityService.SaveLocalizedValue(category,
+                                                               x => x.Name,
+                                                               localized.Name,
+                                                               localized.LanguageId);
+
+                _localizedEntityService.SaveLocalizedValue(category,
+                                                           x => x.Description,
+                                                           localized.Description,
+                                                           localized.LanguageId);
+                _localizedEntityService.SaveLocalizedValue(category,
+                                                          x => x.Published,
+                                                          localized.Published,
+                                                          localized.LanguageId);
+
+                _localizedEntityService.SaveLocalizedValue(category,
+                                                           x => x.MetaKeywords,
+                                                           localized.MetaKeywords,
+                                                           localized.LanguageId);
+
+                _localizedEntityService.SaveLocalizedValue(category,
+                                                           x => x.MetaDescription,
+                                                           localized.MetaDescription,
+                                                           localized.LanguageId);
+
+                _localizedEntityService.SaveLocalizedValue(category,
+                                                           x => x.MetaTitle,
+                                                           localized.MetaTitle,
+                                                           localized.LanguageId);
+
             }
         }
     }

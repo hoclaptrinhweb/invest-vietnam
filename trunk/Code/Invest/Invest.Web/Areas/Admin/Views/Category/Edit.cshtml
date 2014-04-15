@@ -30,27 +30,58 @@
                                 <div class="box-header well">
                                     <h2></h2>
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#1">English</a></li>
+                                        <li class="active"><a href="#0">Standard</a></li>
+                                        <li><a href="#1">English</a></li>
                                         <li><a href="#2">Japan</a></li>
                                         <li><a href="#3">Korea</a></li>
                                     </ul>
                                 </div>
                                 <div class="box-content">
                                     <div class="tab-content">
-                                        @foreach (var itemlocal in Model.Locales)
+                                        <div class="tab-pane active" id="0">
+                                            <div class="control-group">
+                                                @Html.LabelFor(model => model.Name, new { @class = "control-label" })
+                                                <div class="controls">
+                                                    @Html.EditorFor(model => model.Name, new { @class = "span4 typeahead" })
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                @Html.LabelFor(model => model.Description, new { @class = "control-label" })
+                                                <div class="controls">
+                                                    @Html.EditorFor(model => model.Description, new { @class = "span4 typeahead" })
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                @Html.LabelFor(model => model.Published, new { @class = "control-label" })
+                                                <div class="controls">
+                                                    @Html.EditorFor(model => model.Published, new { @class = "span4 typeahead" })
+                                                    @Html.ValidationMessageFor(model => model.Published)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @for (var i = 0; i < Model.Locales.Count(); i++)
                                         {
-                                            var active = @itemlocal.LanguageId == 1 ? "active" : "";
-                                            <div class="tab-pane @active" id="@itemlocal.LanguageId">
+                                            <div class="tab-pane" id="@Model.Locales[i].LanguageId">
+                                                @Html.HiddenFor(model => model.Locales[i].LanguageId)
+
+
                                                 <div class="control-group">
-                                                    @Html.LabelFor(model => itemlocal.Name, new { @class = "control-label" })
+                                                    @Html.LabelFor(model => model.Locales[i].Name, new { @class = "control-label" })
                                                     <div class="controls">
-                                                        @Html.EditorFor(model => itemlocal.Name, new { @class = "span4 typeahead" })
+                                                        @Html.EditorFor(model => model.Locales[i].Name, new { @class = "span4 typeahead" })
                                                     </div>
                                                 </div>
                                                 <div class="control-group">
-                                                    @Html.LabelFor(model => itemlocal.Description, new { @class = "control-label" })
+                                                    @Html.LabelFor(model => model.Locales[i].Description, new { @class = "control-label" })
                                                     <div class="controls">
-                                                        @Html.EditorFor(model => itemlocal.Description, new { @class = "span4 typeahead" })
+                                                        @Html.EditorFor(model => model.Locales[i].Description, new { @class = "span4 typeahead" })
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    @Html.LabelFor(model => model.Locales[i].Published, new { @class = "control-label" })
+                                                    <div class="controls">
+                                                        @Html.EditorFor(model => model.Locales[i].Published, new { @class = "span4 typeahead" })
+                                                        @Html.ValidationMessageFor(model => model.Locales[i].Published)
                                                     </div>
                                                 </div>
                                             </div>
@@ -158,33 +189,54 @@
                             <div class="box-header well">
                                 <h2></h2>
                                 <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#seo_1">English</a></li>
+                                    <li class="active"><a href="#seo_0" class="active">Standard</a></li>
+                                    <li><a href="#seo_1">English</a></li>
                                     <li><a href="#seo_2">Japan</a></li>
                                     <li><a href="#seo_3">Korea</a></li>
                                 </ul>
                             </div>
                             <div class="box-content">
                                 <div class="tab-content">
-                                    @foreach (var itemlocal in Model.Locales)
+                                    <div class="tab-pane active" id="seo_0">
+                                        <div class="control-group">
+                                            @Html.LabelFor(model => model.MetaTitle, new { @class = "control-label" })
+                                            <div class="controls">
+                                                @Html.EditorFor(model => model.MetaTitle, new { @class = "span4 typeahead" })
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            @Html.LabelFor(model => model.MetaDescription, new { @class = "control-label" })
+                                            <div class="controls">
+                                                @Html.EditorFor(model => model.MetaDescription, new { @class = "span4 typeahead" })
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            @Html.LabelFor(model => model.MetaKeywords, new { @class = "control-label" })
+                                            <div class="controls">
+                                                @Html.EditorFor(model => model.MetaKeywords, new { @class = "span4 typeahead" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @for (var i = 0; i < Model.Locales.Count(); i++)
                                     {
-                                        var active = @itemlocal.LanguageId == 1 ? "active" : "";
-                                        <div class="tab-pane @active" id="seo_@itemlocal.LanguageId">
+
+                                        <div class="tab-pane" id="seo_@Model.Locales[i].LanguageId">
                                             <div class="control-group">
-                                                @Html.LabelFor(model => itemlocal.MetaTitle, new { @class = "control-label" })
+                                                @Html.LabelFor(model => model.Locales[i].MetaTitle, new { @class = "control-label" })
                                                 <div class="controls">
-                                                    @Html.EditorFor(model => itemlocal.MetaTitle, new { @class = "span4 typeahead" })
+                                                    @Html.EditorFor(model => model.Locales[i].MetaTitle, new { @class = "span4 typeahead" })
                                                 </div>
                                             </div>
                                             <div class="control-group">
-                                                @Html.LabelFor(model => itemlocal.MetaDescription, new { @class = "control-label" })
+                                                @Html.LabelFor(model => model.Locales[i].MetaDescription, new { @class = "control-label" })
                                                 <div class="controls">
-                                                    @Html.EditorFor(model => itemlocal.MetaDescription, new { @class = "span4 typeahead" })
+                                                    @Html.EditorFor(model => model.Locales[i].MetaDescription, new { @class = "span4 typeahead" })
                                                 </div>
                                             </div>
                                             <div class="control-group">
-                                                @Html.LabelFor(model => itemlocal.MetaKeywords, new { @class = "control-label" })
+                                                @Html.LabelFor(model => model.Locales[i].MetaKeywords, new { @class = "control-label" })
                                                 <div class="controls">
-                                                    @Html.EditorFor(model => itemlocal.MetaKeywords, new { @class = "span4 typeahead" })
+                                                    @Html.EditorFor(model => model.Locales[i].MetaKeywords, new { @class = "span4 typeahead" })
                                                 </div>
                                             </div>
                                         </div>
