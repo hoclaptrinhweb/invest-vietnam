@@ -9,7 +9,10 @@ namespace DataLayer
 {
     public class InvestContext : DbContext
     {
-        public InvestContext() : base("Invest") { }
+        public InvestContext() : base("Invest")
+        {
+            Configuration.ProxyCreationEnabled = false;
+        }
         public DbSet<Category> Category { get; set; }
         public DbSet<Language> Language { get; set; }
         public DbSet<LocalizedProperty> LocalizedProperty { get; set; }

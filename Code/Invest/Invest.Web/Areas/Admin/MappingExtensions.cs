@@ -15,5 +15,10 @@ namespace Invest.Web.Areas.Admin
         {
             return Mapper.DynamicMap<Category, CategoryModel>(entity);
         }
+
+        public static Category ToEntity(this CategoryModel model)
+        {
+            return Mapper.DynamicMap<CategoryModel, Category>(model);
+        }
     }
 }
