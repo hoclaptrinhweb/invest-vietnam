@@ -7,6 +7,7 @@ using Invest.Core;
 using Invest.Services;
 using Invest.Web.Areas.Admin.Models.Catalog;
 using Invest.Web.Framework.MVC;
+using PagedList;
 
 namespace Invest.Web.Areas.Admin.Controllers
 {
@@ -14,8 +15,19 @@ namespace Invest.Web.Areas.Admin.Controllers
     {
         //
         // GET: /Admin/Category/
-        public ActionResult Index()
+        public ActionResult Index(string currentFilter, string qr, int? key, int? page)
         {
+            int temSize = 0;
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            if (qr != null)
+                qr = qr.ToLower();
+            else
+                qr = currentFilter == null ? "" : currentFilter.ToLower();
+            ViewBag.CurrentFilter = qr;
+            ViewBag.SearchKey = key;
+            ViewBag.CurrentQ = qr;
+
             var CategoryServices = new CategoryServices();
             var result = CategoryServices.GetAll();
             var data = result.Select(c =>
@@ -23,8 +35,8 @@ namespace Invest.Web.Areas.Admin.Controllers
                  var categoryModel = c;
                  categoryModel.Name = c.GetFormattedBreadCrumb(CategoryServices);
                  return categoryModel;
-             });
-            return View(data);
+             }).ToList();
+            return View(data.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult Edit(int id = 0)
@@ -150,7 +162,7 @@ namespace Invest.Web.Areas.Admin.Controllers
                     Value = c.Id.ToString()
                 }
             ).ToList();
-
+            data.Insert(0, new SelectListItem() { Text = "None", Value = "0" });
             model.AvailableCategoryTemplates = data;
         }
     }
