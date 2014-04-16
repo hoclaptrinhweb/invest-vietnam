@@ -22,8 +22,6 @@ namespace Invest.Web.Areas.Admin.Controllers
         {
             var langService = new LanguageServices();
             var lang = langService.GetLanguageByID(id);
-            if (lang == null)
-                return HttpNotFound();
             return View(lang);
         }
 
