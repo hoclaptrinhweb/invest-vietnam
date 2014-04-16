@@ -28,8 +28,10 @@ namespace Invest.Web.Areas.Admin.Models.Catalog
         public string PageSizeOptions { get; set; }
         public bool ShowOnHomePage { get; set; }
         public bool IncludeInTopMenu { get; set; }
+        [ResourceDisplayName("Published")]
         public bool Published { get; set; }
         public bool Deleted { get; set; }
+        [ResourceDisplayName("DisplayOrder")]
         public int DisplayOrder { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }

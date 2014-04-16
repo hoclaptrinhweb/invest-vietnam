@@ -32,7 +32,7 @@ namespace Invest.Web.Areas.Admin.Controllers
             var result = CategoryServices.GetAll();
             var data = result.Select(c =>
              {
-                 var categoryModel = c;
+                 var categoryModel = c.ToModel();
                  categoryModel.Name = c.GetFormattedBreadCrumb(CategoryServices);
                  return categoryModel;
              }).ToList();
