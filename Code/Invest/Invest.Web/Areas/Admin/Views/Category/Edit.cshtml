@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Edit";
 }
-@Html.Partial("Breadcrumb", new Dictionary<string, string> { { "Category", "/Admin/Category" }, { "Edit", "#" } })
+@Html.Partial("Breadcrumb", new Dictionary<string, string> { { @Resource("Category"), "/Admin/Category" }, { @Resource("Edit"), "#" } })
 
 <div class="row-fluid">
     <div class="box span12">
@@ -147,8 +147,8 @@
                             </div>
 
                             <div class="form-actions">
-                                <button id="btnSave" type="submit" class="btn btn-primary">Save</button>
-                                <a class="btn btn-cancel" href="@Url.Action("", "Category", new { area = "Admin" },null)">Exit</a>
+                                <button id="btnSave" type="submit" class="btn btn-primary">@Resource("Save")</button>
+                                <a class="btn btn-cancel" href="@Url.Action("", "Category", new { area = "Admin" },null)">@Resource("Exit")</a>
                             </div>
                         </fieldset>
                     </div>

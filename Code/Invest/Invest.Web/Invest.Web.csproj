@@ -175,6 +175,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CommonController.cs" />
     <Compile Include="Areas\Admin\Controllers\IndexController.cs" />
     <Compile Include="Areas\Admin\Controllers\LanguageController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
@@ -487,6 +488,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Common\" />
     <Folder Include="Theme\" />
   </ItemGroup>
   <ItemGroup>
