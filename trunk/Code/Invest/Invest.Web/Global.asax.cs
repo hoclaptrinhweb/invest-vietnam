@@ -53,6 +53,16 @@ namespace Invest.Web
                 Thread.CurrentThread.CurrentUICulture = cultureInfo;
                 Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(cultureInfo.Name);
             }
+            else
+            {
+                if (languageCookie != null)
+                {
+                    var cultureInfo = new CultureInfo(languageCookie.Value);
+                    Thread.CurrentThread.CurrentUICulture = cultureInfo;
+                    Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(cultureInfo.Name);
+                }
+
+            }
         }
 
         public void CreateDatabase()

@@ -15,7 +15,7 @@ namespace Invest.Web.Controllers
 
         public ActionResult ChangeCulture(string lang)
         {
-            var langCookie = new HttpCookie("lang", lang) { HttpOnly = true };
+            var langCookie = new HttpCookie("lang", lang);//{ HttpOnly = true };
             Response.AppendCookie(langCookie);
             return RedirectToAction("Index", "Home", new { culture = lang.Substring(0,2) });
         }

@@ -3,6 +3,7 @@
 using System;
 using System.Globalization;
 using System.IO;
+using System.Threading;
 using System.Web.Mvc;
 using System.Web.WebPages;
 using Invest.Core;
@@ -29,7 +30,7 @@ namespace Invest.Web.Framework.ViewEngines.Razor
             //Chỉnh lại ngôn ngữ
             _localeResourceServices = new LocaleStringResourceServices();
             _languageServices = new LanguageServices();
-            _language = _languageServices.GetLanguage(CultureInfo.CurrentCulture.Name);
+            _language = _languageServices.GetLanguage(Thread.CurrentThread.CurrentUICulture.Name);
             if (_language == null)
             {
                 _language = new Language();

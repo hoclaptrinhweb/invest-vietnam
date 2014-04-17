@@ -1,7 +1,7 @@
 ﻿@model Invest.Core.Language
 
 
-@Html.Partial("Breadcrumb", new Dictionary<string, string> { { "Language", "/Admin/Language" }, { "Edit", "#" } })
+@Html.Partial("Breadcrumb", new Dictionary<string, string> { { @Resource("Language"), "/Admin/Language" }, { @Resource("Edit"), "#" } })
 
 <div class="row-fluid">
     <div class="box span12">
@@ -75,8 +75,8 @@
                     </div>
 
                     <div class="form-actions">
-                        <button id="btnSave" type="submit" class="btn btn-primary">Save</button>
-                        <a class="btn btn-cancel" href="@Url.Action("", "Language", new { area = "Admin" },null)">Thoát</a>
+                        <button id="btnSave" type="submit" class="btn btn-primary">@Resource("Save")</button>
+                        <a class="btn btn-cancel" href="@Url.Action("", "Language", new { area = "Admin" },null)">@Resource("Exit")</a>
                     </div>
 
                 </fieldset>
