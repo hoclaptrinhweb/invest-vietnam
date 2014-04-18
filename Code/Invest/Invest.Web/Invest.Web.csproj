@@ -231,6 +231,7 @@
     <Content Include="Content\css\opa-icons.css" />
     <Content Include="Content\css\uniform.default.css" />
     <Content Include="Content\css\uploadify.css" />
+    <Content Include="Content\Default.css" />
     <Content Include="Content\img\ajax-loaders\ajax-loader-1.gif" />
     <Content Include="Content\img\ajax-loaders\ajax-loader-2.gif" />
     <Content Include="Content\img\ajax-loaders\ajax-loader-3.gif" />
@@ -329,7 +330,9 @@
     <Content Include="Content\img\glyphicons-halflings.png" />
     <Content Include="Content\img\icon-email.png" />
     <Content Include="Content\img\icon-fax.png" />
+    <Content Include="Content\img\icon-lock.png" />
     <Content Include="Content\img\icon-phone.png" />
+    <Content Include="Content\img\icon-plus.png" />
     <Content Include="Content\img\icon-tag.png" />
     <Content Include="Content\img\icons-big.png" />
     <Content Include="Content\img\icons-small.png" />
