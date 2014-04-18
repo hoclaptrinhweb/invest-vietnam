@@ -1,0 +1,57 @@
+﻿.pull_right {
+    float: right !important;
+}
+
+.pull_left {
+    float: left !important;
+}
+
+.padding_none {
+    padding: 0px;
+}
+
+body {
+    padding: 0px;
+}
+
+.header-top {
+    background-color: #464646;
+    padding: 5px;
+}
+
+    .list-inline .ico-register {
+        background: url(/Content/img/icon-plus.png) no-repeat left -16px;
+    }
+
+        .list-inline .ico-register:hover {
+            background-position: left 9px;
+        }
+
+    .list-inline .ico-login {
+        background: url(/Content/img/icon-lock.png) no-repeat left -16px;
+    }
+
+        .list-inline .ico-login:hover {
+            background-position: left 9px;
+        }
+
+    .list-inline a {
+        width: auto;
+        height: auto;
+        color: #c9c9c9;
+        padding: 9px 6px 9px 24px;
+        font-size: 12px;
+        text-indent: 0;
+        margin: 0 12px 0 0;
+    }
+
+.btn-white {
+    color: #c9c9c9;
+    background-color: #595959;
+    border-color: #595959;
+}
+
+#banner .col-xs-4
+{
+    padding:0px;
+}
