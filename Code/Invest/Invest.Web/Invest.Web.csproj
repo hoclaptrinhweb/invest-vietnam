@@ -182,6 +182,7 @@
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\MappingExtensions.cs" />
     <Compile Include="Areas\Admin\Models\Catalog\CategoryModel.cs" />
+    <Compile Include="Areas\Admin\Models\Catalog\LanguageResourceModel.cs" />
     <Compile Include="Areas\Admin\Models\TestLanguage.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -326,6 +327,10 @@
     <Content Include="Content\img\gallery\thumbs\9.jpg" />
     <Content Include="Content\img\glyphicons-halflings-white.png" />
     <Content Include="Content\img\glyphicons-halflings.png" />
+    <Content Include="Content\img\icon-email.png" />
+    <Content Include="Content\img\icon-fax.png" />
+    <Content Include="Content\img\icon-phone.png" />
+    <Content Include="Content\img\icon-tag.png" />
     <Content Include="Content\img\icons-big.png" />
     <Content Include="Content\img\icons-small.png" />
     <Content Include="Content\img\iphone-style-checkboxes\off.png" />
@@ -405,6 +410,7 @@
     <Content Include="Content\js\jquery-1.7.2.min.js" />
     <Content Include="Content\js\jquery-ui-1.8.21.custom.min.js" />
     <Content Include="Content\js\jquery.autogrow-textarea.js" />
+    <Content Include="Content\js\jquery.carouFredSel-6.2.1-packed.js" />
     <Content Include="Content\js\jquery.chosen.min.js" />
     <Content Include="Content\js\jquery.cleditor.min.js" />
     <Content Include="Content\js\jquery.colorbox.min.js" />
@@ -448,6 +454,8 @@
     <Content Include="Areas\Admin\Views\Shared\_PartialCategory.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\News\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Language\Resources.cshtml" />
+    <Content Include="Areas\Admin\Views\Language\_PartialResources.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

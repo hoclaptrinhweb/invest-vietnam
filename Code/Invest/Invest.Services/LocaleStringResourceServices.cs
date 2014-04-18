@@ -19,5 +19,13 @@ namespace Invest.Services
             else
                 return value;
         }
+
+        public IEnumerable<LocaleStringResource> GetAll( int languageid)
+        {
+
+            var invest = new InvestContext();
+            var result = invest.LocaleStringResource.Where(l => l.LanguageId == languageid).ToList();
+            return result;
+        }
     }
 }

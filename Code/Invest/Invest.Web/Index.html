@@ -101,8 +101,209 @@
             </div>
         </div>
     </div>
+    <style>
+        #intro {
+            width: 580px;
+            margin: 0 auto;
+        }
 
+        .wrapper {
+            background-color: white;
+            width: 480px;
+            margin: 40px auto;
+            padding: 50px;
+            box-shadow: 0 0 5px #999;
+        }
+
+        .list_carousel {
+            background-color: #ccc;
+            margin: 0 0 30px 60px;
+            width: 360px;
+        }
+
+            .list_carousel ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                display: block;
+            }
+
+            .list_carousel li {
+                font-size: 40px;
+                text-align: center;
+                background-color: #eee;
+                width: 50px;
+                height: 53px;
+                padding: 0;
+                margin: 6px;
+                display: block;
+                float: left;
+            }
+
+            .list_carousel.responsive {
+                width: auto;
+                margin-left: 0;
+            }
+
+        .clearfix {
+            float: none;
+            clear: both;
+        }
+
+        .prev {
+            float: left;
+            margin-left: 10px;
+        }
+
+        .next {
+            float: right;
+            margin-right: 10px;
+        }
+
+        .pager {
+            float: left;
+            width: 300px;
+            text-align: center;
+        }
+
+            .pager a {
+                margin: 0 5px;
+                text-decoration: none;
+            }
+
+                .pager a.selected {
+                    text-decoration: underline;
+                }
+
+        .timer {
+            background-color: #999;
+            height: 6px;
+            width: 0px;
+        }
+    </style>
+    <div class="list_carousel responsive">
+        <ul id="foo4">
+            <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/208/FullSizeImages/swire-pacific.png" /></li>
+            <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/229/FullSizeImages/vnt.png" /></li>
+            <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/258/FullSizeImages/katsura.png" /></li>
+            <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/222/FullSizeImages/lotte-sea.png" /></li>
+            <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/258/FullSizeImages/katsura.png" /></li>
+            <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/196/FullSizeImages/simone.png" /></li>
+            <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/207/FullSizeImages/puma.png" /></li>
+            <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/220/FullSizeImages/anc-logo.jpg" /></li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="col-xs-12">
+                        <h4>Company info</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="#">About us</a></li>
+                            <li class="list-group-item"><a href="#">Privacy Notice</a></li>
+                            <li class="list-group-item"><a href="#">Conditions of Use</a></li>
+                            <li class="list-group-item"><a href="#">Shipping & Returns</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="col-xs-12">
+                        <h4>Customer services</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="#">Contact us</a></li>
+                            <li class="list-group-item"><a href="#">Asked Questions</a></li>
+                            <li class="list-group-item"><a href="#">Sitemap</a></li>
+                            <li class="list-group-item"><a href="#">Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="col-xs-12">
+                        <h4>Our Offers</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="#">New products</a></li>
+                            <li class="list-group-item"><a href="#">Recently viewed products</a></li>
+                            <li class="list-group-item"><a href="#">Compare products list</a></li>
+                            <li class="list-group-item"><a href="#">Search</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="col-xs-12">
+                        <ul class="list-group">
+                            <li class="phone">+222 (Phone) 987654</li>
+                            <li class="mobile">+111 (Mobile) 012345</li>
+                            <li class="email">sales [at] store.com</li>
+                            <li class="skype">skype_allure</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            footer .list-group-item {
+                border: none !important;
+                padding: 5px !important;
+            }
+
+            footer ul {
+                list-style: none;
+            }
+
+            footer li {
+                font-size: 14px;
+                display: inline-block;
+                padding: 7px 7px 7px 32px;
+                margin: 0 0 10px;
+                text-align: left;
+            }
+
+            li.phone {
+                background: url(/content/img/icon-phone.png) no-repeat 5px center;
+            }
+
+            li.mobile {
+                background: url(/content/img/icon-fax.png) no-repeat left center;
+            }
+
+            li.email {
+                background: url(/Content/img/icon-email.png) no-repeat left center;
+            }
+
+            li.skype {
+                background: url(/Content/img/icon-tag.png) no-repeat 2px center;
+            }
+        </style>
+    </footer>
+    
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="Content/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+    <script src="Content/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#foo4').carouFredSel({
+                responsive: true,
+                width: '100%',
+                scroll: {
+                    items           : 1,
+                    duration        : 500,                         
+                    pauseOnHover    : true
+                } ,       
+                items: {
+                    width: 200,
+                    //	height: '30%',	//	optionally resize item-height
+                    visible: {
+                        min: 2,
+                        max: 6
+                    }
+                }
+            });
+        });
+    </script>
+   
+   
 </body>
 </html>
