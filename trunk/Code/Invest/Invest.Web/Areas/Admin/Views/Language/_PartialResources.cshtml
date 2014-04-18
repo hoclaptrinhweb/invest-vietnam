@@ -1,0 +1,63 @@
+﻿@model IEnumerable<LanguageResourceModel>
+
+<div class="span3 pull-left">
+    <div class="btn-group">
+        <a class="btn btn-small" href="@Url.Action("Create", "Resource", new { area = "Admin" }, null)"><i class="icon icon-color icon-add"></i>Create New</a>
+    </div>
+</div>
+<div class="span3 pull-right">
+    <div class="btn-group pull-right">
+        @Html.DropDownList("allLanguage", (IEnumerable<SelectListItem>)ViewBag.AllLanguages, new { @data_rel = "chosen", onchange = "onLocaleResourceLanguageSelected(this.value);" })
+    </div>
+</div>
+
+<div style="clear:both;margin-bottom:10px"></div>
+
+<table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
+    <tr>
+        <th class="center">@Html.CheckBox("Select", false, new { id = "suppCheckALL" })</th>
+        <th>
+            @Html.DisplayNameFor(model => model.LanguageName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Value)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="center">@Html.CheckBox("Select", false, new { id = "selectSupp_" + @item.Id })</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LanguageName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            <td class="center ">
+                <a class="btn btn-info" href="#">
+                    <i class="icon-edit icon-white"></i>
+                    Edit
+                </a>
+                <a class="btn btn-danger" href="#">
+                    <i class="icon-trash icon-white"></i>
+                    Delete
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script>
+    function onLocaleResourceLanguageSelected(t) {
+        window.location.href = "@Url.Action("Resources", "Language")" + "?languageid=" + t;
+    }
+</script>

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Invest.Core;
 using Invest.Services;
+using Invest.Web.Areas.Admin.Models.Catalog;
 
 namespace Invest.Web.Areas.Admin.Controllers
 {
@@ -59,6 +60,28 @@ namespace Invest.Web.Areas.Admin.Controllers
             {
                 return jsonResult(false, ex.Message);
             }
+        }
+
+        public ActionResult Resources(int languageId = 0)
+        {
+            var _languageService = new LanguageServices();
+            var language = _languageService.GetLanguageByID(languageId);
+            ViewBag.AllLanguages = _languageService.GetAll().Select(x => new SelectListItem
+                {
+                    Selected = (x.Id.Equals(languageId)),
+                    Text = x.Name,
+                    Value = x.Id.ToString()
+                }).ToList(); ;
+            var _localRe = new LocaleStringResourceServices();
+            var model = _localRe.GetAll(languageId).Select(x => new LanguageResourceModel()
+                    {
+                        LanguageId = languageId,
+                        LanguageName = language.Name,
+                        Id = x.Id,
+                        Name = x.ResourceName,
+                        Value = x.ResourceValue
+                    });
+            return View(model);
         }
     }
 }

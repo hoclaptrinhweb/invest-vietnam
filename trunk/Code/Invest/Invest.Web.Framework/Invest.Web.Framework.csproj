@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EngineContext.cs" />
     <Compile Include="HtmlExtensions.cs" />
     <Compile Include="ILocalizedModelLocal.cs" />
     <Compile Include="MVC\DropDownItem.cs" />
