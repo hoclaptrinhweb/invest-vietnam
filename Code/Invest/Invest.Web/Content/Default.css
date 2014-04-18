@@ -55,3 +55,8 @@ body {
 {
     padding:0px;
 }
+
+#container .col-sm-6
+{
+    padding:5px;
+}
