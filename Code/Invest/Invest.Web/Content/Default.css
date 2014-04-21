@@ -60,3 +60,7 @@ body {
 {
     padding:5px;
 }
+
+footer .col-sm-3{
+    border-right:1px dotted #ccc;
+}
