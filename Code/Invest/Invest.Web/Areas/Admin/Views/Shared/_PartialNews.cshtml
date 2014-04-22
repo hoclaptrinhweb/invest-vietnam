@@ -1,0 +1,67 @@
+﻿@model PagedList.IPagedList<NewsModel>
+@using PagedList.Mvc;
+<div class="span3 pull-left">
+    <div class="btn-group">
+        <a class="btn btn-small" href="@Url.Action("Create", "News", new { area = "Admin" }, null)"><i class="icon icon-color icon-add"></i>Create New</a>
+    </div>
+</div>
+<div class="span3 pull-right">
+    <div class="btn-group pull-right">
+        @Html.DropDownList("allLanguage", (IEnumerable<SelectListItem>)ViewBag.AllLanguages, new { @data_rel = "chosen", onchange = "onLocaleResourceLanguageSelected(this.value);" })
+    </div>
+</div>
+<div style="clear:both;margin-bottom:10px"></div>
+<table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().LanguageName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Published)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().CreatedDate)
+        </th>
+        <th class="center">@Resource("Action")</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LanguageName)
+            </td>
+            <td class="center">
+                @if (item.Published)
+                {
+                    <span class="label label-success">Active</span>
+                }
+                else
+                {
+                    <span class="label">Inactive</span>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td class="center">
+                <a class="btn btn-info" href="@Url.Action("Edit", "News", new { id = item.Id })"><i class="icon-edit icon-white"></i></a>
+                <a class="btn btn-danger" id="deleteSupp_@item.Id"><i class="icon-trash icon-white"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { qr = ViewBag.CurrentFilter, key = ViewBag.SearchKey, page }), new PagedListRenderOptions { LinkToFirstPageFormat = @Resource("First"), LinkToLastPageFormat = @Resource("End"), LinkToNextPageFormat = @Resource("Last"), LinkToPreviousPageFormat = @Resource("Next"), DisplayLinkToNextPage = PagedListDisplayMode.Always, DisplayLinkToPreviousPage = PagedListDisplayMode.Always, ContainerDivClasses = new string[] { "pagination", "pagination-centered" } })
+
+<script>
+    function onLocaleResourceLanguageSelected(t) {
+        window.location.href = "@Url.Action("Resources", "Language")" + "?languageid=" + t;
+    }
+</script>

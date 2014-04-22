@@ -1,0 +1,142 @@
+﻿@model Invest.Core.News
+
+@{
+    ViewBag.Title = "Edit";
+}
+@Html.Partial("Breadcrumb", new Dictionary<string, string> { { @Resource("News"), "/Admin/News" }, { @Resource("Edit"), "#" } })
+
+
+<div class="row-fluid">
+    <div class="box span12">
+        <div class="box-header well">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#edit">Edit</a></li>
+                <li><a href="#seo">SEO</a></li>
+                <li><a href="#news">List News</a></li>
+            </ul>
+        </div>
+        <div class="box-content">
+
+            @using (Html.BeginForm("Edit", "News", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <fieldset>
+
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.Id)
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.LanguageId, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.LanguageId, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.LanguageId)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.Title, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Title, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.Title)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.Short, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Short, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.Short)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.Full, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Full, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.Full)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.Published, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Published, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.Published)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.StartDate, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.StartDate, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.StartDate)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.EndDate, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EndDate, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.EndDate)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.AllowComments, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.AllowComments, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.AllowComments)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.CommentCount, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.CommentCount, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.CommentCount)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.MetaKeywords, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.MetaKeywords, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.MetaKeywords)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.MetaDescription, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.MetaDescription, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.MetaDescription)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.MetaTitle, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.MetaTitle, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.MetaTitle)
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.CreatedDate, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.CreatedDate, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.CreatedDate)
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button id="btnSave" type="submit" class="btn btn-primary">@Resource("Save")</button>
+                        <a class="btn btn-cancel" href="@Url.Action("", "News", new { area = "Admin" },null)">@Resource("Exit")</a>
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>
+@section ScriptCustom {}

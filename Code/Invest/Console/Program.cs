@@ -17,10 +17,10 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
-            var invest = new InvestContext();
-            var cat = invest.Category.FirstOrDefault();
-            var test = Mapper.DynamicMap<Category, CategoryModel>(cat);
-            //CreateDatabase();
+            //var invest = new InvestContext();
+            //var cat = invest.Category.FirstOrDefault();
+            //var test = Mapper.DynamicMap<Category, CategoryModel>(cat);
+            CreateDatabase();
         }
 
         static void TestAction()

@@ -52,6 +52,7 @@
     <Compile Include="LocaleStringResourceServices.cs" />
     <Compile Include="LocalizationExtentions.cs" />
     <Compile Include="LocalizedEntityService.cs" />
+    <Compile Include="News\NewsServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

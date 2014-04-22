@@ -46,6 +46,8 @@
     <Compile Include="Domain\Language.cs" />
     <Compile Include="Domain\LocaleStringResource.cs" />
     <Compile Include="Domain\LocalizedProperty.cs" />
+    <Compile Include="Domain\News\News.cs" />
+    <Compile Include="Domain\News\NewsComment.cs" />
     <Compile Include="Infrastructure\EngineContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
