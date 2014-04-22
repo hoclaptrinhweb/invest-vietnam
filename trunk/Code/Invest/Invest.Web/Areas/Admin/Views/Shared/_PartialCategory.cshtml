@@ -77,4 +77,5 @@
     }
 </table>
 
-@Html.PagedListPager(Model, page => Url.Action("Index", new { qr = ViewBag.CurrentFilter, key = ViewBag.SearchKey, page }), new PagedListRenderOptions { LinkToFirstPageFormat = "First", LinkToLastPageFormat = "End", LinkToNextPageFormat = "Last", LinkToPreviousPageFormat = "Next", DisplayLinkToNextPage = PagedListDisplayMode.Always, DisplayLinkToPreviousPage = PagedListDisplayMode.Always, ContainerDivClasses = new string[] { "pagination", "pagination-centered" } })
+@Html.PagedListPager(Model, page => Url.Action("Index", new { qr = ViewBag.CurrentFilter, key = ViewBag.SearchKey, page }), new PagedListRenderOptions { LinkToFirstPageFormat = @Resource("First"), LinkToLastPageFormat = @Resource("End"), LinkToNextPageFormat = @Resource("Last"), LinkToPreviousPageFormat = @Resource("Next"), DisplayLinkToNextPage = PagedListDisplayMode.Always, DisplayLinkToPreviousPage = PagedListDisplayMode.Always, ContainerDivClasses = new string[] { "pagination", "pagination-centered" } })
+

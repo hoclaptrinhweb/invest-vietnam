@@ -24,6 +24,7 @@
             <th class="center">@Html.CheckBox("Select", false, new { id = "suppCheckALL" })</th>
             <th>@Html.DisplayNameFor(model => model.Name)</th>
             <th>@Html.DisplayNameFor(model => model.UniqueSeoCode)</th>
+            <th>View string resources</th>
             <th class="center">
                 @Html.DisplayNameFor(model => model.FirstOrDefault().DisplayOrder)
             </th>
@@ -41,6 +42,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.UniqueSeoCode)
                 </td>
+                <td><a href="@Url.Action("Resources", "Language", new { LanguageId = item.Id })">View string resources</a></td>
                 <td class="center">
                     @Html.DisplayFor(modelItem => item.DisplayOrder)
                 </td>

@@ -15,6 +15,8 @@ namespace DataLayer
         }
         public DbSet<Category> Category { get; set; }
         public DbSet<Language> Language { get; set; }
+        public DbSet<News> News { get; set; }
+        public DbSet<NewsComment> NewsComment { get; set; }
         public DbSet<LocalizedProperty> LocalizedProperty { get; set; }
         public DbSet<LocaleStringResource> LocaleStringResource { get; set; }
     }
