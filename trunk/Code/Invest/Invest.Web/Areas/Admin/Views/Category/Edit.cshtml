@@ -5,6 +5,8 @@
 }
 @Html.Partial("Breadcrumb", new Dictionary<string, string> { { @Resource("Category"), "/Admin/Category" }, { @Resource("Edit"), "#" } })
 
+<script src="~/Content/editors/tinymce/tiny_mce.js"></script>
+
 <div class="row-fluid">
     <div class="box span12">
         <div class="box-header well">
@@ -48,7 +50,7 @@
                                             <div class="control-group">
                                                 @Html.LabelFor(model => model.Description, new { @class = "control-label" })
                                                 <div class="controls">
-                                                    @Html.EditorFor(model => model.Description, new { @class = "span4 typeahead" })
+                                                    @Html.EditorFor(model => model.Description,"RichEditor",new { @row = "20", @style = "width:100%" })
                                                 </div>
                                             </div>
                                             <div class="control-group">
@@ -74,7 +76,7 @@
                                                 <div class="control-group">
                                                     @Html.LabelFor(model => model.Locales[i].Description, new { @class = "control-label" })
                                                     <div class="controls">
-                                                        @Html.EditorFor(model => model.Locales[i].Description, new { @class = "span4 typeahead" })
+                                                        @Html.EditorFor(model => model.Locales[i].Description,  "RichEditor",new { @row = "20", @style = "width:100%" })
                                                     </div>
                                                 </div>
                                                 <div class="control-group">
@@ -175,7 +177,7 @@
                                         <div class="control-group">
                                             @Html.LabelFor(model => model.MetaDescription, new { @class = "control-label" })
                                             <div class="controls">
-                                                @Html.EditorFor(model => model.MetaDescription, new { @class = "span4 typeahead" })
+                                                @Html.TextAreaFor(model => model.MetaDescription, new { @class = "span4 typeahead" })
                                             </div>
                                         </div>
                                         <div class="control-group">
@@ -198,7 +200,7 @@
                                             <div class="control-group">
                                                 @Html.LabelFor(model => model.Locales[i].MetaDescription, new { @class = "control-label" })
                                                 <div class="controls">
-                                                    @Html.EditorFor(model => model.Locales[i].MetaDescription, new { @class = "span4 typeahead" })
+                                                    @Html.TextAreaFor(model => model.Locales[i].MetaDescription, new { @class = "span4 typeahead" })
                                                 </div>
                                             </div>
                                             <div class="control-group">
@@ -230,6 +232,7 @@
 
         $('.btn-primary').click(function (event) {
             showPopUpStatus("Đang cập nhật dữ liệu");
+            tinyMCE.triggerSave();
             event.preventDefault();
             $.post('@Url.Action("Edit", "Category")', $('form').serialize(), function (data) {
                 if (data.success) {

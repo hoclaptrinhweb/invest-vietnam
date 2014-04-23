@@ -28,9 +28,6 @@
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().Description)
-        </th>
         <th class="center">
             @Html.DisplayNameFor(model => model.FirstOrDefault().Published)
         </th>
@@ -48,13 +45,6 @@
             <td class="center">@Html.CheckBox("Select", false, new { id = "selectSupp_" + @item.Id })</td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @if (@item.Description != null && @item.Description.Length > 50)
-                {
-                    item.Description = item.Description.Substring(0, 50) + " ... ";
-                }
-                @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td class="center">
                 @if (item.Published)
