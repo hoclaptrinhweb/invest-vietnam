@@ -1,4 +1,10 @@
-﻿.pull_right {
+﻿.container
+{
+    padding-left:0px;
+    padding-right:0px;
+}
+
+.pull_right {
     float: right !important;
 }
 
@@ -18,32 +24,23 @@ body {
     background-color: #464646;
     padding: 5px;
 }
+.list-inline li :hover
+{
+    color:white;
+}
 
-    .list-inline .ico-register {
-        background: url(/Content/img/icon-plus.png) no-repeat left -16px;
-    }
+.list-inline span {
+    padding-right: 5px;
+}
 
-        .list-inline .ico-register:hover {
-            background-position: left 9px;
-        }
-
-    .list-inline .ico-login {
-        background: url(/Content/img/icon-lock.png) no-repeat left -16px;
-    }
-
-        .list-inline .ico-login:hover {
-            background-position: left 9px;
-        }
-
-    .list-inline a {
-        width: auto;
-        height: auto;
-        color: #c9c9c9;
-        padding: 9px 6px 9px 24px;
-        font-size: 12px;
-        text-indent: 0;
-        margin: 0 12px 0 0;
-    }
+.list-inline a {
+    width: auto;
+    height: auto;
+    color: #c9c9c9;
+    font-size: 12px;
+    text-indent: 0;
+    margin: 0 12px 0 0;
+}
 
 .btn-white {
     color: #c9c9c9;
@@ -51,16 +48,18 @@ body {
     border-color: #595959;
 }
 
-#banner .col-xs-4
-{
-    padding:0px;
+#banner .col-xs-4 {
+    padding: 0px;
 }
 
-#container .col-sm-6
-{
-    padding:5px;
+#container .col-sm-6 {
+    padding: 5px;
 }
 
-footer .col-sm-3{
-    border-right:1px dotted #ccc;
+footer .col-sm-3 {
+    border-right: 1px dotted #ccc;
+}
+
+.admin :hover {
+    color: white;
 }
