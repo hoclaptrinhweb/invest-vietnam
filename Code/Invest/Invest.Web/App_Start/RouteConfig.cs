@@ -13,6 +13,13 @@ namespace Invest.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //Register Route Plugin 
+            routes.MapRoute(
+                "NetAdvImage",
+                "Content/editors/tinymce/plugins/netadvimage/{action}",
+                new { controller = "NetAdvImage" }
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{culture}/{controller}/{action}/{id}",
