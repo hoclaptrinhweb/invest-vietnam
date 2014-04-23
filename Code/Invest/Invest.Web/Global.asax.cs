@@ -10,6 +10,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using DataLayer;
 using DataLayer.Migrations;
+using Invest.Web.Framework;
 
 namespace Invest.Web
 {
