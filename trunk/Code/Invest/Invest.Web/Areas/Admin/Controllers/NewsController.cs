@@ -9,7 +9,7 @@ using PagedList;
 
 namespace Invest.Web.Areas.Admin.Controllers
 {
-    public class NewsController : Controller
+    public class NewsController : BaseController
     {
         //
         // GET: /Admin/News/
@@ -36,7 +36,7 @@ namespace Invest.Web.Areas.Admin.Controllers
             var invest = new InvestContext();
             var result = invest.News.Select(n => new NewsModel()
             {
-                Id = n.LanguageId,
+                Id = n.Id,
                 LanguageId = n.LanguageId,
                 Title = n.Title,
                 LanguageName = n.Language.Name,
@@ -51,7 +51,30 @@ namespace Invest.Web.Areas.Admin.Controllers
         {
             var invest = new InvestContext();
             var result = invest.News.Where(n => n.Id == id).FirstOrDefault();
-            return View(result);
+            return View(result.ToModel());
         }
+
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Edit(NewsModel model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var News = model.ToEntity();
+                    var NewsService = new NewsServices();
+                    NewsService.Add(News);
+                    return base.jsonResult();
+                }
+                throw new Exception("lỗi");
+            }
+            catch (Exception ex)
+            {
+                return base.jsonResult(false, ex.Message);
+            }
+        }
+
     }
 }

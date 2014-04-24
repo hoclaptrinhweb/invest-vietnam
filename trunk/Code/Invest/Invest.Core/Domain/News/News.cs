@@ -11,7 +11,6 @@ namespace Invest.Core
         public News()
         {
             this.NewsComments = new HashSet<NewsComment>();
-            this.NewsTags = new HashSet<NewsTag>();
             this.CreatedDate = DateTime.Now;
             this.StartDate = DateTime.Now;
             this.Published = true;
@@ -35,8 +34,6 @@ namespace Invest.Core
         public DateTime CreatedDate { get; set; }
 
         public virtual Language Language { get; set; }
-
-        public virtual ICollection<NewsTag> NewsTags { get; set; }
         public virtual ICollection<NewsComment> NewsComments { get; set; }
     }
 }

@@ -16,5 +16,15 @@ namespace Invest.Services
             var result = invest.News.ToList();
             return result;
         }
+
+        public void Add(News news)
+        {
+            var invest = new InvestContext();
+            if (news.Id == 0)
+                invest.News.Add(news);
+            else
+                invest.Entry(news).State = System.Data.Entity.EntityState.Modified;
+            invest.SaveChanges();
+        }
     }
 }
