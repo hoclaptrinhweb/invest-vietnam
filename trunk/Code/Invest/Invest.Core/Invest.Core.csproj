@@ -48,6 +48,10 @@
     <Compile Include="Domain\LocalizedProperty.cs" />
     <Compile Include="Domain\News\News.cs" />
     <Compile Include="Domain\News\NewsComment.cs" />
+    <Compile Include="Domain\News\NewsTag.cs" />
+    <Compile Include="Domain\News\News_NewsTag_Mapping.cs" />
+    <Compile Include="Domain\News\News_Picture_Mapping.cs" />
+    <Compile Include="Domain\Picture.cs" />
     <Compile Include="Infrastructure\EngineContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
