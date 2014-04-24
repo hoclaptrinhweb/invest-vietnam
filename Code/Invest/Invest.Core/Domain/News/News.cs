@@ -16,6 +16,7 @@ namespace Invest.Core
             this.Published = true;
             this.AllowComments = true;
             this.CommentCount = 0;
+            this.LanguageId = 1;
         }
 
         public int LanguageId { get; set; }

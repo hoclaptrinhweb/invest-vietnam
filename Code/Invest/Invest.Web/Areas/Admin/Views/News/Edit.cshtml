@@ -14,7 +14,7 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#edit">Info</a></li>
                 <li><a href="#seo">SEO</a></li>
-                <li><a href="#news">List News</a></li>
+                <li><a href="#news">Pictures</a></li>
             </ul>
         </div>
         <div class="box-content">
@@ -25,13 +25,19 @@
                     @Html.AntiForgeryToken()
                     @Html.HiddenFor(model => model.Id)
                     @Html.HiddenFor(model => model.CreatedDate)
-                    @Html.HiddenFor(model => model.LanguageId)
 
                     <div class="tab-pane active" id="edit">
                         <fieldset>
 
                             @Html.ValidationSummary(true)
                             @Html.HiddenFor(model => model.Id)
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.LanguageId, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.DropDownListFor(model => model.LanguageId, new SelectList(Model.AvailableLanguages, "Value", "Text"), new { @data_rel = "chosen" })
+                                    @Html.ValidationMessageFor(model => model.LanguageId)
+                                </div>
+                            </div>
 
                             <div class="control-group">
                                 @Html.LabelFor(model => model.Title, new { @class = "control-label" })
