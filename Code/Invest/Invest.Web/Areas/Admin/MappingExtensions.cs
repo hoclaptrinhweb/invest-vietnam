@@ -20,5 +20,15 @@ namespace Invest.Web.Areas.Admin
         {
             return Mapper.DynamicMap<CategoryModel, Category>(model);
         }
+
+        public static NewsModel ToModel(this News entity)
+        {
+            return Mapper.DynamicMap<News, NewsModel>(entity);
+        }
+
+        public static News ToEntity(this NewsModel model)
+        {
+            return Mapper.DynamicMap<NewsModel, News>(model);
+        }
     }
 }

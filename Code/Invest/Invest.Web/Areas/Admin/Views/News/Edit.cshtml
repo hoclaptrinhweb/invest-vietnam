@@ -1,16 +1,18 @@
-﻿@model Invest.Core.News
+﻿@model NewsModel
 
 @{
     ViewBag.Title = "Edit";
 }
 @Html.Partial("Breadcrumb", new Dictionary<string, string> { { @Resource("News"), "/Admin/News" }, { @Resource("Edit"), "#" } })
 
+<script src="~/Content/editors/tinymce/tiny_mce.js"></script>
+
 
 <div class="row-fluid">
     <div class="box span12">
         <div class="box-header well">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#edit">Edit</a></li>
+                <li class="active"><a href="#edit">Info</a></li>
                 <li><a href="#seo">SEO</a></li>
                 <li><a href="#news">List News</a></li>
             </ul>
@@ -19,124 +21,138 @@
 
             @using (Html.BeginForm("Edit", "News", FormMethod.Post, new { @class = "form-horizontal" }))
             {
-                @Html.AntiForgeryToken()
-
-                <fieldset>
-
-                    @Html.ValidationSummary(true)
+                <div class="tab-content">
+                    @Html.AntiForgeryToken()
                     @Html.HiddenFor(model => model.Id)
+                    @Html.HiddenFor(model => model.CreatedDate)
+                    @Html.HiddenFor(model => model.LanguageId)
 
-                    <div class="control-group">
-                        @Html.LabelFor(model => model.LanguageId, new { @class = "control-label" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.LanguageId, new { @class = "span4 typeahead" })
-                            @Html.ValidationMessageFor(model => model.LanguageId)
+                    <div class="tab-pane active" id="edit">
+                        <fieldset>
+
+                            @Html.ValidationSummary(true)
+                            @Html.HiddenFor(model => model.Id)
+
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.Title, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.Title, new { @class = "span6 typeahead" })
+                                    @Html.ValidationMessageFor(model => model.Title)
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.Short, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.TextAreaFor(model => model.Short, new {@class = "span6 typeahead", @rows = "5" })
+                                    @Html.ValidationMessageFor(model => model.Short)
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.Full, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.EditorFor(model => model.Full, "RichEditor", new { @class = "span6 typeahead" })
+                                    @Html.ValidationMessageFor(model => model.Full)
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.Published, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.EditorFor(model => model.Published, new { @class = "span6 typeahead" })
+                                    @Html.ValidationMessageFor(model => model.Published)
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.AllowComments, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.EditorFor(model => model.AllowComments, new { @class = "span6 typeahead" })
+                                    @Html.ValidationMessageFor(model => model.AllowComments)
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.StartDate, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.StartDate, new { @class = "span6 typeahead" })
+                                    @Html.ValidationMessageFor(model => model.StartDate)
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.EndDate, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.EndDate, new { @class = "span6 typeahead" })
+                                    @Html.ValidationMessageFor(model => model.EndDate)
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button id="btnSave" type="submit" class="btn btn-primary">@Resource("Save")</button>
+                                <a class="btn btn-cancel" href="@Url.Action("", "News", new { area = "Admin" },null)">@Resource("Exit")</a>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="tab-pane" id="seo">
+                        <div class="control-group">
+                            @Html.LabelFor(model => model.MetaTitle, new { @class = "control-label" })
+                            <div class="controls">
+                                @Html.TextBoxFor(model => model.MetaTitle, new { @class = "span6 typeahead" })
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            @Html.LabelFor(model => model.MetaDescription, new { @class = "control-label" })
+                            <div class="controls">
+                                @Html.TextAreaFor(model => model.MetaDescription, new { @rows = "5", @class = "span6 typeahead" })
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            @Html.LabelFor(model => model.MetaKeywords, new { @class = "control-label" })
+                            <div class="controls">
+                                @Html.TextBoxFor(model => model.MetaKeywords, new { @class = "span6 typeahead" })
+                            </div>
                         </div>
                     </div>
-
-                    <div class="control-group">
-                        @Html.LabelFor(model => model.Title, new { @class = "control-label" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Title, new { @class = "span4 typeahead" })
-                            @Html.ValidationMessageFor(model => model.Title)
-                        </div>
+                    <div class="tab-pane" id="news">
+                        <h3>Custom <small>small text</small></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.</p>
                     </div>
-
-                    <div class="control-group">
-                        @Html.LabelFor(model => model.Short, new { @class = "control-label" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Short, new { @class = "span4 typeahead" })
-                            @Html.ValidationMessageFor(model => model.Short)
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        @Html.LabelFor(model => model.Full, new { @class = "control-label" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Full, new { @class = "span4 typeahead" })
-                            @Html.ValidationMessageFor(model => model.Full)
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        @Html.LabelFor(model => model.Published, new { @class = "control-label" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Published, new { @class = "span4 typeahead" })
-                            @Html.ValidationMessageFor(model => model.Published)
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        @Html.LabelFor(model => model.StartDate, new { @class = "control-label" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.StartDate, new { @class = "span4 typeahead" })
-                            @Html.ValidationMessageFor(model => model.StartDate)
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        @Html.LabelFor(model => model.EndDate, new { @class = "control-label" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.EndDate, new { @class = "span4 typeahead" })
-                            @Html.ValidationMessageFor(model => model.EndDate)
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        @Html.LabelFor(model => model.AllowComments, new { @class = "control-label" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.AllowComments, new { @class = "span4 typeahead" })
-                            @Html.ValidationMessageFor(model => model.AllowComments)
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        @Html.LabelFor(model => model.CommentCount, new { @class = "control-label" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.CommentCount, new { @class = "span4 typeahead" })
-                            @Html.ValidationMessageFor(model => model.CommentCount)
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        @Html.LabelFor(model => model.MetaKeywords, new { @class = "control-label" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.MetaKeywords, new { @class = "span4 typeahead" })
-                            @Html.ValidationMessageFor(model => model.MetaKeywords)
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        @Html.LabelFor(model => model.MetaDescription, new { @class = "control-label" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.MetaDescription, new { @class = "span4 typeahead" })
-                            @Html.ValidationMessageFor(model => model.MetaDescription)
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        @Html.LabelFor(model => model.MetaTitle, new { @class = "control-label" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.MetaTitle, new { @class = "span4 typeahead" })
-                            @Html.ValidationMessageFor(model => model.MetaTitle)
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        @Html.LabelFor(model => model.CreatedDate, new { @class = "control-label" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.CreatedDate, new { @class = "span4 typeahead" })
-                            @Html.ValidationMessageFor(model => model.CreatedDate)
-                        </div>
-                    </div>
-
-                    <div class="form-actions">
-                        <button id="btnSave" type="submit" class="btn btn-primary">@Resource("Save")</button>
-                        <a class="btn btn-cancel" href="@Url.Action("", "News", new { area = "Admin" },null)">@Resource("Exit")</a>
-                    </div>
-                </fieldset>
+                </div>
             }
         </div>
     </div>
 </div>
-@section ScriptCustom {}
+
+<style>
+    #content .nav-tabs > li > a {
+        line-height: 15px !important;
+    }
+
+    .chzn-container .chzn-results .active-result {
+        color: black;
+        text-shadow: none;
+    }
+</style>
+
+@section ScriptCustom {
+    <script src="~/Content/js/bootstrap-tab.js"></script>
+    <!-- select or dropdown enhancer -->
+    <script src="~/Content/js/jquery.chosen.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#content .nav-tabs a:first').tab('show');
+            $('#content .nav-tabs a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+            //chosen - improves select
+            $('[data-rel="chosen"],[rel="chosen"]').chosen();
+        });
+    </script>
+}
+
+
+

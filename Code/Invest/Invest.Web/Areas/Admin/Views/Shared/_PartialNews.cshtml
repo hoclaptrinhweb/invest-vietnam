@@ -2,7 +2,7 @@
 @using PagedList.Mvc;
 <div class="span3 pull-left">
     <div class="btn-group">
-        <a class="btn btn-small" href="@Url.Action("Create", "News", new { area = "Admin" }, null)"><i class="icon icon-color icon-add"></i>Create New</a>
+        <a class="btn btn-small" href="@Url.Action("Edit", "News", new { area = "Admin" }, null)"><i class="icon icon-color icon-add"></i>Create New</a>
     </div>
 </div>
 <div class="span3 pull-right">
@@ -62,6 +62,6 @@
 
 <script>
     function onLocaleResourceLanguageSelected(t) {
-        window.location.href = "@Url.Action("Resources", "Language")" + "?languageid=" + t;
+        window.location.href = "@Url.Action("", "News")" + "?languageid=" + t;
     }
 </script>
