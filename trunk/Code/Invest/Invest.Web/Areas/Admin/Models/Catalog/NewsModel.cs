@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using Invest.Core;
 
 namespace Invest.Web
 {
     public class NewsModel : BaseEntity
     {
+        public NewsModel()
+        {
+            CreatedDate = DateTime.Now;
+            AllowComments = true;
+            Published = true;
+            CommentCount = 0;
+        }
+
         public int LanguageId { get; set; }
         public string LanguageName { get; set; }
         public string Title { get; set; }
@@ -23,5 +32,8 @@ namespace Invest.Web
         public string MetaDescription { get; set; }
         public string MetaTitle { get; set; }
         public DateTime CreatedDate { get; set; }
+
+        public IList<SelectListItem> AvailableLanguages { get; set; }
+
     }
 }

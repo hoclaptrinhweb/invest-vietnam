@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DataLayer;
+using Invest.Core;
 using Invest.Services;
 using PagedList;
 
@@ -51,7 +52,16 @@ namespace Invest.Web.Areas.Admin.Controllers
         {
             var invest = new InvestContext();
             var result = invest.News.Where(n => n.Id == id).FirstOrDefault();
-            return View(result.ToModel());
+            if (id == 0)
+                result = new News();
+            var model = result.ToModel();
+            var allLang = invest.Language.ToList().Select(l => new SelectListItem()
+            {
+                Value = l.Id.ToString(),
+                Text = l.Name
+            }).ToList();
+            model.AvailableLanguages = allLang;
+            return View(model);
         }
 
 
