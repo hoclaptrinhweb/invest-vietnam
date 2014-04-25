@@ -14,6 +14,7 @@ namespace Invest.Core
         }
 
         public byte[] PictureBinary { get; set; }
+        public string PathUrl { get; set; }
         public string MimeType { get; set; }
         public string SeoFilename { get; set; }
         public bool IsNew { get; set; }

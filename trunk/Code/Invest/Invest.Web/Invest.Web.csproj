@@ -376,6 +376,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NetAdvImageController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1088,6 +1089,7 @@
     <Content Include="Content\js\charisma.js" />
     <Content Include="Content\js\common.js" />
     <Content Include="Content\js\excanvas.js" />
+    <Content Include="Content\js\Flash\uploadify.swf" />
     <Content Include="Content\js\fullcalendar.min.js" />
     <Content Include="Content\js\jquery-1.7.2.min.js" />
     <Content Include="Content\js\jquery-ui-1.8.21.custom.min.js" />
@@ -1214,7 +1216,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Common\" />
+    <Folder Include="Content\Uploads\ImagesNews\" />
+    <Folder Include="Content\Uploads\Images\News\" />
     <Folder Include="Theme\" />
+    <Folder Include="Views\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
