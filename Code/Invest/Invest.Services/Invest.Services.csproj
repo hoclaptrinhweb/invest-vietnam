@@ -53,6 +53,7 @@
     <Compile Include="LocalizationExtentions.cs" />
     <Compile Include="LocalizedEntityService.cs" />
     <Compile Include="News\NewsServices.cs" />
+    <Compile Include="PictureServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
