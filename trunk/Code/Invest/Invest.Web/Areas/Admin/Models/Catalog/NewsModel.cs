@@ -35,5 +35,7 @@ namespace Invest.Web
 
         public IList<SelectListItem> AvailableLanguages { get; set; }
 
+        public IList<News_Picture_MappingModel> News_Picture { get; set; }
+
     }
 }

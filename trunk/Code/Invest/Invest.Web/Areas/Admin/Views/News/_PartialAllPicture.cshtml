@@ -1,0 +1,65 @@
+﻿@model List<News_Picture_MappingModel>
+
+<table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th class="center">
+                @Resource("DisplayOrder")
+            </th>
+            <th class="center">@Resource("Action")</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pic in Model)
+        {
+            <tr>
+                <td>
+                    <img style="height:100px" src="@pic.UrlPath" />
+                </td>
+                <td class="center">
+                    @pic.DisplayOrder
+                </td>
+                <td class="center">
+                    <a class="btn btn-danger" id="deleteSupp_@pic.Id" name="@pic.Id"><i class="icon-trash icon-white"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $('a[id^="deleteSupp_"]').click(function (event) {
+            if (!confirm('Bạn có muốn xóa không ?'))
+                return;
+            event.preventDefault();
+            var span = $(this);
+            var idArr = new Array();
+            idArr[0] = $(this).attr('id').substring(11);
+            DeleteSupp(idArr);
+        });
+
+
+        function DeleteSupp(idArray) {
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("DeletePicture")',
+                data: { ids: idArray },
+                success: function (data) {
+                    if (data.success) {
+                       UpdatePicture();
+                    } else {
+                        popUp(true, data.message, false);
+                    }
+                },
+                dataType: 'JSON',
+                traditional: true
+            });
+        }
+    });
+
+</script>

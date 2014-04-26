@@ -372,6 +372,7 @@
     <Compile Include="Areas\Admin\Models\Catalog\CategoryModel.cs" />
     <Compile Include="Areas\Admin\Models\Catalog\LanguageResourceModel.cs" />
     <Compile Include="Areas\Admin\Models\Catalog\NewsModel.cs" />
+    <Compile Include="Areas\Admin\Models\Catalog\News_Picture_MappingModel.cs" />
     <Compile Include="Areas\Admin\Models\TestLanguage.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1172,6 +1173,7 @@
     <Content Include="Areas\Admin\Views\Language\_PartialResources.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_PartialNews.cshtml" />
     <Content Include="Areas\Admin\Views\News\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\News\_PartialAllPicture.cshtml" />
     <None Include="Properties\PublishProfiles\Invest.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
