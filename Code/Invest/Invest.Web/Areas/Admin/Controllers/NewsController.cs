@@ -48,7 +48,7 @@ namespace Invest.Web.Areas.Admin.Controllers
             return View(result.ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult Edit(int id =0)
+        public ActionResult Edit(int id = 0)
         {
             var invest = new InvestContext();
             var result = invest.News.Where(n => n.Id == id).FirstOrDefault();
@@ -61,9 +61,42 @@ namespace Invest.Web.Areas.Admin.Controllers
                 Text = l.Name
             }).ToList();
             model.AvailableLanguages = allLang;
+            model.News_Picture = invest.News_Picture_Mapping.Where(n => n.NewsId == id).Select(n => new News_Picture_MappingModel()
+                {
+                    UrlPath = n.Picture.PathUrl,
+                    DisplayOrder = n.DisplayOrder,
+                    Id = n.Id
+                }).OrderBy(n => n.DisplayOrder).ToList();
             return View(model);
         }
 
+        public ActionResult AllPicture(int NewsID)
+        {
+            var invest = new InvestContext();
+            var model = invest.News_Picture_Mapping.Where(n => n.NewsId == NewsID).Select(n => new News_Picture_MappingModel()
+            {
+                UrlPath = n.Picture.PathUrl,
+                DisplayOrder = n.DisplayOrder,
+                Id = n.Id
+            }).OrderBy(n => n.DisplayOrder).ToList();
+            return PartialView("_PartialAllPicture", model);
+        }
+
+
+        public ActionResult DeletePicture(List<int> ids = null)
+        {
+            var invest = new InvestContext();
+            var id = ids.First();
+            var dbEnty = invest.News_Picture_Mapping.FirstOrDefault(l => l.Id == id);
+            if (dbEnty == null)
+                throw new Exception("Ngôn ngữ này hiện tại không tồn tại trong hệ thống");
+            else
+            {
+                invest.News_Picture_Mapping.Remove(dbEnty);
+                invest.SaveChanges();
+            }
+            return jsonResult();
+        }
 
         [HttpPost]
         [ValidateInput(false)]
@@ -86,7 +119,7 @@ namespace Invest.Web.Areas.Admin.Controllers
             }
         }
 
-        public ActionResult AddPicture(int NewsID,string UrlPath,int DisplayOrder)
+        public ActionResult AddPicture(int NewsID, string UrlPath, int DisplayOrder)
         {
             var newsServices = new NewsServices();
             newsServices.Add(NewsID, UrlPath, DisplayOrder);
