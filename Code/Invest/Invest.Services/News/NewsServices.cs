@@ -39,5 +39,11 @@ namespace Invest.Services
             invest.News_Picture_Mapping.Add(picMap);
             invest.SaveChanges();
         }
+
+        public void Add(News_Category_Mapping catMap)
+        {
+            invest.News_Category_Mapping.Add(catMap);
+            invest.SaveChanges();
+        }
     }
 }

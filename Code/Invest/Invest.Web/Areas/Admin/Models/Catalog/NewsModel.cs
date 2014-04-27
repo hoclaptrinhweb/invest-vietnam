@@ -37,6 +37,9 @@ namespace Invest.Web
 
         public IList<News_Picture_MappingModel> News_Picture { get; set; }
         public IList<News_Category_MappingModel> News_Category { get; set; }
+        public IList<SelectListItem> AvailableCategory { get; set; }
+
+        
 
     }
 }
