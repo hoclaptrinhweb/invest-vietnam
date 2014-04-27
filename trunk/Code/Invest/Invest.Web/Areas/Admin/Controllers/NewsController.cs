@@ -74,6 +74,16 @@ namespace Invest.Web.Areas.Admin.Controllers
                     DisplayOrder = c.DisplayOrder,
                     Id = c.Id
                 }).OrderBy(n => n.DisplayOrder).ToList();
+
+            var catService = new CategoryServices();
+
+            var data = catService.GetAll().Select(c => new SelectListItem()
+            {
+                Text = c.GetFormattedBreadCrumb(catService),
+                Value = c.Id.ToString()
+            }
+            ).ToList();
+            model.AvailableCategory = data;
             return View(model);
         }
 
@@ -105,6 +115,41 @@ namespace Invest.Web.Areas.Admin.Controllers
             return jsonResult();
         }
 
+        public ActionResult DeleteCategory(List<int> ids = null)
+        {
+            var invest = new InvestContext();
+            var id = ids.First();
+            var dbEnty = invest.News_Category_Mapping.FirstOrDefault(l => l.Id == id);
+            if (dbEnty == null)
+                throw new Exception("Ngôn ngữ này hiện tại không tồn tại trong hệ thống");
+            else
+            {
+                invest.News_Category_Mapping.Remove(dbEnty);
+                invest.SaveChanges();
+            }
+            return jsonResult();
+        }
+
+        public ActionResult AllCategory(int NewsID)
+        {
+            var catService = new CategoryServices();
+            var data = catService.GetAll().Select(c => new SelectListItem()
+            {
+                Text = c.GetFormattedBreadCrumb(catService),
+                Value = c.Id.ToString()
+            }
+            ).ToList();
+
+            var invest = new InvestContext();
+            var model = invest.News_Category_Mapping.Where(n => n.NewsId == NewsID).Select(n => new News_Category_MappingModel()
+            {
+                CategoryName = n.Category.Name,
+                DisplayOrder = n.DisplayOrder,
+                Id = n.Id
+            }).OrderBy(n => n.DisplayOrder).ToList();
+            return PartialView("_PartialCategoryMapping", model);
+        }
+
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult Edit(NewsModel model)
@@ -126,10 +171,14 @@ namespace Invest.Web.Areas.Admin.Controllers
             }
         }
 
-        public ActionResult AddPicture(int NewsID, string UrlPath, int DisplayOrder)
+        public ActionResult AddCategory(int NewsID, int CategoryID, int DisplayOrder)
         {
+            var catMap = new News_Category_Mapping();
+            catMap.NewsId = NewsID;
+            catMap.CategoryId = CategoryID;
+            catMap.DisplayOrder = DisplayOrder;
             var newsServices = new NewsServices();
-            newsServices.Add(NewsID, UrlPath, DisplayOrder);
+            newsServices.Add(catMap);
             return base.jsonResult();
         }
 

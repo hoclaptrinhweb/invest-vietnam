@@ -157,7 +157,24 @@
 
                     </div>
                     <div id="Category" class="tab-pane">
-                        @Html.Partial("_PartialCategoryMapping", Model.News_Category)
+                        <div id="tb_cat">
+                            @Html.Partial("_PartialCategoryMapping", Model.News_Category)
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="Display order:">Category Name:</label>
+                            <div class="controls">
+                                @Html.DropDownList("catID", new SelectList(Model.AvailableCategory, "Value", "Text"), new { @data_rel = "chosen" })
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="Display order:">Display order:</label>
+                            <div class="controls">
+                                <input id="catOrder" name="DisplayOrder" type="number" value="1">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button id="addCategory" type="button" class="btn btn-primary">@Resource("Add Category Mapping")</button>
+                        </div>
                     </div>
                 </div>
             }
@@ -166,7 +183,10 @@
 </div>
 
 <style>
-    #content .nav-tabs > li > a {
+    .tab-content {
+        overflow: initial !important;
+    }
+     #content .nav-tabs > li > a {
         line-height: 15px !important;
     }
 
@@ -184,10 +204,15 @@
     <script src="~/Content/js/jquery.chosen.min.js"></script>
     <script>
 
-        function UpdatePicture()
-        {
+        function UpdatePicture(){
             $.post( "@Url.Action("AllPicture", "News", new { @NewsID = Model.Id })", function( data ) {
                 $( "#tb_pic" ).html(data);
+            });
+        }
+
+        function UpdateCategory(){
+            $.post( "@Url.Action("AllCategory", "News", new { @NewsID = Model.Id })", function( data ) {
+                $( "#tb_cat" ).html(data);
             });
         }
 
@@ -231,7 +256,25 @@
                         } else {
                             alert("thất bại");
                         }
-                });
+                    });
+            });
+
+            $('#addCategory').click(function (event) {
+                event.preventDefault();
+                $.post(
+                    '@Url.Action("AddCategory", "News")',
+                    {
+                        NewsID: @Model.Id ,
+                        DisplayOrder: $("#catOrder").val(),
+                        CategoryID : $('#catID').val()
+                    },
+                    function (data) {
+                        if (data.success) {
+                            UpdateCategory();
+                        } else {
+                            alert("thất bại");
+                        }
+                    });
             });
 
 
