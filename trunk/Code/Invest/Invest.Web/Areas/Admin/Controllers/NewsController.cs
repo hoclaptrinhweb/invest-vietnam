@@ -171,6 +171,14 @@ namespace Invest.Web.Areas.Admin.Controllers
             }
         }
 
+
+        public ActionResult AddPicture(int NewsID, string UrlPath, int DisplayOrder)
+        {
+            var newsServices = new NewsServices();
+            newsServices.Add(NewsID, UrlPath, DisplayOrder);
+            return base.jsonResult();
+        }
+
         public ActionResult AddCategory(int NewsID, int CategoryID, int DisplayOrder)
         {
             var catMap = new News_Category_Mapping();
