@@ -20,6 +20,8 @@ namespace Invest.Core
             DisplayOrder = 0;
             CreatedDate = DateTime.Now;
             UpdatedDate = DateTime.Now;
+            this.News_Category_Mapping = new HashSet<News_Category_Mapping>();
+
         }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -38,6 +40,9 @@ namespace Invest.Core
         public int DisplayOrder { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
+
+        public virtual ICollection<News_Category_Mapping> News_Category_Mapping { get; set; }
+
         
     }
 }

@@ -50,6 +50,7 @@
     <Compile Include="Domain\News\NewsComment.cs" />
     <Compile Include="Domain\News\NewsTag.cs" />
     <Compile Include="Domain\News\News_NewsTag_Mapping.cs" />
+    <Compile Include="Domain\News\News_Category_Mapping.cs" />
     <Compile Include="Domain\News\News_Picture_Mapping.cs" />
     <Compile Include="Domain\Picture.cs" />
     <Compile Include="Infrastructure\EngineContext.cs" />

@@ -1,0 +1,34 @@
+﻿@model List<News_Category_MappingModel>
+<div class="span3 pull-left">
+    <div class="btn-group">
+        <a class="btn btn-small" href="#"><i class="icon icon-color icon-add"></i>Create New</a>
+    </div>
+</div>
+<div style="clear:both;margin-bottom:10px"></div>
+<table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th class="center">
+                @Resource("DisplayOrder")
+            </th>
+            <th class="center">@Resource("Action")</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cat in Model)
+        {
+            <tr>
+                <td>
+                    @cat.CategoryName
+                </td>
+                <td class="center">
+                    @cat.DisplayOrder
+                </td>
+                <td class="center">
+                    <a class="btn btn-danger" id="deleteCat_@cat.Id" name="@cat.Id"><i class="icon-trash icon-white"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
