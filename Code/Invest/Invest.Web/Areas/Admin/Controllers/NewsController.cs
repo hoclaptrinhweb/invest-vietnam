@@ -67,6 +67,13 @@ namespace Invest.Web.Areas.Admin.Controllers
                     DisplayOrder = n.DisplayOrder,
                     Id = n.Id
                 }).OrderBy(n => n.DisplayOrder).ToList();
+
+            model.News_Category = invest.News_Category_Mapping.Where(c => c.NewsId == id).Select(c=> new News_Category_MappingModel()
+                {
+                    CategoryName = c.Category.Name,
+                    DisplayOrder = c.DisplayOrder,
+                    Id = c.Id
+                }).OrderBy(n => n.DisplayOrder).ToList();
             return View(model);
         }
 

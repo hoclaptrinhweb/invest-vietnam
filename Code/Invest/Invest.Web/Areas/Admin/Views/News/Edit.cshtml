@@ -15,7 +15,8 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#edit">Info</a></li>
                 <li><a href="#seo">SEO</a></li>
-                <li><a href="#news">Pictures</a></li>
+                <li><a href="#Pictures">Pictures</a></li>
+                <li><a href="#Category">Category mappings</a></li>
             </ul>
         </div>
         <div class="box-content">
@@ -130,7 +131,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="news">
+                    <div class="tab-pane" id="Pictures">
                         <p>You need to save the news before you can upload pictures for this news page.</p>
                         <div id="tb_pic">
                             @Html.Partial("_PartialAllPicture", Model.News_Picture)
@@ -154,6 +155,9 @@
                             <button id="addPicture" type="button" class="btn btn-primary">@Resource("Add News Picture")</button>
                         </div>
 
+                    </div>
+                    <div id="Category" class="tab-pane">
+                        @Html.Partial("_PartialCategoryMapping", Model.News_Category)
                     </div>
                 </div>
             }

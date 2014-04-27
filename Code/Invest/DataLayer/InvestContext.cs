@@ -23,8 +23,7 @@ namespace DataLayer
         public DbSet<Picture> Picture { get; set; }
         public DbSet<News_Picture_Mapping> News_Picture_Mapping { get; set; }
         public DbSet<News_NewsTag_Mapping> News_NewsTag_Mapping { get; set; }
-
-
+        public DbSet<News_Category_Mapping> News_Category_Mapping { get; set; }
 
         public DbSet<LocalizedProperty> LocalizedProperty { get; set; }
         public DbSet<LocaleStringResource> LocaleStringResource { get; set; }
