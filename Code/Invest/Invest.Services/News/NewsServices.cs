@@ -17,6 +17,14 @@ namespace Invest.Services
             return result;
         }
 
+        public News GetNewsByID(int id)
+        {
+            var invest = new InvestContext();
+            var result = invest.News.Where(l => l.Id == id).FirstOrDefault();
+            return result;
+        }
+
+
         public void Add(News news)
         {
             if (news.Id == 0)

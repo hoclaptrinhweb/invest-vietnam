@@ -10,6 +10,7 @@ using ConsoleTest.Catalog;
 using DataLayer;
 using DataLayer.Migrations;
 using Invest.Core;
+using Invest.Services;
 
 namespace ConsoleTest
 {
@@ -21,6 +22,13 @@ namespace ConsoleTest
             //var cat = invest.Category.FirstOrDefault();
             //var test = Mapper.DynamicMap<Category, CategoryModel>(cat);
             CreateDatabase();
+            Test();
+        }
+
+        static void Test()
+        {
+            var t = new CategoryServices();
+            t.GetProductCategoriesByCategoryId(1);
         }
 
         static void TestAction()
