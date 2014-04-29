@@ -1,0 +1,29 @@
+﻿@model List<Invest.Web.Areas.Admin.Models.Catalog.CategoryProductModel>
+<div style="clear:both;margin-bottom:10px"></div>
+<table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th class="center">
+                @Resource("DisplayOrder")
+            </th>
+            <th class="center">@Resource("Action")</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var news in Model)
+        {
+            <tr>
+                <td>
+                    @news.NewsName
+                </td>
+                <td class="center">
+                    @news.DisplayOrder1
+                </td>
+                <td class="center">
+                    <a class="btn btn-danger" id="deleteNews_@news.Id" name="@news.Id"><i class="icon-trash icon-white"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

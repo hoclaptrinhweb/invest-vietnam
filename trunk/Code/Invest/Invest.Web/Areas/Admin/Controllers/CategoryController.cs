@@ -36,6 +36,8 @@ namespace Invest.Web.Areas.Admin.Controllers
                  categoryModel.Name = c.GetFormattedBreadCrumb(CategoryServices);
                  return categoryModel;
              }).ToList();
+
+            
             return View(data.ToPagedList(pageNumber, pageSize));
         }
 
@@ -67,6 +69,7 @@ namespace Invest.Web.Areas.Admin.Controllers
                 locale.Published = category.GetLocalized(x => x.Published, languageId, false, false);
             });
             PrepareTemplatesModel(model);
+
             if (model == null)
                 return HttpNotFound();
             return View(model);
@@ -165,6 +168,18 @@ namespace Invest.Web.Areas.Admin.Controllers
             ).ToList();
             data.Insert(0, new SelectListItem() { Text = "None", Value = "0" });
             model.AvailableCategoryTemplates = data;
+
+            var newsServices = new NewsServices();
+            model.CategoryProductModel = catService.GetProductCategoriesByCategoryId(model.Id).Select(x =>
+                 new CategoryProductModel()
+                    {
+                        Id = x.Id,
+                        CategoryId = x.CategoryId,
+                        NewsId = x.NewsId,
+                        NewsName = newsServices.GetNewsByID(x.NewsId).Title,
+                        DisplayOrder1 = x.DisplayOrder
+                    }
+                ).ToList();
         }
     }
 }

@@ -24,6 +24,19 @@ namespace Invest.Services
             return result;
         }
 
+
+        public List<News_Category_Mapping> GetProductCategoriesByCategoryId(int CategoryID)
+        {
+            var invest = new InvestContext();
+            var query = from m in invest.News_Category_Mapping
+                        join c in invest.Category on m.CategoryId equals c.Id
+                        where m.CategoryId == CategoryID && c.Published == true && c.Deleted == false
+                        select m;
+            var result = query.ToList();
+
+            return result;
+        }
+
         public IEnumerable<Category> GetAll()
         {
             var invest = new InvestContext();

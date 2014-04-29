@@ -36,10 +36,22 @@ namespace Invest.Web.Areas.Admin.Models.Catalog
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
 
+        public IList<CategoryProductModel> CategoryProductModel { get; set; }
         public IList<CategoryLocalizedModel> Locales { get; set; }
         public IList<DropDownItem> ParentCategories { get; set; }
         public IList<SelectListItem> AvailableCategoryTemplates { get; set; }
 
+    }
+
+    public partial class CategoryProductModel : BaseEntity
+    {
+        public int CategoryId { get; set; }
+
+        public int NewsId { get; set; }
+
+        public string NewsName { get; set; }
+
+        public int DisplayOrder1 { get; set; }
     }
 
     public partial class CategoryLocalizedModel : ILocalizedModelLocal
