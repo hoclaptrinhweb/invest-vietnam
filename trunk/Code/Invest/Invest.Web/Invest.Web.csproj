@@ -376,6 +376,7 @@
     <Compile Include="Areas\Admin\Models\Catalog\News_Picture_MappingModel.cs" />
     <Compile Include="Areas\Admin\Models\TestLanguage.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NetAdvImageController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
@@ -1219,6 +1220,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\NetAdvImage\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\RichEditor.cshtml" />
+    <Content Include="Views\Home\HeadMenu.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
