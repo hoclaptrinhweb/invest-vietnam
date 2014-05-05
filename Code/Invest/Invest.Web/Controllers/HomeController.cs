@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Invest.Services;
 
 namespace Invest.Web.Controllers
 {
@@ -13,6 +14,12 @@ namespace Invest.Web.Controllers
             return View();
         }
 
+        public ActionResult HeadMenu()
+        {
+            var csv = new CategoryServices();
+            var result = csv.GetAllByParent(0,true,true);
+            return PartialView(result);
+        }
         public ActionResult ChangeCulture(string lang)
         {
             var langCookie = new HttpCookie("lang", lang);//{ HttpOnly = true };
