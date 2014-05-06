@@ -21,7 +21,7 @@ namespace Invest.Web
             //Nếu chạy lần đầu thì sử dụng cái này hoặc nếu thay đổi model,db
             // Luôn luôn chạy hàm này cũng được nhưng ko cần thiết nó sẽ làm chậm lúc start
 
-            CreateDatabase();
+            //CreateDatabase();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -44,15 +44,20 @@ namespace Invest.Web
             // or default value if something went wrong
             if (routeCulture != null)
             {
-                var cultureInfo = new CultureInfo(
+                try
+                {
+                    var cultureInfo = new CultureInfo(
                     routeCulture ?? (languageCookie != null
                        ? languageCookie.Value
                        : userLanguages != null
                            ? userLanguages[0]
                            : "en")
-                );
-                Thread.CurrentThread.CurrentUICulture = cultureInfo;
-                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(cultureInfo.Name);
+                        );
+                    Thread.CurrentThread.CurrentUICulture = cultureInfo;
+                    Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(cultureInfo.Name);
+                }
+                catch { }
+
             }
             else
             {

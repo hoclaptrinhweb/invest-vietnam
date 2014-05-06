@@ -13,7 +13,7 @@ namespace Invest.Services
         public Language GetLanguage(string value)
         {
             var invest = new InvestContext();
-            var result = invest.Language.Where(l => l.LanguageCulture == value).FirstOrDefault();
+            var result = invest.Language.Where(l => l.LanguageCulture == value || l.UniqueSeoCode == value).FirstOrDefault();
             return result;
         }
 
