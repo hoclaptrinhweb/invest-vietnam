@@ -1181,6 +1181,7 @@
     <Content Include="Areas\Admin\Views\News\_PartialCategoryMapping.cshtml" />
     <Content Include="Areas\Admin\Views\Category\_PartialProductMapping.cshtml" />
     <Content Include="Areas\Admin\Views\Category\_PartialAllPicture.cshtml" />
+    <Content Include="App_Data\Invest.rar" />
     <None Include="Properties\PublishProfiles\Invest.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1227,7 +1228,6 @@
     <Content Include="Views\Category\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Common\" />
     <Folder Include="Content\Uploads\ImagesNews\" />
     <Folder Include="Content\Uploads\Images\News\" />
