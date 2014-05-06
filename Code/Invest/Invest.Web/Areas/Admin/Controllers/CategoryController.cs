@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DataLayer;
 using Invest.Core;
 using Invest.Services;
 using Invest.Web.Areas.Admin.Models.Catalog;
@@ -59,6 +60,14 @@ namespace Invest.Web.Areas.Admin.Controllers
                 else
                     model.ParentCategoryId = 0;
             }
+            var invest = new InvestContext();
+            model.Category_Picture = invest.Category_Picture_Mapping.Where(n => n.CategoryId == id).Select(n => new Category_Picture_MappingModel()
+            {
+                UrlPath = n.Picture.PathUrl,
+                DisplayOrder = n.DisplayOrder,
+                Id = n.Id
+            }).OrderBy(n => n.DisplayOrder).ToList();
+
             AddLocales(_languageService, model.Locales, (locale, languageId) =>
             {
                 locale.Name = category.GetLocalized(x => x.Name, languageId, false, false);
@@ -113,6 +122,40 @@ namespace Invest.Web.Areas.Admin.Controllers
             {
                 return jsonResult(false, ex.Message);
             }
+        }
+
+        public ActionResult AllPicture(int Id)
+        {
+            var invest = new InvestContext();
+            var model = invest.Category_Picture_Mapping.Where(n => n.CategoryId == Id).Select(n => new Category_Picture_MappingModel()
+            {
+                UrlPath = n.Picture.PathUrl,
+                DisplayOrder = n.DisplayOrder,
+                Id = n.Id
+            }).OrderBy(n => n.DisplayOrder).ToList();
+            return PartialView("_PartialAllPicture", model);
+        }
+
+        public ActionResult AddPicture(int Id, string UrlPath, int DisplayOrder)
+        {
+            var catServices = new CategoryServices();
+            catServices.Add(Id, UrlPath, DisplayOrder);
+            return base.jsonResult();
+        }
+
+        public ActionResult DeletePicture(List<int> ids = null)
+        {
+            var invest = new InvestContext();
+            var id = ids.First();
+            var dbEnty = invest.Category_Picture_Mapping.FirstOrDefault(l => l.Id == id);
+            if (dbEnty == null)
+                throw new Exception("Ngôn ngữ này hiện tại không tồn tại trong hệ thống");
+            else
+            {
+                invest.Category_Picture_Mapping.Remove(dbEnty);
+                invest.SaveChanges();
+            }
+            return jsonResult();
         }
 
         protected void UpdateLocales(Category category, CategoryModel model)

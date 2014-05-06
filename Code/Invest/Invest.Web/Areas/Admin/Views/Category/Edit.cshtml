@@ -11,9 +11,10 @@
     <div class="box span12">
         <div class="box-header well">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#edit">Edit</a></li>
-                <li><a href="#seo">SEO</a></li>
-                <li><a href="#news">List News</a></li>
+                <li class="active"><a href="#edit">@Resource("Info")</a></li>
+                <li><a href="#seo">@Resource("SEO")</a></li>
+                <li><a href="#Picture">@Resource("Picture")</a></li>
+                <li><a href="#news">@Resource("ListNews")</a></li>
             </ul>
         </div>
         <div class="box-content">
@@ -50,7 +51,7 @@
                                             <div class="control-group">
                                                 @Html.LabelFor(model => model.Description, new { @class = "control-label" })
                                                 <div class="controls">
-                                                    @Html.EditorFor(model => model.Description,"RichEditor",new { @row = "20", @style = "width:100%" })
+                                                    @Html.EditorFor(model => model.Description, "RichEditor", new { @row = "20", @style = "width:100%" })
                                                 </div>
                                             </div>
                                             <div class="control-group">
@@ -76,7 +77,7 @@
                                                 <div class="control-group">
                                                     @Html.LabelFor(model => model.Locales[i].Description, new { @class = "control-label" })
                                                     <div class="controls">
-                                                        @Html.EditorFor(model => model.Locales[i].Description,  "RichEditor",new { @row = "20", @style = "width:100%" })
+                                                        @Html.EditorFor(model => model.Locales[i].Description, "RichEditor", new { @row = "20", @style = "width:100%" })
                                                     </div>
                                                 </div>
                                                 <div class="control-group">
@@ -219,31 +220,37 @@
                     <div class="tab-pane" id="news">
                         <div> @Html.Partial("_PartialProductMapping", Model.CategoryProductModel)</div>
                     </div>
+                    <div class="tab-pane" id="Picture">
+                        <p>You need to save the news before you can upload pictures for this news page.</p>
+                        <div id="tb_pic">
+                            @Html.Partial("_PartialAllPicture", Model.Category_Picture)
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="Picture">Picture</label>
+                            <div class="controls">
+                                <img class="imgsNews" src="" style="width:100px" />
+                                <input id="fileInput" name="fileInput" type="file">
+                                <input class="UrlPath" name="UrlPath" type="hidden">
+
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="Display order:">Display order:</label>
+                            <div class="controls">
+                                <input id="picOrder" name="DisplayOrder" type="number" value="1">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button id="addPicture" type="button" class="btn btn-primary">@Resource("Add News Picture")</button>
+                        </div>
+
+                    </div>
                 </div>
             }
         </div>
     </div>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        $('.btn-primary').click(function (event) {
-            showPopUpStatus("Đang cập nhật dữ liệu");
-            tinyMCE.triggerSave();
-            event.preventDefault();
-            $.post('@Url.Action("Edit", "Category")', $('form').serialize(), function (data) {
-                if (data.success) {
-                    popUp(false, "Cập nhật thành công! Trở về trang trước", true, document.referrer);
-                } else {
-                    popUp(true, data.message, false);
-                }
-            });
-        });
-
-    });
-
-</script>
 <style>
     #content .nav-tabs > li > a {
         line-height: 15px !important;
@@ -256,10 +263,18 @@
 </style>
 
 @section ScriptCustom {
+    <script src="~/Content/js/jquery.uploadify-3.1.min.js"></script>
     <script src="~/Content/js/bootstrap-tab.js"></script>
     <!-- select or dropdown enhancer -->
     <script src="~/Content/js/jquery.chosen.min.js"></script>
     <script>
+
+        function UpdatePicture(){
+            $.post( "@Url.Action("AllPicture", "Category", new { @Id = Model.Id })", function( data ) {
+                $( "#tb_pic" ).html(data);
+            });
+        }
+
         $(document).ready(function () {
             $('#content .nav-tabs a:first').tab('show');
             $('#content .nav-tabs a').click(function (e) {
@@ -268,7 +283,64 @@
             });
             //chosen - improves select
             $('[data-rel="chosen"],[rel="chosen"]').chosen();
+
+            $('#btnSave').click(function (event) {
+                showPopUpStatus("Đang cập nhật dữ liệu");
+                tinyMCE.triggerSave();
+                event.preventDefault();
+                $.post('@Url.Action("Edit", "Category")', $('form').serialize(), function (data) {
+                    if (data.success) {
+                        popUp(false, "Cập nhật thành công! Trở về trang trước", true, document.referrer);
+                    } else {
+                        popUp(true, data.message, false);
+                    }
+                });
+            });
+
+            $('#addPicture').click(function (event) {
+                event.preventDefault();
+                $.post(
+                    '@Url.Action("AddPicture", "Category")',
+                    {
+                        Id: @Model.Id ,
+                        DisplayOrder: $("#picOrder").val(),
+                        UrlPath: $('.UrlPath').val()
+                    },
+                    function (data) {
+                        if (data.success) {
+                            UpdatePicture();
+                        } else {
+                            alert("thất bại");
+                        }
+                    });
+                return false;
+            });
+
+            $('#fileInput').uploadify({
+                'swf': '@Url.Content("~/content/js/flash/uploadify.swf")',
+                'uploader': "@Url.Action("UploadFiles", "Upload",new { area="" },null)",
+                'multi': false,
+                'fileExt': '*.jpg;*.jpeg;*.gif;*.png',
+                'formData':
+            {
+                'type': 1
+            },
+                'onUploadSuccess': function (file, data, response) {
+                    $(".imgsNews").attr('src', data);
+                    $(".UrlPath").val(data);
+                }
+            });
         });
     </script>
 }
+
+
+
+
+
+
+
+
+
+
 

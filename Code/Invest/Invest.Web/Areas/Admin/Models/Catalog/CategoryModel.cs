@@ -39,6 +39,7 @@ namespace Invest.Web.Areas.Admin.Models.Catalog
         public IList<CategoryProductModel> CategoryProductModel { get; set; }
         public IList<CategoryLocalizedModel> Locales { get; set; }
         public IList<DropDownItem> ParentCategories { get; set; }
+        public IList<Category_Picture_MappingModel> Category_Picture { get; set; }
         public IList<SelectListItem> AvailableCategoryTemplates { get; set; }
 
     }

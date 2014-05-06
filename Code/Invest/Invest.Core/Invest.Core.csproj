@@ -42,7 +42,8 @@
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
     <Compile Include="CommonHelper.cs" />
-    <Compile Include="Domain\Category.cs" />
+    <Compile Include="Domain\Category\Category.cs" />
+    <Compile Include="Domain\Category\Category_Picture_Mapping.cs" />
     <Compile Include="Domain\Language.cs" />
     <Compile Include="Domain\LocaleStringResource.cs" />
     <Compile Include="Domain\LocalizedProperty.cs" />
