@@ -1,10 +1,9 @@
 ﻿@model IEnumerable<Invest.Core.Category>
-
 <div class="navbar-collapse collapse" id="headmenu">
     <ul class="nav navbar-nav">
         @foreach (var item in Model)
         {
-            <li><a>@item.Name</a></li>
+            <li><a href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})">@item.Name</a></li>
         }
     </ul>
 

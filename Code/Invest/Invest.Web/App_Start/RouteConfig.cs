@@ -22,7 +22,7 @@ namespace Invest.Web
 
             routes.MapRoute(
                 "Category",
-                "{culture}/Category/{id}",
+                "{culture}/Category/{Name}.{Id}",
                 new
                 {
                     culture = "en",

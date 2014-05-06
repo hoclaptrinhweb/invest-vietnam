@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Invest-VietNam</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Content/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
@@ -16,13 +16,11 @@
                 <div class="col-sm-6">
                     <div class="pull_left">
                         <ul class="list-inline" style="margin-top:7px">
-                            <li><a href="#"><span class="glyphicon glyphicon-plus"></span>Register</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-lock"></span>Log in</a></li>
-                            <li><a href="/Admin/"><span class="glyphicon glyphicon-user"></span>Admin</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-plus"></span>@Resource("Register")</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-lock"></span>@Resource("Login")</a></li>
+                            <li><a href="/Admin/"><span class="glyphicon glyphicon-user"></span>@Resource("Admin")</a></li>
                         </ul>
                     </div>
-
-
                 </div>
                 <div class="col-sm-6">
                     <div class="btn-group pull-right">
@@ -31,11 +29,11 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">English</a></li>
+                            <li><a href="@Url.Action("ChangeCulture", "Home", new { lang = "en-us" })">English</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Japan</a></li>
+                            <li><a href="@Url.Action("ChangeCulture", "Home", new { lang = "ja-JP" })">Japan</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Korea</a></li>
+                            <li><a href="@Url.Action("ChangeCulture", "Home", new { lang = "ko-KR" })">Korea</a></li>
                         </ul>
                     </div>
                 </div>
@@ -51,9 +49,9 @@
                 <div class="col-sm-6">
                     <form class="navbar-form navbar-right" role="search">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
+                            <input type="text" class="form-control" placeholder="@Resource("Search")">
                         </div>
-                        <button type="submit" class="btn btn-default">Search</button>
+                        <button type="submit" class="btn btn-default">@Resource("Search")</button>
                     </form>
                 </div>
             </div>
@@ -273,8 +271,8 @@
     </footer>
 
     <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="Content/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
-    <script src="Content/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script src="~/Content/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/jquery.carouFredSel-6.2.1-packed.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#foo4').carouFredSel({
@@ -299,9 +297,3 @@
 
 </body>
 </html>
-<ul style="display:none">
-    <li>
-        <a href="@Url.Action("ChangeCulture", "Home", new { lang = "en-us" })">English</a>
-        <a href="@Url.Action("ChangeCulture", "Home", new { lang = "vi-VN" })">Việt Nam</a>
-    </li>
-</ul>

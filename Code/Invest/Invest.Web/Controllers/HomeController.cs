@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Invest.Services;
+using Invest.Web.Framework;
 
 namespace Invest.Web.Controllers
 {
@@ -17,14 +18,20 @@ namespace Invest.Web.Controllers
         public ActionResult HeadMenu()
         {
             var csv = new CategoryServices();
-            var result = csv.GetAllByParent(0,true,true);
+            var result = csv.GetAllByParent(0, true, true);
+            result = result.Select(c =>
+                 {
+                     var a = c;
+                     a.Name = c.GetLocalized(x => x.Name, EngineContext.WorkingLanguage.Id, false, false);
+                     return a;
+                 });
             return PartialView(result);
         }
         public ActionResult ChangeCulture(string lang)
         {
             var langCookie = new HttpCookie("lang", lang);//{ HttpOnly = true };
             Response.AppendCookie(langCookie);
-            return RedirectToAction("Index", "Home", new { culture = lang.Substring(0,2) });
+            return RedirectToAction("Index", "Home", new { culture = lang.Substring(0, 2) });
         }
 
         public ActionResult About()
