@@ -73,5 +73,20 @@ namespace Invest.Services
                 invest.Entry(Category).State = System.Data.Entity.EntityState.Modified;
             invest.SaveChanges();
         }
+
+        public void Add(int Id, string urlpath, int order)
+        {
+            var invest = new InvestContext();
+            var pic = new Picture();
+            pic.PathUrl = urlpath;
+            var picServices = new PictureServices();
+            picServices.Add(pic);
+            var picMap = new Category_Picture_Mapping();
+            picMap.CategoryId = Id;
+            picMap.DisplayOrder = order;
+            picMap.PictureId = pic.Id;
+            invest.Category_Picture_Mapping.Add(picMap);
+            invest.SaveChanges();
+        }
     }
 }
