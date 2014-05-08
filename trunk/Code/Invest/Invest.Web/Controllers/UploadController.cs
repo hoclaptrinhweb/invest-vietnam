@@ -25,10 +25,6 @@ namespace Invest.Web.Controllers
             var postedFileBase = Request.Files["Filedata"];
             savedFilename = ConfigurationManager.AppSettings["NewsImage_UploadPath"] + DateTime.Now.ToString("hhmmssddMMyy") + postedFileBase.FileName;
             postedFileBase.SaveAs(Server.MapPath(savedFilename));
-            var picServices = new PictureServices();
-            var Pic = new Picture();
-            Pic.PathUrl = savedFilename;
-            picServices.Add(Pic);
             return Content(Url.Content(savedFilename));
         }
     }

@@ -4,9 +4,8 @@ using System.Linq;
 using System.Web;
 using AutoMapper;
 using Invest.Core;
-using Invest.Web.Areas.Admin.Models.Catalog;
 
-namespace Invest.Web.Areas.Admin
+namespace Invest.Web
 {
     public static class MappingExtensions
     {

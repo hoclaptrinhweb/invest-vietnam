@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using DataLayer;
 using Invest.Core;
 using Invest.Services;
-using Invest.Web.Areas.Admin.Models.Catalog;
 using Invest.Web.Framework.MVC;
 using PagedList;
 

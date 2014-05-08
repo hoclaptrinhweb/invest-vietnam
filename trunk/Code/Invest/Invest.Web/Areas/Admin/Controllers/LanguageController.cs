@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using Invest.Core;
 using Invest.Services;
-using Invest.Web.Areas.Admin.Models.Catalog;
 
 namespace Invest.Web.Areas.Admin.Controllers
 {

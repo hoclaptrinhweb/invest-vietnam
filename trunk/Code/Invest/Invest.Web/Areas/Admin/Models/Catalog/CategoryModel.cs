@@ -7,7 +7,7 @@ using Invest.Core;
 using Invest.Web.Framework;
 using Invest.Web.Framework.MVC;
 
-namespace Invest.Web.Areas.Admin.Models.Catalog
+namespace Invest.Web
 {
     public partial class CategoryModel : BaseEntity
     {

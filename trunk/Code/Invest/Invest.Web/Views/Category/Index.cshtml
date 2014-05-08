@@ -2,7 +2,7 @@
     ViewBag.Title = "Home Page";
 }
 
-@model List<Invest.Core.Category>
+@model List<CategoryModel>
 
 <div class="container" id="container">
     <div class="row">
@@ -27,20 +27,7 @@
                 <li class="active">Data</li>
             </ol>
             <div class="row">
-                @foreach (var item in Model)
-                {
-                    <div class="col-sm-6 col-xs-6">
-                        <div class="thumbnail">
-                            <div>
-                                <img class="img-responsive" src="http://www.investkorea.org/publish/data/content/102/01/01/01/img//resons_1[0][0][0][0][0][0].jpg" />
-                            </div>
-                            <h4><a href="#">@item.Name</a></h4>
-                            <p>
-                                @item.Description
-                            </p>
-                        </div>
-                    </div>
-                }
+                @Html.Action("ContentCategory", "Category", new { area = "", id = ViewBag.Id })
             </div>
         </div>
         <div class="col-sm-2">

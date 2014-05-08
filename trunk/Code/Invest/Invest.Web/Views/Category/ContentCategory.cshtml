@@ -1,0 +1,37 @@
+﻿@model CategoryContentModel
+
+@foreach (var item in Model.Category)
+{
+    <div class="col-sm-6 col-xs-6">
+        <div class="thumbnail">
+            <div>
+                @{
+    var imgPath = item.Category_Picture != null ? item.Category_Picture.FirstOrDefault().UrlPath : "http://yhvn.vn/sites/default/files/image/no_image.jpg";
+                }
+                <img class="img-responsive" src="@imgPath" />
+            </div>
+            <h4><a href="#">@item.Name</a></h4>
+            <p>
+                @item.Description
+            </p>
+        </div>
+    </div>
+}
+
+@foreach (var item in Model.CategoryProductModel)
+{
+    <div class="col-sm-6 col-xs-6">
+        <div class="thumbnail">
+            <div>
+                @{
+    var imgPath = "http://yhvn.vn/sites/default/files/image/no_image.jpg";
+                }
+                <img class="img-responsive" src="@imgPath" />
+            </div>
+            <h4><a href="#">@item.NewsName</a></h4>
+            <p>
+
+            </p>
+        </div>
+    </div>
+}

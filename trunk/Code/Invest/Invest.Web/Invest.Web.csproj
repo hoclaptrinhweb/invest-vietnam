@@ -385,6 +385,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CategoryContentModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\NetAdvImageModels.cs" />
     <Compile Include="Models\StringExtensions.cs" />
@@ -392,6 +393,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\script.sql" />
     <Content Include="Content\2013.2.611\Black\editor.png" />
     <Content Include="Content\2013.2.611\Black\imagebrowser.png" />
     <Content Include="Content\2013.2.611\Black\loading.gif" />
@@ -1226,6 +1228,7 @@
     <Content Include="Views\Shared\EditorTemplates\RichEditor.cshtml" />
     <Content Include="Views\Home\HeadMenu.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\ContentCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Common\" />
