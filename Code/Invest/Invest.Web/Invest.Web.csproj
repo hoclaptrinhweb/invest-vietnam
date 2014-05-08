@@ -1120,6 +1120,10 @@
     <Content Include="Content\js\jquery.uniform.min.js" />
     <Content Include="Content\js\jquery.uploadify-3.1.min.js" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Uploads\Images\News\032551080514resons_1.jpg" />
+    <Content Include="Content\Uploads\Images\News\110913080514whyKorea1_img[2].jpg" />
+    <Content Include="Content\Uploads\Images\News\111001080514whyKorea2_img.jpg" />
+    <Content Include="Content\Uploads\Images\News\111044080514whyKorea3_img.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1233,7 +1237,6 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Common\" />
     <Folder Include="Content\Uploads\ImagesNews\" />
-    <Folder Include="Content\Uploads\Images\News\" />
     <Folder Include="Theme\" />
     <Folder Include="Views\Upload\" />
   </ItemGroup>
