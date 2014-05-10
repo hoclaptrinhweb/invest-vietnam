@@ -24,6 +24,19 @@ namespace Invest.Services
             return result;
         }
 
+        public IEnumerable<News> GetNewsByCategory(int CatId)
+        {
+            var invest = new InvestContext();
+         //   var result = from n in invest.News
+                         //join  m in invest.News_Category_Mapping on n.Id equals m.NewsId
+                         //join c in invest.Category on m.CategoryId equals c.Id
+                         //where m.CategoryId == CatId
+                         //select n;
+            var result = invest.News.Where(n=> invest.News_Category_Mapping.Any(m=>m.NewsId == n.Id)).ToList();
+
+            return result;
+        }
+
 
         public void Add(News news)
         {
@@ -53,5 +66,7 @@ namespace Invest.Services
             invest.News_Category_Mapping.Add(catMap);
             invest.SaveChanges();
         }
+
+
     }
 }
