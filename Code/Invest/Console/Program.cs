@@ -27,8 +27,8 @@ namespace ConsoleTest
 
         static void Test()
         {
-            var t = new CategoryServices();
-            t.GetProductCategoriesByCategoryId(1);
+            var t = new NewsServices();
+            var result = t.GetNewsByCategory(1).ToList();
         }
 
         static void TestAction()
