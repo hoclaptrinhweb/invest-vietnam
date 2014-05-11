@@ -8,7 +8,7 @@ namespace Invest.Web
 {
     public class CategoryContentModel : BaseEntity
     {
-        public IList<CategoryProductModel> CategoryProductModel { get; set; }
+        public IList<NewsCategoryViewModel> NewsCategoryViewModel { get; set; }
         public IList<CategoryModel> Category { get; set; }
     }
 }

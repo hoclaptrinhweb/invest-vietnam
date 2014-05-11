@@ -57,14 +57,13 @@ namespace Invest.Web.Controllers
             }).ToList();
 
             var newsServices = new NewsServices();
-            model.CategoryProductModel = csv.GetProductCategoriesByCategoryId(Id).Select(n =>
-                     new CategoryProductModel()
+            model.NewsCategoryViewModel = newsServices.GetNewsByCategory(Id).Select(n =>
+                     new NewsCategoryViewModel()
                      {
                          Id = n.Id,
-                         CategoryId = n.CategoryId,
-                         NewsId = n.NewsId,
-                         NewsName = newsServices.GetNewsByID(n.NewsId).Title,
-                         DisplayOrder1 = n.DisplayOrder
+                         Title = n.Title,
+                         Brief = n.Short,
+                         ImagePath = invest.Picture.Where(p => invest.News_Picture_Mapping.Any(m => m.PictureId == p.Id && m.NewsId == n.Id)).Select(p => p.PathUrl).FirstOrDefault()
                      }
                     ).ToList();
             return PartialView(model);
