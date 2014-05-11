@@ -20,6 +20,7 @@ namespace Invest.Web.Controllers
             var allCat = csv.GetAll();
             var CurrCat = allCat.Where(c => c.Id == Id).FirstOrDefault();
             var Parent = CheckParent(CurrCat, allCat);
+            ViewBag.MenuTitle = Parent.Name;
             var result = csv.GetAllByParent(Parent.Id, true, true);
             var data = result.Select(x =>
             {

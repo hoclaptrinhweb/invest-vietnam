@@ -6,11 +6,11 @@
         <div class="thumbnail">
             <div>
                 @{
-    var imgPath = item.Category_Picture != null ? item.Category_Picture.FirstOrDefault().UrlPath : "http://yhvn.vn/sites/default/files/image/no_image.jpg";
+                    var imgPath = item.Category_Picture != null ? item.Category_Picture.FirstOrDefault().UrlPath : "http://yhvn.vn/sites/default/files/image/no_image.jpg";
                 }
-                <img class="img-responsive" src="@imgPath" />
+                <a href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})"><img class="img-responsive" src="@imgPath" /></a>
             </div>
-            <h4><a href="#">@item.Name</a></h4>
+            <h4><a href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})">@item.Name</a></h4>
             <p>
                 @item.Description
             </p>

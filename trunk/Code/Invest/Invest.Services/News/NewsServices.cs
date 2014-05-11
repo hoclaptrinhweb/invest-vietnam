@@ -32,7 +32,7 @@ namespace Invest.Services
                          //join c in invest.Category on m.CategoryId equals c.Id
                          //where m.CategoryId == CatId
                          //select n;
-            var result = invest.News.Where(n=> invest.News_Category_Mapping.Any(m=>m.NewsId == n.Id)).ToList();
+            var result = invest.News.Where(n=> invest.News_Category_Mapping.Any(m=>m.NewsId == n.Id && m.CategoryId == CatId)).ToList();
 
             return result;
         }
