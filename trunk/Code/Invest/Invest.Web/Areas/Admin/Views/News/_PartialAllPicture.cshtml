@@ -21,7 +21,7 @@
                     @pic.DisplayOrder
                 </td>
                 <td class="center">
-                    <a class="btn btn-danger" id="deleteSupp_@pic.Id" name="@pic.Id"><i class="icon-trash icon-white"></i></a>
+                    <a class="btn btn-danger" id="deletePict_@pic.Id" name="@pic.Id"><i class="icon-trash icon-white"></i></a>
                 </td>
             </tr>
         }
@@ -32,18 +32,18 @@
     $(document).ready(function () {
 
 
-        $('a[id^="deleteSupp_"]').click(function (event) {
+        $('a[id^="deletePict_"]').click(function (event) {
             if (!confirm('Bạn có muốn xóa không ?'))
                 return;
             event.preventDefault();
             var span = $(this);
             var idArr = new Array();
             idArr[0] = $(this).attr('id').substring(11);
-            DeleteSupp(idArr);
+            deletePict(idArr);
         });
 
 
-        function DeleteSupp(idArray) {
+        function deletePict(idArray) {
 
             $.ajax({
                 type: "POST",
@@ -51,7 +51,7 @@
                 data: { ids: idArray },
                 success: function (data) {
                     if (data.success) {
-                        UpdateCategory();
+                        UpdatePicture();
                     } else {
                         popUp(true, data.message, false);
                     }

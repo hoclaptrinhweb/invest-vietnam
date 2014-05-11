@@ -18,19 +18,16 @@
     </div>
 }
 
-@foreach (var item in Model.CategoryProductModel)
+@foreach (var item in Model.NewsCategoryViewModel)
 {
     <div class="col-sm-6 col-xs-6">
         <div class="thumbnail">
             <div>
-                @{
-    var imgPath = "http://yhvn.vn/sites/default/files/image/no_image.jpg";
-                }
-                <img class="img-responsive" src="@imgPath" />
+                <img class="img-responsive" src="@item.ImagePath" />
             </div>
-            <h4><a href="#">@item.NewsName</a></h4>
+            <h4><a href="#">@item.Title</a></h4>
             <p>
-
+                @item.Brief
             </p>
         </div>
     </div>
