@@ -19,6 +19,7 @@ namespace Invest.Web.Controllers
             ViewBag.Id = Id;
             var allCat = csv.GetAll();
             var CurrCat = allCat.Where(c => c.Id == Id).FirstOrDefault();
+            ViewBag.CurrTitle = CurrCat.Name;
             var Parent = CheckParent(CurrCat, allCat);
             ViewBag.MenuTitle = Parent.Name;
             var result = csv.GetAllByParent(Parent.Id, true, true);
@@ -28,7 +29,27 @@ namespace Invest.Web.Controllers
                 a.Name = x.GetLocalized(n => n.Name, EngineContext.WorkingLanguage.Id, false, false);
                 return a;
             }).ToList();
+            var TreeMenu = new List<CategoryModel>();
+            GetCategoryByParent(CurrCat.ToModel(), TreeMenu);
+            ViewBag.TreeMenu = TreeMenu;
             return View(data);
+        }
+
+        public static CategoryModel GetCategoryByParent(CategoryModel curr, List<CategoryModel> TreeMenu)
+        {
+            var invest = new InvestContext();
+            var result = invest.Category.Where(c => c.Id == curr.ParentCategoryId).FirstOrDefault().ToModel();
+            if (result == null)
+            {
+                TreeMenu.Insert(0, curr);
+                return curr;
+            }
+            else
+            {
+                TreeMenu.Insert(0, curr);
+                return GetCategoryByParent(result, TreeMenu);
+            }
+
         }
 
 

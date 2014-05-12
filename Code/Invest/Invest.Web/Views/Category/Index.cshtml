@@ -20,11 +20,12 @@
             </div>
         </div>
         <div class="col-sm-7">
-            <h2>Parts and Materials</h2>
+            <h2>@ViewBag.CurrTitle</h2>
             <ol class="breadcrumb">
-                <li><a href="#">Why Vietnam</a></li>
-                <li><a href="#">8 Reasons to Choose Korea</a></li>
-                <li class="active">Data</li>
+                @foreach (var item in (List<CategoryModel>)ViewBag.TreeMenu)
+                {
+                    <li><a href="">@item.Name</a></li>
+                }
             </ol>
             <div class="row">
                 @Html.Action("ContentCategory", "Category", new { area = "", id = ViewBag.Id })
