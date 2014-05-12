@@ -7,6 +7,8 @@
     <link href="~/Content/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="~/Content/Default.css" rel="stylesheet" />
+    <link href="~/Content/flexslider.css" rel="stylesheet" />
+
 </head>
 <body>
 
@@ -273,6 +275,7 @@
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="~/Content/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
     <script src="~/Content/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script src="~/Content/js/jquery.flexslider.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#foo4').carouFredSel({
@@ -292,6 +295,12 @@
                     }
                 }
             });
+            $('.flexslider').flexslider({
+                animation: "slide",
+                start: function (slider) {
+                    $('body').removeClass('loading');
+                }
+            });
         });
     </script>
 
