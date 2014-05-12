@@ -922,6 +922,9 @@
     <Content Include="Content\editors\tinymce\utils\form_utils.js" />
     <Content Include="Content\editors\tinymce\utils\mctabs.js" />
     <Content Include="Content\editors\tinymce\utils\validate.js" />
+    <Content Include="Content\flexslider.css" />
+    <Content Include="Content\fonts\flexslider-icon.svg" />
+    <Content Include="Content\images\bg_play_pause.png" />
     <Content Include="Content\img\ajax-loaders\ajax-loader-1.gif" />
     <Content Include="Content\img\ajax-loaders\ajax-loader-2.gif" />
     <Content Include="Content\img\ajax-loaders\ajax-loader-3.gif" />
@@ -1111,6 +1114,7 @@
     <Content Include="Content\js\jquery.cookie.js" />
     <Content Include="Content\js\jquery.dataTables.min.js" />
     <Content Include="Content\js\jquery.elfinder.min.js" />
+    <Content Include="Content\js\jquery.flexslider.js" />
     <Content Include="Content\js\jquery.flot.min.js" />
     <Content Include="Content\js\jquery.flot.pie.min.js" />
     <Content Include="Content\js\jquery.flot.resize.min.js" />
@@ -1122,6 +1126,7 @@
     <Content Include="Content\js\jquery.raty.min.js" />
     <Content Include="Content\js\jquery.uniform.min.js" />
     <Content Include="Content\js\jquery.uploadify-3.1.min.js" />
+    <Content Include="Content\js\modernizr.js" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Uploads\Images\News\032551080514resons_1.jpg" />
     <Content Include="Content\Uploads\Images\News\110913080514whyKorea1_img[2].jpg" />
@@ -1193,6 +1198,9 @@
     <Content Include="Areas\Admin\Views\Category\_PartialProductMapping.cshtml" />
     <Content Include="Areas\Admin\Views\Category\_PartialAllPicture.cshtml" />
     <Content Include="App_Data\Invest.rar" />
+    <Content Include="Content\fonts\flexslider-icon.eot" />
+    <Content Include="Content\fonts\flexslider-icon.ttf" />
+    <Content Include="Content\fonts\flexslider-icon.woff" />
     <None Include="Properties\PublishProfiles\Invest.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
