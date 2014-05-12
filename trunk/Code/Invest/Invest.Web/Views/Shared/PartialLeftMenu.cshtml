@@ -1,0 +1,12 @@
+﻿@model List<CategoryModel>
+<div class="col-xs-12 padding_none">
+    <h2>@ViewBag.MenuTitle</h2>
+    <div class="nav">
+        <ul class="list-group">
+            @foreach (var item in Model)
+            {
+                <li class="list-group-item"><a href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})">@item.Name</a></li>
+            }
+        </ul>
+    </div>
+</div>

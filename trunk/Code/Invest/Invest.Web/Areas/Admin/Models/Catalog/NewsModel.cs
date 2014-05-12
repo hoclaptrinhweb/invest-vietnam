@@ -18,9 +18,11 @@ namespace Invest.Web
         }
 
         public int LanguageId { get; set; }
+        public int CategoryId { get; set; }
         public string LanguageName { get; set; }
         public string Title { get; set; }
         public string Short { get; set; }
+        [AllowHtml]
         public string Full { get; set; }
         public string Tags { get; set; }
         public bool Published { get; set; }

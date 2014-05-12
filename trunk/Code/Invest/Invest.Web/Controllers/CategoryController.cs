@@ -91,6 +91,26 @@ namespace Invest.Web.Controllers
             return PartialView(model);
         }
 
+        public ActionResult PartialLeftMenu(int Id)
+        {
+            var csv = new CategoryServices();
+            var invest = new InvestContext();
+            ViewBag.Id = Id;
+            var allCat = csv.GetAll();
+            var CurrCat = allCat.Where(c => c.Id == Id).FirstOrDefault();
+            ViewBag.CurrTitle = CurrCat.Name;
+            var Parent = CheckParent(CurrCat, allCat);
+            ViewBag.MenuTitle = Parent.Name;
+            var result = csv.GetAllByParent(Parent.Id, true, true);
+            var data = result.Select(x =>
+            {
+                var a = x.ToModel();
+                a.Name = x.GetLocalized(n => n.Name, EngineContext.WorkingLanguage.Id, false, false);
+                return a;
+            }).ToList();
+            return PartialView(data);
+        }
+
         public static Category CheckParent(Category Parent, IEnumerable<Category> allCat)
         {
             var result = allCat.Where(c => c.Id == Parent.ParentCategoryId).FirstOrDefault();

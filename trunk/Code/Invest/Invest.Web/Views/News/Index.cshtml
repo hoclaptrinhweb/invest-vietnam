@@ -1,24 +1,35 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model NewsModel
+@{
+    ViewBag.Title = "Index";
 }
-
-@model List<CategoryModel>
-
 <div class="container" id="container">
     <div class="row">
         <div class="col-sm-3">
-            @Html.Action("PartialLeftMenu", "Category", new { area = "", id = ViewBag.Id })
+            @Html.Action("PartialLeftMenu", "Category", new { area = "", id = Model.CategoryId })
         </div>
         <div class="col-sm-7">
-            <h2>@ViewBag.CurrTitle</h2>
+            <h2>@Model.Title</h2>
             <ol class="breadcrumb">
                 @foreach (var item in (List<CategoryModel>)ViewBag.TreeMenu)
                 {
                     <li><a href="">@item.Name</a></li>
                 }
+                <li class="active">@Model.Title</li>
             </ol>
             <div class="row">
-                @Html.Action("ContentCategory", "Category", new { area = "", id = ViewBag.Id })
+                <div class="col-sm-12 col-xs-12">
+                    <article class="article">
+                        <hr />
+                        <p>
+                            <span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM
+                        </p>
+                        <hr />
+                        <p class="lead">@Model.Short</p>
+                        <div>
+                            @Html.Raw(Model.Full)
+                        </div>
+                    </article>
+                </div>
             </div>
         </div>
         <div class="col-sm-2">
@@ -41,3 +52,4 @@
         </div>
     </div>
 </div>
+
