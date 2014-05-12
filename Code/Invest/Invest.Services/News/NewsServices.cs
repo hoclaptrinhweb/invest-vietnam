@@ -20,7 +20,10 @@ namespace Invest.Services
         public News GetNewsByID(int id)
         {
             var invest = new InvestContext();
-            var result = invest.News.Where(l => l.Id == id).FirstOrDefault();
+            var result = invest.News
+                                .Include("News_Category_Mapping")
+                                .Where(l => l.Id == id)
+                                .FirstOrDefault();
             return result;
         }
 
