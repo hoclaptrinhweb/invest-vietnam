@@ -52,14 +52,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <a class="brand" href="@Url.Action("", "Index", new { area = " admin" },null)">
+                <a class="brand" href="@Url.Content("~/Admin")">
                     <img alt="Charisma Logo" src="~/Content/img/logo20.png" />
                     <span>Invest</span>
                 </a>
                 <!-- theme selector starts -->
                 <div class="btn-group pull-right theme-container">
                     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="icon-tint"></i><span class="hidden-phone"> Theme</span>
+                        <i class="icon-tint"></i><span class="hidden-phone">@Resource("Admin.Theme")</span>
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" id="themes">
@@ -78,26 +78,26 @@
                 <!-- user dropdown starts -->
                 <div class="btn-group pull-right">
                     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="icon-user"></i><span class="hidden-phone"> @Resource("Admin")</span>
+                        <i class="icon-user"></i><span class="hidden-phone">@Resource("Admin")</span>
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">@Resource("Admin.Profile")</a></li>
                         <li class="divider"></li>
-                        <li><a href="@Url.Action("", "Login", new { area = "Admin" }, null) ">Logout</a></li>
+                        <li><a href="@Url.Action("", "Login", new { area = "Admin" }, null) ">@Resource("Admin.Logout")</a></li>
                     </ul>
                 </div>
                 <!-- user dropdown ends -->
                 <!-- theme selector starts -->
                 <div class="btn-group pull-right theme-container">
                     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="icon-th-list"></i><span class="hidden-phone"> Language</span>
+                        <i class="icon-th-list"></i><span class="hidden-phone">@Resource("Admin.Languages")</span>
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" id="language">
-                        <li><a data-value="en-US" href="@Url.Action("LanguageSelected", "Common", new { area = "admin", customerlanguage = 1 }, null)"><i class="icon-blank"></i> English</a></li>
-                        <li><a data-value="ja-JP" href="@Url.Action("LanguageSelected", "Common", new { area = "admin", customerlanguage = 2 }, null)"><i class="icon-blank"></i> Japan</a></li>
-                        <li><a data-value="ko-KR" href="@Url.Action("LanguageSelected", "Common", new { area = "admin", customerlanguage = 3 }, null)"><i class="icon-blank"></i> Korea</a></li>
+                        <li><a data-value="en-US" href="@Url.Action("LanguageSelected", "Common", new { area = "admin", customerlanguage = 1 }, null)"><i class="icon-blank"></i> @Resource("English")</a></li>
+                        <li><a data-value="ja-JP" href="@Url.Action("LanguageSelected", "Common", new { area = "admin", customerlanguage = 2 }, null)"><i class="icon-blank"></i> @Resource("Japan")</a></li>
+                        <li><a data-value="ko-KR" href="@Url.Action("LanguageSelected", "Common", new { area = "admin", customerlanguage = 3 }, null)"><i class="icon-blank"></i> @Resource("Korea")</a></li>
                     </ul>
                 </div>
                 <!-- theme selector ends -->
@@ -121,16 +121,16 @@
             <div class="span2 main-menu-span">
                 <div class="well nav-collapse sidebar-nav">
                     <ul class="nav nav-tabs nav-stacked main-menu">
-                        <li class="nav-header hidden-tablet">Main</li>
-                        <li><a class="ajax-link" href="@Url.Action("", "index", new { area = " admin" }, null)"><i class="icon-th"></i><span class="hidden-tablet">@Resource("Dashboard")</span></a></li>
-                        <li><a class="ajax-link" href="@Url.Action("", "category", new { area="Admin" },null)"><i class="icon-list-alt"></i><span class="hidden-tablet">@Resource("Category")</span></a></li>
-                        <li><a class="ajax-link" href="@Url.Action("", "news", new { area="Admin" },null)"><i class="icon-pencil"></i><span class="hidden-tablet">News</span></a></li>
-                        <li class="nav-header hidden-tablet">Configuration</li>
-                        <li><a class="ajax-link" href="@Url.Action("", "language", new { area="Admin" },null)"><i class="icon-globe"></i><span class="hidden-tablet">Language</span></a></li>
-                        <li><a class="ajax-link" href="@Url.Action("", "", new { area="Admin" },null)"><i class="icon-wrench"></i><span class="hidden-tablet">Setting</span></a></li>
-                        <li><a class="ajax-link" href="@Url.Action("", "", new { area="Admin" },null)"><i class="icon-exclamation-sign"></i><span class="hidden-tablet">Log</span></a></li>
+                        <li class="nav-header hidden-tablet">@Resource("Admin.Main")</li>
+                        <li><a class="ajax-link" href="@Url.Content("~/Admin/Index")"><i class="icon-th"></i><span class="hidden-tablet">@Resource("Admin.Dashboard")</span></a></li>
+                        <li><a class="ajax-link" href="@Url.Action("", "category", new { area="Admin" },null)"><i class="icon-list-alt"></i><span class="hidden-tablet">@Resource("Admin.Category")</span></a></li>
+                        <li><a class="ajax-link" href="@Url.Action("", "news", new { area="Admin" },null)"><i class="icon-pencil"></i><span class="hidden-tablet">@Resource("Admin.News")</span></a></li>
+                        <li class="nav-header hidden-tablet">@Resource("Admin.Configuration")</li>
+                        <li><a class="ajax-link" href="@Url.Action("", "language", new { area="Admin" },null)"><i class="icon-globe"></i><span class="hidden-tablet">@Resource("Admin.Languages")</span></a></li>
+                        <li><a class="ajax-link" href="@Url.Action("", "", new { area="Admin" },null)"><i class="icon-wrench"></i><span class="hidden-tablet">@Resource("Admin.Setting")</span></a></li>
+                        <li><a class="ajax-link" href="@Url.Action("", "", new { area="Admin" },null)"><i class="icon-exclamation-sign"></i><span class="hidden-tablet">@Resource("Admin.Log")</span></a></li>
                     </ul>
-                    <label id="for-is-ajax" class="hidden-tablet" for="is-ajax"><input id="is-ajax" type="checkbox"> Ajax on menu</label>
+                    <label id="for-is-ajax" class="hidden-tablet" for="is-ajax"><input id="is-ajax" type="checkbox">@Resource("Admin.AjaxMenu")</label>
                 </div><!--/.well -->
             </div><!--/span-->
             <!-- left menu ends -->

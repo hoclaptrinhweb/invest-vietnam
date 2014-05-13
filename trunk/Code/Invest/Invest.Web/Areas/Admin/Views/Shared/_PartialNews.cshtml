@@ -2,7 +2,7 @@
 @using PagedList.Mvc;
 <div class="span3 pull-left">
     <div class="btn-group">
-        <a class="btn btn-small" href="@Url.Action("Edit", "News", new { area = "Admin" }, null)"><i class="icon icon-color icon-add"></i>Create New</a>
+        <a class="btn btn-small" href="@Url.Action("Edit", "News", new { area = "Admin" }, null)"><i class="icon icon-color icon-add"></i>@Resource("Admin.CreateNew")</a>
     </div>
 </div>
 <div class="span3 pull-right">
@@ -25,7 +25,7 @@
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().CreatedDate)
         </th>
-        <th class="center">@Resource("Action")</th>
+        <th class="center">@Resource("Admin.Actions")</th>
     </tr>
 
     @foreach (var item in Model)
@@ -40,11 +40,11 @@
             <td class="center">
                 @if (item.Published)
                 {
-                    <span class="label label-success">Active</span>
+                    <span class="label label-success">@Resource("Admin.Active")</span>
                 }
                 else
                 {
-                    <span class="label">Inactive</span>
+                    <span class="label">@Resource("Admin.Inactive")</span>
                 }
             </td>
             <td>
@@ -58,8 +58,18 @@
     }
 
 </table>
-@Html.PagedListPager(Model, page => Url.Action("Index", new { qr = ViewBag.CurrentFilter, key = ViewBag.SearchKey, page }), new PagedListRenderOptions { LinkToFirstPageFormat = @Resource("First"), LinkToLastPageFormat = @Resource("End"), LinkToNextPageFormat = @Resource("Last"), LinkToPreviousPageFormat = @Resource("Next"), DisplayLinkToNextPage = PagedListDisplayMode.Always, DisplayLinkToPreviousPage = PagedListDisplayMode.Always, ContainerDivClasses = new string[] { "pagination", "pagination-centered" } })
-
+@Html.PagedListPager(Model, page => Url.Action("Index", new { qr = ViewBag.CurrentFilter, key = ViewBag.SearchKey, page }),
+            new PagedListRenderOptions
+            {
+                LinkToFirstPageFormat = @Resource("Admin.First"),
+                LinkToLastPageFormat = @Resource("Admin.End"),
+                LinkToNextPageFormat = @Resource("Admin.Last"),
+                LinkToPreviousPageFormat = @Resource("Admin.Next"),
+                DisplayLinkToNextPage = PagedListDisplayMode.Always,
+                DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+                ContainerDivClasses = new string[] { "pagination", "pagination-centered" }
+            }
+    )
 <script>
     function onLocaleResourceLanguageSelected(t) {
         window.location.href = "@Url.Action("", "News")" + "?languageid=" + t;

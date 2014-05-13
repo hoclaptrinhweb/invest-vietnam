@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DataLayer;
+using Invest.Core;
 using Invest.Services;
+using Invest.Web.Framework;
 
 namespace Invest.Web.Controllers
 {
@@ -21,28 +23,26 @@ namespace Invest.Web.Controllers
             result.CategoryId = data.News_Category_Mapping.FirstOrDefault().CategoryId;
 
             var CurrCat = csv.GetCategoryByID(result.CategoryId);
-            var TreeMenu = new List<CategoryModel>();
-            GetCategoryByParent(CurrCat.ToModel(), TreeMenu);
-            ViewBag.TreeMenu = TreeMenu;
+            ViewBag.TreeMenu = GetCategoryByParent(CurrCat, new List<Category>()); ;
 
             return View(result);
         }
 
-        public static CategoryModel GetCategoryByParent(CategoryModel curr, List<CategoryModel> TreeMenu)
+        public static List<Category> GetCategoryByParent(Category curr, List<Category> TreeMenu)
         {
             var invest = new InvestContext();
-            var result = invest.Category.Where(c => c.Id == curr.ParentCategoryId).FirstOrDefault().ToModel();
+            var result = invest.Category.Where(c => c.Id == curr.ParentCategoryId).FirstOrDefault();
+            curr.Name = curr.GetLocalized(n => n.Name, EngineContext.WorkingLanguage.Id, false, false);
             if (result == null)
             {
                 TreeMenu.Insert(0, curr);
-                return curr;
+                return TreeMenu;
             }
             else
             {
                 TreeMenu.Insert(0, curr);
                 return GetCategoryByParent(result, TreeMenu);
             }
-
         }
 
     }

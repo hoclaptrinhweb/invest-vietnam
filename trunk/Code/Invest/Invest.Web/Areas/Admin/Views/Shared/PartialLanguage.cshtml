@@ -2,15 +2,15 @@
 
 <div class="span3 pull-left">
     <div class="btn-group">
-        <a class="btn btn-small" href="@Url.Action("Create", "Language", new { area ="Admin"},null)"><i class="icon icon-color icon-add"></i>Create New</a>
+        <a class="btn btn-small" href="@Url.Action("Create", "Language", new { area ="Admin"},null)"><i class="icon icon-color icon-add"></i>@Resource("Admin.CreateNew")</a>
     </div>
 </div>
 <div class="span3 pull-right">
     <div class="btn-group pull-right">
-        <a class="btn btn-cancel" href="#">Actions</a>
+        <a class="btn btn-cancel" href="#">@Resource("Admin.Actions")</a>
         <a class="btn btn-cancel dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
         <ul class="dropdown-menu">
-            <li><a id="btnChangeStatusSupp"><i class="icon-pencil"></i>Đổi trạng thái</a></li>
+            <li><a id="btnChangeStatusSupp"><i class="icon-pencil"></i>@Resource("Admin.StatusChange")</a></li>
             <li class="divider"></li>
         </ul>
     </div>
@@ -28,7 +28,7 @@
             <th class="center">
                 @Html.DisplayNameFor(model => model.FirstOrDefault().DisplayOrder)
             </th>
-            <th class="center">Action</th>
+            <th class="center">@Resource("Admin.Actions")</th>
         </tr>
     </thead>
     <tbody>
@@ -62,7 +62,7 @@
         var checkboxSuppList = $("input[id^='selectSupp_']");
 
         $('a[id^="deleteSupp_"]').click(function (event) {
-            if (!confirm('Bạn có muốn xóa không ?'))
+            if (!confirm('@Resource("Admin.ConfirmDelete")'))
                 return;
             event.preventDefault();
             var span = $(this);
@@ -117,7 +117,7 @@
                 }
             });
             if (idArr.length == 0) {
-                popUp(true, "Bạn chưa chọn Nhà cung cấp nào!", false);
+                popUp(true, '@Resource("Admin.Not")', false);
                 return;
             }
             if (!confirm('Bạn muốn xóa những Nhà cung cấp được chọn ?'))

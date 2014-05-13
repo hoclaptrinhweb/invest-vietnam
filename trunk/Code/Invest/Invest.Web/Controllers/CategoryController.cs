@@ -18,10 +18,13 @@ namespace Invest.Web.Controllers
             var invest = new InvestContext();
             ViewBag.Id = Id;
             var allCat = csv.GetAll();
+
             var CurrCat = allCat.Where(c => c.Id == Id).FirstOrDefault();
-            ViewBag.CurrTitle = CurrCat.Name;
+            ViewBag.CurrTitle = CurrCat.GetLocalized(n => n.Name, EngineContext.WorkingLanguage.Id, false, false);
+            
             var Parent = CheckParent(CurrCat, allCat);
-            ViewBag.MenuTitle = Parent.Name;
+            ViewBag.MenuTitle = Parent.GetLocalized(n => n.Name, EngineContext.WorkingLanguage.Id, false, false);
+
             var result = csv.GetAllByParent(Parent.Id, true, true);
             var data = result.Select(x =>
             {
@@ -29,27 +32,27 @@ namespace Invest.Web.Controllers
                 a.Name = x.GetLocalized(n => n.Name, EngineContext.WorkingLanguage.Id, false, false);
                 return a;
             }).ToList();
-            var TreeMenu = new List<CategoryModel>();
-            GetCategoryByParent(CurrCat.ToModel(), TreeMenu);
-            ViewBag.TreeMenu = TreeMenu;
+
+            ViewBag.TreeMenu = GetCategoryByParent(CurrCat, new List<Category>()); ;
+            
             return View(data);
         }
 
-        public static CategoryModel GetCategoryByParent(CategoryModel curr, List<CategoryModel> TreeMenu)
+        public static List<Category> GetCategoryByParent(Category curr, List<Category> TreeMenu)
         {
             var invest = new InvestContext();
-            var result = invest.Category.Where(c => c.Id == curr.ParentCategoryId).FirstOrDefault().ToModel();
+            var result = invest.Category.Where(c => c.Id == curr.ParentCategoryId).FirstOrDefault();
+            curr.Name = curr.GetLocalized(n => n.Name, EngineContext.WorkingLanguage.Id, false, false);
             if (result == null)
             {
                 TreeMenu.Insert(0, curr);
-                return curr;
+                return TreeMenu;
             }
             else
             {
                 TreeMenu.Insert(0, curr);
                 return GetCategoryByParent(result, TreeMenu);
             }
-
         }
 
 
@@ -79,7 +82,7 @@ namespace Invest.Web.Controllers
             }).ToList();
 
             var newsServices = new NewsServices();
-            model.NewsCategoryViewModel = newsServices.GetNewsByCategory(Id).Select(n =>
+            model.NewsCategoryViewModel = newsServices.GetNewsByCategory(Id, EngineContext.WorkingLanguage.Id).Select(n =>
                      new NewsCategoryViewModel()
                      {
                          Id = n.Id,
@@ -97,10 +100,14 @@ namespace Invest.Web.Controllers
             var invest = new InvestContext();
             ViewBag.Id = Id;
             var allCat = csv.GetAll();
+
             var CurrCat = allCat.Where(c => c.Id == Id).FirstOrDefault();
-            ViewBag.CurrTitle = CurrCat.Name;
+            ViewBag.CurrTitle = CurrCat.GetLocalized(n => n.Name, EngineContext.WorkingLanguage.Id, false, false);
+
             var Parent = CheckParent(CurrCat, allCat);
-            ViewBag.MenuTitle = Parent.Name;
+            ViewBag.MenuTitle = Parent.GetLocalized(n => n.Name, EngineContext.WorkingLanguage.Id, false, false);
+
+
             var result = csv.GetAllByParent(Parent.Id, true, true);
             var data = result.Select(x =>
             {
