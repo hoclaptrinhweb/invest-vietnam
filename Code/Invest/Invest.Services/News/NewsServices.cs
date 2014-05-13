@@ -27,7 +27,7 @@ namespace Invest.Services
             return result;
         }
 
-        public IEnumerable<News> GetNewsByCategory(int CatId)
+        public IEnumerable<News> GetNewsByCategory(int CatId, int LangId)
         {
             var invest = new InvestContext();
          //   var result = from n in invest.News
@@ -35,8 +35,7 @@ namespace Invest.Services
                          //join c in invest.Category on m.CategoryId equals c.Id
                          //where m.CategoryId == CatId
                          //select n;
-            var result = invest.News.Where(n=> invest.News_Category_Mapping.Any(m=>m.NewsId == n.Id && m.CategoryId == CatId)).ToList();
-
+            var result = invest.News.Where(n=> invest.News_Category_Mapping.Any(m=>m.NewsId == n.Id && m.CategoryId == CatId) && n.LanguageId == LangId).ToList();
             return result;
         }
 

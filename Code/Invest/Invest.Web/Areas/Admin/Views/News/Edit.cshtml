@@ -1,9 +1,9 @@
 ﻿@model NewsModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = @Resource("Admin.Edit");
 }
-@Html.Partial("Breadcrumb", new Dictionary<string, string> { { @Resource("News"), "/Admin/News" }, { @Resource("Edit"), "#" } })
+@Html.Partial("Breadcrumb", new Dictionary<string, string> { { @Resource("Admin.News"), "/Admin/News" }, { @Resource("Admin.Edit"), "#" } })
 
 <link rel="stylesheet" type="text/css" href="http://xoxco.com/projects/code/tagsinput/jquery.tagsinput.css" />
 <script src="~/Content/editors/tinymce/tiny_mce.js"></script>
@@ -13,10 +13,10 @@
     <div class="box span12">
         <div class="box-header well">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#edit">Info</a></li>
-                <li><a href="#seo">SEO</a></li>
-                <li><a href="#Pictures">Pictures</a></li>
-                <li><a href="#Category">Category mappings</a></li>
+                <li class="active"><a href="#edit">@Resource("Admin.Info")</a></li>
+                <li><a href="#seo">@Resource("Admin.Seo")</a></li>
+                <li><a href="#Pictures">@Resource("Admin.Picture")</a></li>
+                <li><a href="#Category">@Resource("Admin.CatMap")</a></li>
             </ul>
         </div>
         <div class="box-content">
@@ -27,10 +27,8 @@
                     @Html.AntiForgeryToken()
                     @Html.HiddenFor(model => model.Id)
                     @Html.HiddenFor(model => model.CreatedDate)
-
                     <div class="tab-pane active" id="edit">
                         <fieldset>
-
                             @Html.ValidationSummary(true)
                             @Html.HiddenFor(model => model.Id)
                             <div class="control-group">
@@ -106,8 +104,8 @@
                             </div>
 
                             <div class="form-actions">
-                                <button id="btnSave" type="submit" class="btn btn-primary">@Resource("Save")</button>
-                                <a class="btn btn-cancel" href="@Url.Action("", "News", new { area = "Admin" },null)">@Resource("Exit")</a>
+                                <button id="btnSave" type="submit" class="btn btn-primary">@Resource("Admin.Save")</button>
+                                <a class="btn btn-cancel" href="@Url.Action("", "News", new { area = "Admin" },null)">@Resource("Admin.Exit")</a>
                             </div>
                         </fieldset>
                     </div>
@@ -137,7 +135,7 @@
                             @Html.Partial("_PartialAllPicture", Model.News_Picture)
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="Picture">Picture</label>
+                            <label class="control-label" for="Picture">@Resource("Admin.Picture")</label>
                             <div class="controls">
                                 <img class="imgsNews" src="" style="width:100px" />
                                 <input id="fileInput" name="fileInput" type="file">
@@ -146,34 +144,33 @@
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="Display order:">Display order:</label>
+                            <label class="control-label" for="Display order:">@Resource("Admin.DisplayOrder")</label>
                             <div class="controls">
                                 <input id="picOrder" name="DisplayOrder" type="number" value="1">
                             </div>
                         </div>
                         <div class="form-actions">
-                            <button id="addPicture" type="button" class="btn btn-primary">@Resource("Add News Picture")</button>
+                            <button id="addPicture" type="button" class="btn btn-primary">@Resource("Admin.AddNewsPicture")</button>
                         </div>
-
                     </div>
                     <div id="Category" class="tab-pane">
                         <div id="tb_cat">
                             @Html.Partial("_PartialCategoryMapping", Model.News_Category)
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="Display order:">Category Name:</label>
+                            <label class="control-label" for="Display order:">@Resource("Admin.CatName")</label>
                             <div class="controls">
                                 @Html.DropDownList("catID", new SelectList(Model.AvailableCategory, "Value", "Text"), new { @data_rel = "chosen" })
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="Display order:">Display order:</label>
+                            <label class="control-label" for="Display order:">@Resource("Admin.DisplayOrder")</label>
                             <div class="controls">
                                 <input id="catOrder" name="DisplayOrder" type="number" value="1">
                             </div>
                         </div>
                         <div class="form-actions">
-                            <button id="addCategory" type="button" class="btn btn-primary">@Resource("Add Category Mapping")</button>
+                            <button id="addCategory" type="button" class="btn btn-primary">@Resource("Admin.AddCatMap")</button>
                         </div>
                     </div>
                 </div>
@@ -230,12 +227,12 @@
             });
 
             $('#btnSave').click(function (event) {
-                showPopUpStatus("Đang cập nhật dữ liệu");
+                showPopUpStatus('@Resource("Admin.UpdateData")');
                 tinyMCE.triggerSave();
                 event.preventDefault();
                 $.post('@Url.Action("Edit", "News")', $('.form-horizontal').serialize(), function (data) {
                     if (data.success) {
-                        popUp(false, "Cập nhật thành công! Trở về trang trước", true, document.referrer);
+                        popUp(false, '@Resource("Admin.UpdateSuccess")', true, document.referrer);
                     } else {
                         popUp(true, data.message, false);
                     }
@@ -254,8 +251,6 @@
                     function (data) {
                         if (data.success) {
                             UpdatePicture();
-                        } else {
-                            alert("thất bại");
                         }
                     });
                 return false;
@@ -273,8 +268,6 @@
                     function (data) {
                         if (data.success) {
                             UpdateCategory();
-                        } else {
-                            alert("thất bại");
                         }
                     });
             });

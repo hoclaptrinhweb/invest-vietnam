@@ -5,13 +5,13 @@
     ViewBag.Title = "Index";
 }
 
-@Html.Partial("Breadcrumb", new Dictionary<string, string> { { "Category", Url.Action("", "Category", new { area = "Admin" }, null) } })
+@Html.Partial("Breadcrumb", new Dictionary<string, string> { { @Resource("Admin.Category"), Url.Action("", "Category", new { area = "Admin" }, null) } })
 
 
 <div class="row-fluid">
     <div class="box span12">
         <div class="box-header well">
-            <h2>Manage Categories</h2>
+            <h2>@Resource("Admin.ManaCategory")</h2>
         </div>
         <div class="box-content">
             @Html.Partial("_PartialCategory", Model)

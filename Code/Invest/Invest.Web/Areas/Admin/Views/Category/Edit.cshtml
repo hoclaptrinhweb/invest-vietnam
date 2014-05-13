@@ -1,9 +1,9 @@
 ﻿@model CategoryModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = @Resource("Admin.Edit");
 }
-@Html.Partial("Breadcrumb", new Dictionary<string, string> { { @Resource("Category"), "/Admin/Category" }, { @Resource("Edit"), "#" } })
+@Html.Partial("Breadcrumb", new Dictionary<string, string> { { @Resource("Admin.Category"), "/Admin/Category" }, { @Resource("Admin.Edit"), "#" } })
 
 <script src="~/Content/editors/tinymce/tiny_mce.js"></script>
 
@@ -11,10 +11,10 @@
     <div class="box span12">
         <div class="box-header well">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#edit">@Resource("Info")</a></li>
-                <li><a href="#seo">@Resource("SEO")</a></li>
-                <li><a href="#Picture">@Resource("Picture")</a></li>
-                <li><a href="#news">@Resource("ListNews")</a></li>
+                <li class="active"><a href="#edit">@Resource("Admin.Info")</a></li>
+                <li><a href="#seo">@Resource("Admin.Seo")</a></li>
+                <li><a href="#Picture">@Resource("Admin.Picture")</a></li>
+                <li><a href="#news">@Resource("Admin.ListNews")</a></li>
             </ul>
         </div>
         <div class="box-content">
@@ -33,10 +33,10 @@
                                 <div class="box-header well">
                                     <h2></h2>
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#0">Standard</a></li>
-                                        <li><a href="#1">English</a></li>
-                                        <li><a href="#2">Japan</a></li>
-                                        <li><a href="#3">Korea</a></li>
+                                        <li class="active"><a href="#0">@Resource("Admin.Standard")</a></li>
+                                        <li><a href="#1">@Resource("English")</a></li>
+                                        <li><a href="#2">@Resource("Japan")</a></li>
+                                        <li><a href="#3">@Resource("Korea")</a></li>
                                     </ul>
                                 </div>
                                 <div class="box-content">
@@ -66,8 +66,6 @@
                                         {
                                             <div class="tab-pane" id="@Model.Locales[i].LanguageId">
                                                 @Html.HiddenFor(model => model.Locales[i].LanguageId)
-
-
                                                 <div class="control-group">
                                                     @Html.LabelFor(model => model.Locales[i].Name, new { @class = "control-label" })
                                                     <div class="controls">
@@ -151,7 +149,7 @@
 
                             <div class="form-actions">
                                 <button id="btnSave" type="submit" class="btn btn-primary">@Resource("Save")</button>
-                                <a class="btn btn-cancel" href="@Url.Action("", "Category", new { area = "Admin" },null)">@Resource("Exit")</a>
+                                <a class="btn btn-cancel" href="@Url.Action("", "Category", new { area = "Admin" },null)">@Resource("Admin.Exit")</a>
                             </div>
                         </fieldset>
                     </div>
@@ -160,10 +158,10 @@
                             <div class="box-header well">
                                 <h2></h2>
                                 <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#seo_0" class="active">Standard</a></li>
-                                    <li><a href="#seo_1">English</a></li>
-                                    <li><a href="#seo_2">Japan</a></li>
-                                    <li><a href="#seo_3">Korea</a></li>
+                                    <li class="active"><a href="#seo_0" class="active">@Resource("Admin.Standard")</a></li>
+                                    <li><a href="#seo_1">@Resource("English")</a></li>
+                                    <li><a href="#seo_2">@Resource("Japan")</a></li>
+                                    <li><a href="#seo_3">@Resource("Korea")</a></li>
                                 </ul>
                             </div>
                             <div class="box-content">
@@ -226,24 +224,22 @@
                             @Html.Partial("_PartialAllPicture", Model.Category_Picture)
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="Picture">Picture</label>
+                            <label class="control-label" for="Picture">@Resource("Admin.Picture")</label>
                             <div class="controls">
                                 <img class="imgsNews" src="" style="width:100px" />
                                 <input id="fileInput" name="fileInput" type="file">
                                 <input class="UrlPath" name="UrlPath" type="hidden">
-
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="Display order:">Display order:</label>
+                            <label class="control-label" for="Display order:">@Resource("Admin.DisplayOrder")</label>
                             <div class="controls">
                                 <input id="picOrder" name="DisplayOrder" type="number" value="1">
                             </div>
                         </div>
                         <div class="form-actions">
-                            <button id="addPicture" type="button" class="btn btn-primary">@Resource("Add News Picture")</button>
+                            <button id="addPicture" type="button" class="btn btn-primary">@Resource("Admin.AddNewsPicture")</button>
                         </div>
-
                     </div>
                 </div>
             }
@@ -285,12 +281,12 @@
             $('[data-rel="chosen"],[rel="chosen"]').chosen();
 
             $('#btnSave').click(function (event) {
-                showPopUpStatus("Đang cập nhật dữ liệu");
+                showPopUpStatus('@Resource("Admin.UpdateData")');
                 tinyMCE.triggerSave();
                 event.preventDefault();
                 $.post('@Url.Action("Edit", "Category")', $('form').serialize(), function (data) {
                     if (data.success) {
-                        popUp(false, "Cập nhật thành công! Trở về trang trước", true, document.referrer);
+                        popUp(false, '@Resource("Admin.UpdateSuccess")', true, document.referrer);
                     } else {
                         popUp(true, data.message, false);
                     }
@@ -309,8 +305,6 @@
                     function (data) {
                         if (data.success) {
                             UpdatePicture();
-                        } else {
-                            alert("thất bại");
                         }
                     });
                 return false;

@@ -28,7 +28,7 @@ namespace ConsoleTest
         static void Test()
         {
             var t = new NewsServices();
-            var result = t.GetNewsByCategory(1).ToList();
+            var result = t.GetNewsByCategory(1,1).ToList();
         }
 
         static void TestAction()
