@@ -1,7 +1,6 @@
-﻿.container
-{
-    padding-left:0px;
-    padding-right:0px;
+﻿.container {
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .pull_right {
@@ -24,9 +23,9 @@ body {
     background-color: #464646;
     padding: 5px;
 }
-.list-inline li :hover
-{
-    color:white;
+
+.list-inline li :hover {
+    color: white;
 }
 
 .list-inline span {
@@ -62,4 +61,44 @@ footer .col-sm-3 {
 
 .admin :hover {
     color: white;
+}
+
+.navbar-default {
+    background: linear-gradient(to bottom, #eeeeee 0%, #dddddd 100%);
+    border-color: #e7e7e7;
+    border: 1px solid #aaa;
+}
+
+    .navbar-default .navbar-nav > li > a {
+        color: #333;
+        border-right: 1px solid #aaa;
+        border-left: 1px solid #fff;
+        text-shadow: 1px 1px #fff;
+        white-space: nowrap;
+        cursor: pointer;
+        font: normal 17px Arial, Helvetica, sans-serif;
+    }
+
+    .navbar-default .navbar-nav > li:first-child > a {
+        border-left: none;
+    }
+
+    .navbar-default .navbar-nav > li:last-child > a {
+        border-right: none;
+    }
+
+    .navbar-default .navbar-nav > li > a:hover {
+        color: #fff;
+        border-left-color: transparent;
+        background: #222;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#333333), color-stop(100%,#111111));
+        background: -webkit-linear-gradient(top, #333333 0%,#111111 100%);
+        background: linear-gradient(to bottom, #333333 0%, #111111 100%);
+        text-shadow: 1px 1px 0 #000;
+    }
+
+.breadcrumb > li + li:before {
+    content: "→";
+    padding: 0 5px;
+    color: black;
 }

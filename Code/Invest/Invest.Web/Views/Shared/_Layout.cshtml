@@ -139,6 +139,7 @@
             .list_carousel.responsive {
                 width: auto;
                 margin-left: 0;
+                position:relative;
             }
 
         .clearfix {
@@ -176,18 +177,41 @@
             height: 6px;
             width: 0px;
         }
+
+        #prev, #next {
+            display: block;
+            margin-top: -60px;
+            position: absolute;
+            z-index: 2;
+            font-size: 50px;
+            color: #CCCCCC;
+        }
+
+        #prev {
+            left: 0px;
+        }
+
+        #next {
+            right: 0px;
+        }
     </style>
-    <div class="list_carousel responsive">
-        <ul id="foo4">
-            <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/208/FullSizeImages/swire-pacific.png" /></li>
-            <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/229/FullSizeImages/vnt.png" /></li>
-            <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/258/FullSizeImages/katsura.png" /></li>
-            <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/222/FullSizeImages/lotte-sea.png" /></li>
-            <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/258/FullSizeImages/katsura.png" /></li>
-            <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/196/FullSizeImages/simone.png" /></li>
-            <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/207/FullSizeImages/puma.png" /></li>
-        </ul>
-        <div class="clearfix"></div>
+    <div class="container">
+        
+            <div class="list_carousel responsive">
+                <ul id="foo4">
+                    <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/208/FullSizeImages/swire-pacific.png" /></li>
+                    <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/229/FullSizeImages/vnt.png" /></li>
+                    <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/258/FullSizeImages/katsura.png" /></li>
+                    <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/222/FullSizeImages/lotte-sea.png" /></li>
+                    <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/258/FullSizeImages/katsura.png" /></li>
+                    <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/196/FullSizeImages/simone.png" /></li>
+                    <li><img class="img-responsive" src="http://www.longhau.com.vn/Data/Sites/1/media/News/82/207/FullSizeImages/puma.png" /></li>
+                </ul>
+                <a href="#" id="prev"><span class="glyphicon glyphicon glyphicon-chevron-left"></span></a>
+                <a href="#" id="next"><span class="glyphicon glyphicon glyphicon-chevron-right"></span></a>
+                <div class="clearfix"></div>
+            </div>
+     
     </div>
 
     <footer>
@@ -290,11 +314,16 @@
                 },
                 items: {
                     width: 200,
-                    //	height: '30%',	//	optionally resize item-height
                     visible: {
                         min: 2,
                         max: 6
                     }
+                },
+                prev: {
+                    button: '#next'
+                },
+                next: {
+                    button: '#prev'
                 }
             });
             $('.flexslider').flexslider({
