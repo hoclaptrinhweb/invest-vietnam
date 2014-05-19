@@ -1128,10 +1128,12 @@
     <Content Include="Content\js\jquery.uploadify-3.1.min.js" />
     <Content Include="Content\js\modernizr.js" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Uploads\Images\News\022515130514resons_1.jpg" />
     <Content Include="Content\Uploads\Images\News\032551080514resons_1.jpg" />
     <Content Include="Content\Uploads\Images\News\034329110514industry1.jpg" />
     <Content Include="Content\Uploads\Images\News\034413110514industry2.jpg" />
     <Content Include="Content\Uploads\Images\News\034449110514industry4.jpg" />
+    <Content Include="Content\Uploads\Images\News\034533120514SI_img[1].JPG" />
     <Content Include="Content\Uploads\Images\News\034606110514industry3.jpg" />
     <Content Include="Content\Uploads\Images\News\034741110514industry9.jpg" />
     <Content Include="Content\Uploads\Images\News\034846110514industry10.jpg" />
