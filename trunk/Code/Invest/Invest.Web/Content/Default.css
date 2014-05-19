@@ -102,11 +102,15 @@ footer .col-sm-3 {
         text-shadow: 1px 1px 0 #000;
     }
 
-.breadcrumb > li + li:before {
-    content: "→";
-    padding: 0 5px;
-    color: black;
+.breadcrumb {
+    background-color: #dddddd;
 }
+
+    .breadcrumb > li + li:before {
+        content: "→";
+        padding: 0 5px;
+        color: black;
+    }
 
 
 footer {
