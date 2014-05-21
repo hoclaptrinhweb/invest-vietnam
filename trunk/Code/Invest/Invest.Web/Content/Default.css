@@ -120,3 +120,7 @@ footer {
     padding: 15px 0;
     background: url('http://jobpixels.com/bootbusiness/img/header-footer.png');
 }
+
+#banner img {
+width: 656px;
+}
