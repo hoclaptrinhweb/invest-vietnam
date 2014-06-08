@@ -3,6 +3,7 @@
 }
 
 @model List<CategoryModel>
+<link href="~/Content/bootstrap-select.css" rel="stylesheet" />
 
 <div class="container" id="container">
     <div class="row">
@@ -17,6 +18,26 @@
                     <li><a href="">@item.Name</a></li>
                 }
             </ol>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <select id="bs3Select" class="selectpicker show-tick form-control" data-live-search="true">
+                                <option>cow fds</option>
+                                <option>bul fsdfl</option>
+                                <option class="get-class" disabled>ox</option>
+                                <optgroup label="test" data-subtext="another test" data-icon="icon-ok">
+                                    <option>ASD fsdfd</option>
+                                    <option selected>Bla</option>
+                                    <option>Ble fsdf</option>
+                                </optgroup>
+                            </select>
+
+                        </div><!-- /btn-group -->
+                        <input type="text" class="form-control">
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
             <div class="row">
                 @Html.Action("ContentCategory", "Category", new { area = "", id = ViewBag.Id })
             </div>
