@@ -35,6 +35,7 @@ namespace Invest.Web
         public int DisplayOrder { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
+        public int CategoryType { get; set; }
 
         public IList<CategoryProductModel> CategoryProductModel { get; set; }
         public IList<CategoryLocalizedModel> Locales { get; set; }

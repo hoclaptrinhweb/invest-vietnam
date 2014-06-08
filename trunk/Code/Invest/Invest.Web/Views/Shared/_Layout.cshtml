@@ -51,10 +51,14 @@
                     </div>
                     <div class="col-sm-6">
                         <form class="navbar-form navbar-right" role="search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="@Resource("Search")">
-                            </div>
-                            <button type="submit" class="btn btn-default">@Resource("Search")</button>
+                           <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
                         </form>
                     </div>
                 </div>
@@ -96,7 +100,6 @@
         @RenderBody()
 
         <style>
-
             .list_carousel ul {
                 margin: 0;
                 padding: 0;
@@ -210,6 +213,7 @@
     <script src="~/Content/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
     <script src="~/Content/js/jquery.carouFredSel-6.2.1-packed.js"></script>
     <script src="~/Content/js/jquery.flexslider.js"></script>
+    <script src="~/Scripts/bootstrap-select.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#foo4').carouFredSel({
@@ -241,6 +245,13 @@
                 }
             });
 
+        });
+
+        $(window).on('load', function () {
+
+            $('.selectpicker').selectpicker({
+                'selectedText': 'cat'
+            });
         });
     </script>
 

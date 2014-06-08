@@ -132,6 +132,14 @@
                             </div>
 
                             <div class="control-group">
+                                @Html.LabelFor(model => model.CategoryType, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.EditorFor(model => model.CategoryType, new { @class = "span4 typeahead" })
+                                    @Html.ValidationMessageFor(model => model.CategoryType)
+                                </div>
+                            </div>
+
+                            <div class="control-group">
                                 @Html.LabelFor(model => model.CreatedDate, new { @class = "control-label" })
                                 <div class="controls">
                                     @Html.EditorFor(model => model.CreatedDate, new { @class = "span4 typeahead" })

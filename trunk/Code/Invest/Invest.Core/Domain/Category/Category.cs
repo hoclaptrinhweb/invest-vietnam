@@ -20,6 +20,7 @@ namespace Invest.Core
             DisplayOrder = 0;
             CreatedDate = DateTime.Now;
             UpdatedDate = DateTime.Now;
+            this.CategoryType = 1;
             this.News_Category_Mapping = new HashSet<News_Category_Mapping>();
 
         }
@@ -28,6 +29,7 @@ namespace Invest.Core
         public string MetaKeywords { get; set; }
         public string MetaDescription { get; set; }
         public string MetaTitle { get; set; }
+        public int CategoryType { get; set; }
         public int ParentCategoryId { get; set; }
         public int PictureId { get; set; }
         public int PageSize { get; set; }
