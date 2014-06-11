@@ -1,7 +1,17 @@
 ﻿@model NewsModel
-@{
-    ViewBag.Title = "Index";
+
+@section META_INC
+    {
+    <title>@ViewBag.Title | Invest-Vietnam.vn</title>
+    <meta name="keywords" content="@ViewBag.Keyword" />
+    <meta name="description" content="@ViewBag.Description" />
+    <meta property="og:url" itemprop="url" content="@Request.Url.AbsoluteUri" />
+    <meta property="og:title" content="@ViewBag.Title">
+    <meta property="og:description" itemprop="description" content="@ViewBag.Description" />
+    <meta property="og:image" content="@ViewBag.Image" />
+    <meta itemprop="image" content="@ViewBag.Image" />
 }
+
 <div class="container" id="container">
     <div class="row">
         <div class="col-sm-3">
@@ -19,11 +29,9 @@
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
                     <article class="article">
-                        <hr />
                         <p>
                             <span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM
                         </p>
-                        <hr />
                         <p class="lead">@Model.Short</p>
                         <div>
                             @Html.Raw(Model.Full)

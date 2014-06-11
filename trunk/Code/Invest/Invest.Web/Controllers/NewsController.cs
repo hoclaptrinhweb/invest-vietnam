@@ -24,7 +24,10 @@ namespace Invest.Web.Controllers
 
             var CurrCat = csv.GetCategoryByID(result.CategoryId);
             ViewBag.TreeMenu = GetCategoryByParent(CurrCat, new List<Category>()); ;
-
+            //Check Seo
+            ViewBag.Title = result.MetaTitle;
+            ViewBag.Description = result.MetaDescription;
+            ViewBag.Keyword = result.MetaKeywords;
             return View(result);
         }
 
