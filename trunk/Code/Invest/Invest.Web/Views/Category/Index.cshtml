@@ -28,7 +28,7 @@
                     <li><a href="">@item.Name</a></li>
                 }
             </ol>
-            <div class="row">
+            @*<div class="row">
                 <div class="col-sm-12">
                     <div class="input-group">
                         <div class="input-group-btn ">
@@ -42,12 +42,11 @@
                                     <option>Ble fsdf</option>
                                 </optgroup>
                             </select>
-
                         </div><!-- /btn-group -->
                         <input type="text" class="form-control">
                     </div><!-- /input-group -->
                 </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
+            </div>*@
             <div class="row">
                 @Html.Action("ContentCategory", "Category", new { area = "", id = ViewBag.Id })
             </div>
