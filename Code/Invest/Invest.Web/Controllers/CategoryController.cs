@@ -23,8 +23,8 @@ namespace Invest.Web.Controllers
             ViewBag.CurrTitle = CurrCat.GetLocalized(n => n.Name, EngineContext.WorkingLanguage.Id, false, false);
             
             //Check Seo
-            ViewBag.Title = ViewBag.CurrTitle;
-            ViewBag.Description = CurrCat.GetLocalized(n => n.Description, EngineContext.WorkingLanguage.Id, false, false);
+            ViewBag.Title = CurrCat.GetLocalized(n => n.MetaTitle, EngineContext.WorkingLanguage.Id, false, false);
+            ViewBag.Description = CurrCat.GetLocalized(n => n.MetaDescription, EngineContext.WorkingLanguage.Id, false, false);
             ViewBag.Keyword = CurrCat.GetLocalized(n => n.MetaKeywords, EngineContext.WorkingLanguage.Id, false, false);
 
             var Parent = CheckParent(CurrCat, allCat);
