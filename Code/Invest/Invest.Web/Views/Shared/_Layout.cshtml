@@ -2,8 +2,27 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>@ViewBag.Title - Invest-VietNam</title>
+    @if (IsSectionDefined("META_INC"))
+    {
+        @RenderSection("META_INC")
+    }
+    <meta name="bitly-verification" content="811bf9d76554" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="INDEX,FOLLOW" name="robots" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="copyright" content="Công ty Cổ phần" />
+    <meta name="author" content="Công ty Cổ phần" />
+    <meta http-equiv="audience" content="General" />
+    <meta name="resource-type" content="Document" />
+    <meta name="distribution" content="Global" />
+    <meta name="revisit-after" content="1 days" />
+    <meta name="GENERATOR" content="Công ty Cổ phần" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta property="og:site_name" content="invest-vietnam.vn" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="fb:app_id" content="505429329544659" />
     <link href="~/Content/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-3.1.1-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="~/Content/Default.css" rel="stylesheet" />
@@ -51,14 +70,14 @@
                     </div>
                     <div class="col-sm-6">
                         <form class="navbar-form navbar-right" role="search">
-                           <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
                         </form>
                     </div>
                 </div>
