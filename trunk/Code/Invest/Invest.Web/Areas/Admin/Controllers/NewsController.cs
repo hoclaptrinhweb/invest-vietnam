@@ -171,7 +171,22 @@ namespace Invest.Web.Areas.Admin.Controllers
             }
         }
 
-
+        [HttpPost]
+        public ActionResult Delete(List<int> ids = null)
+        {
+            try
+            {
+                if (ids == null)
+                    throw new Exception("Bạn chưa chọn Ngôn ngữ!");
+                var newsvc = new NewsServices();
+                newsvc.Delete(ids.First());
+                return jsonResult();
+            }
+            catch (Exception ex)
+            {
+                return jsonResult(false, ex.Message);
+            }
+        }
         public ActionResult AddPicture(int NewsID, string UrlPath, int DisplayOrder)
         {
             var newsServices = new NewsServices();

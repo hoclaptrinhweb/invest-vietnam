@@ -169,9 +169,7 @@
                 data: { ids: idArray },
                 success: function (data) {
                     if (data.success) {
-
-                        popUp(false, "Cập nhật thành công!", false);
-
+                        popUp(false, '@Resource("Admin.ConfirmSuccess")', false);
                         setTimeout(function () {
                             location.reload();
                         }, 1500);
