@@ -69,6 +69,19 @@ namespace Invest.Services
             invest.SaveChanges();
         }
 
+        public void Delete(int id)
+        {
+            var invest = new InvestContext();
+            var dbEnty = invest.News.FirstOrDefault(l => l.Id == id);
+            if (dbEnty == null)
+                throw new Exception("Bài viết này hiện tại không tồn tại trong hệ thống");
+            else
+            {
+                invest.News.Remove(dbEnty);
+                invest.SaveChanges();
+            }
+        }
+
 
     }
 }

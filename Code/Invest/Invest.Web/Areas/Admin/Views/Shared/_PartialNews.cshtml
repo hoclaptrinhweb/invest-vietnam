@@ -52,7 +52,7 @@
             </td>
             <td class="center">
                 <a class="btn btn-info" href="@Url.Action("Edit", "News", new { id = item.Id })"><i class="icon-edit icon-white"></i></a>
-                <a class="btn btn-danger" id="deleteSupp_@item.Id"><i class="icon-trash icon-white"></i></a>
+                <a class="btn btn-danger delete" id="delete@(item.Id)"><i class="icon-trash icon-white"></i></a>
             </td>
         </tr>
     }
@@ -74,4 +74,40 @@
     function onLocaleResourceLanguageSelected(t) {
         window.location.href = "@Url.Action("", "News")" + "?languageid=" + t;
     }
+
+    $(document).ready(function () {
+
+        var checkboxSuppList = $("input[id^='selectSupp_']");
+
+        $('a[id^="delete"]').click(function (event) {
+            if (!confirm('@Resource("Admin.ConfirmDelete")'))
+                return;
+            event.preventDefault();
+            var span = $(this);
+            var idArr = new Array();
+            idArr[0] = $(this).attr('id').substring(6);
+            DeleteNews(idArr);
+        });
+
+        function DeleteNews(idArray) {
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("Delete")',
+                data: { ids: idArray },
+                success: function (data) {
+                    if (data.success) {
+                        popUp(false, '@Resource("Admin.ConfirmSuccess")', false);
+                        setTimeout(function () {
+                            location.reload();
+                        }, 1500);
+                    } else {
+                        popUp(true, data.message, false);
+                    }
+                },
+                dataType: 'JSON',
+                traditional: true
+            });
+        }
+    });
 </script>
