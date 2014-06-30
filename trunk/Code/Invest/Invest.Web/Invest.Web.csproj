@@ -925,6 +925,7 @@
     <Content Include="Content\flexslider.css" />
     <Content Include="Content\fonts\flexslider-icon.svg" />
     <Content Include="Content\images\bg_play_pause.png" />
+    <Content Include="Content\images\escheresque_ste.png" />
     <Content Include="Content\img\ajax-loaders\ajax-loader-1.gif" />
     <Content Include="Content\img\ajax-loaders\ajax-loader-2.gif" />
     <Content Include="Content\img\ajax-loaders\ajax-loader-3.gif" />

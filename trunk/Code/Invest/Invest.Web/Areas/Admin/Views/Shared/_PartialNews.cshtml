@@ -95,9 +95,9 @@
                 type: "POST",
                 url: '@Url.Action("Delete")',
                 data: { ids: idArray },
+                beforeSend : popUp(false, '@Resource("Admin.ConfirmSuccess")', false),
                 success: function (data) {
                     if (data.success) {
-                        popUp(false, '@Resource("Admin.ConfirmSuccess")', false);
                         setTimeout(function () {
                             location.reload();
                         }, 1500);

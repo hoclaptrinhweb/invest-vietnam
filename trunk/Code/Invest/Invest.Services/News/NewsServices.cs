@@ -39,6 +39,13 @@ namespace Invest.Services
             return result;
         }
 
+        public IEnumerable<News> GetNewsByCategory(int CatId, int LangId, bool isPublish)
+        {
+            var invest = new InvestContext();
+            var result = invest.News.Where(n => invest.News_Category_Mapping.Any(m => m.NewsId == n.Id && m.CategoryId == CatId) && n.LanguageId == LangId && n.Published == isPublish).ToList();
+            return result;
+        }
+
 
         public void Add(News news)
         {

@@ -87,7 +87,7 @@ namespace Invest.Web.Controllers
             }).ToList();
 
             var newsServices = new NewsServices();
-            model.NewsCategoryViewModel = newsServices.GetNewsByCategory(Id, EngineContext.WorkingLanguage.Id).Select(n =>
+            model.NewsCategoryViewModel = newsServices.GetNewsByCategory(Id, EngineContext.WorkingLanguage.Id,true).Select(n =>
                      new NewsCategoryViewModel()
                      {
                          Id = n.Id,
@@ -113,7 +113,7 @@ namespace Invest.Web.Controllers
             ViewBag.MenuTitle = Parent.GetLocalized(n => n.Name, EngineContext.WorkingLanguage.Id, false, false);
 
 
-            var result = csv.GetAllByParent(Parent.Id, true, true);
+            var result = csv.GetAllByParent(Parent.Id,true);
             var data = result.Select(x =>
             {
                 var a = x.ToModel();

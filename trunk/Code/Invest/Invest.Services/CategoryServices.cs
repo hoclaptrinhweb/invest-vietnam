@@ -17,6 +17,12 @@ namespace Invest.Services
             return result;
         }
 
+        public IEnumerable<Category> GetAllByParent(int ParentId, bool IsPublished)
+        {
+            var invest = new InvestContext();
+            var result = invest.Category.Where(c => c.ParentCategoryId == ParentId && c.Published == IsPublished).OrderBy(c => c.DisplayOrder).ThenBy(c => c.Name).ToList();
+            return result;
+        }
         public IEnumerable<Category> GetAllByParent(int ParentId, bool IncludeInTopMenu, bool IsHidden = true)
         {
             var invest = new InvestContext();

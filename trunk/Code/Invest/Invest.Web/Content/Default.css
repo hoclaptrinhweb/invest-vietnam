@@ -118,9 +118,14 @@ footer {
     padding-top: 20px;
     border: none;
     padding: 15px 0;
-    background: url('http://jobpixels.com/bootbusiness/img/header-footer.png');
+    background: url(images/escheresque_ste.png);
 }
 
 #banner img {
 width: 656px;
+}
+
+.divcenter img {
+max-height: 145px;
+max-width:
 }
