@@ -72,6 +72,7 @@ namespace Invest.Web.Areas.Admin.Controllers
                 {
                     CategoryName = c.Category.Name,
                     DisplayOrder = c.DisplayOrder,
+                    CategoryID = c.CategoryId,
                     Id = c.Id
                 }).OrderBy(n => n.DisplayOrder).ToList();
 

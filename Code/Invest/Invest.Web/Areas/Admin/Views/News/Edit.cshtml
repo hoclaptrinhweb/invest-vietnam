@@ -130,48 +130,62 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="Pictures">
-                        <p>You need to save the news before you can upload pictures for this news page.</p>
-                        <div id="tb_pic">
-                            @Html.Partial("_PartialAllPicture", Model.News_Picture)
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="Picture">@Resource("Admin.Picture")</label>
-                            <div class="controls">
-                                <img class="imgsNews" src="" style="width:100px" />
-                                <input id="fileInput" name="fileInput" type="file">
-                                <input class="UrlPath" name="UrlPath" type="hidden">
+                        @if (Model.Id == 0)
+                        {
+                            <p>You need to save the news before you can upload pictures for this news page.</p>
+                        }
+                        else
+                        {
+                            <div id="tb_pic">
+                                @Html.Partial("_PartialAllPicture", Model.News_Picture)
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="Picture">@Resource("Admin.Picture")</label>
+                                <div class="controls">
+                                    <img class="imgsNews" src="" style="width:100px" />
+                                    <input id="fileInput" name="fileInput" type="file">
+                                    <input class="UrlPath" name="UrlPath" type="hidden">
 
+                                </div>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="Display order:">@Resource("Admin.DisplayOrder")</label>
-                            <div class="controls">
-                                <input id="picOrder" name="DisplayOrder" type="number" value="1">
+                            <div class="control-group">
+                                <label class="control-label" for="Display order:">@Resource("Admin.DisplayOrder")</label>
+                                <div class="controls">
+                                    <input id="picOrder" name="DisplayOrder" type="number" value="1">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-actions">
-                            <button id="addPicture" type="button" class="btn btn-primary">@Resource("Admin.AddNewsPicture")</button>
-                        </div>
+                            <div class="form-actions">
+                                <button id="addPicture" type="button" class="btn btn-primary">@Resource("Admin.AddNewsPicture")</button>
+                            </div>
+                        }
+
                     </div>
                     <div id="Category" class="tab-pane">
-                        <div id="tb_cat">
-                            @Html.Partial("_PartialCategoryMapping", Model.News_Category)
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="Display order:">@Resource("Admin.CatName")</label>
-                            <div class="controls">
-                                @Html.DropDownList("catID", new SelectList(Model.AvailableCategory, "Value", "Text"), new { @data_rel = "chosen" })
+                        @if (Model.Id == 0)
+                        {
+                            <p>You need to save the news before you add category.</p>
+                        }
+                        else
+                        {
+                            <div id="tb_cat">
+                                @Html.Partial("_PartialCategoryMapping", Model.News_Category)
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="Display order:">@Resource("Admin.DisplayOrder")</label>
-                            <div class="controls">
-                                <input id="catOrder" name="DisplayOrder" type="number" value="1">
+                            <div class="control-group">
+                                <label class="control-label" for="Display order:">@Resource("Admin.CatName")</label>
+                                <div class="controls">
+                                    @Html.DropDownList("catID", new SelectList(Model.AvailableCategory, "Value", "Text"), new { @data_rel = "chosen" })
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-actions">
-                            <button id="addCategory" type="button" class="btn btn-primary">@Resource("Admin.AddCatMap")</button>
-                        </div>
+                            <div class="control-group">
+                                <label class="control-label" for="Display order:">@Resource("Admin.DisplayOrder")</label>
+                                <div class="controls">
+                                    <input id="catOrder" name="DisplayOrder" type="number" value="1">
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button id="addCategory" type="button" class="btn btn-primary">@Resource("Admin.AddCatMap")</button>
+                            </div>
+                        }
                     </div>
                 </div>
             }

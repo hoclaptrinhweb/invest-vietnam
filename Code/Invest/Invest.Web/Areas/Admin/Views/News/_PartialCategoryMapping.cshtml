@@ -15,6 +15,7 @@
         {
             <tr>
                 <td>
+                    <a href="@Url.Action("Edit", "Category", new { id = cat.CategoryID })"></a>
                     @cat.CategoryName
                 </td>
                 <td class="center">
@@ -49,6 +50,7 @@
                 type: "POST",
                 url: '@Url.Action("DeleteCategory")',
                 data: { ids: idArray },
+                beforeSend: popUp(false, '@Resource("Admin.ConfirmSuccess")', false),
                 success: function (data) {
                     if (data.success) {
                         UpdateCategory();

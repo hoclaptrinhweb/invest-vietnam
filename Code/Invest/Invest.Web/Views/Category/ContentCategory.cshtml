@@ -1,36 +1,39 @@
 ﻿@model CategoryContentModel
+<div class="divcenter">
 
-@foreach (var item in Model.Category)
-{
-    <div class="col-sm-6 col-xs-6">
-        <div class="thumbnail">
-            <div>
-                @{
-    var imgPath = item.Category_Picture != null ? item.Category_Picture.FirstOrDefault().UrlPath : "http://yhvn.vn/sites/default/files/image/no_image.jpg";
-                }
-                <a href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})"><img class="img-responsive" src="@imgPath" /></a>
+    @foreach (var item in Model.Category)
+    {
+        <div class="col-sm-6 col-xs-6">
+            <div class="thumbnail">
+                <div>
+                    @{
+        var imgPath = item.Category_Picture != null ? item.Category_Picture.FirstOrDefault().UrlPath : "http://yhvn.vn/sites/default/files/image/no_image.jpg";
+                    }
+                    <a href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})"><img class="img-responsive" src="@imgPath" /></a>
+                </div>
+                <h4><a href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})">@item.Name</a></h4>
+                <p>
+                    @item.Description
+                </p>
             </div>
-            <h4><a href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})">@item.Name</a></h4>
-            <p>
-                @item.Description
-            </p>
         </div>
-    </div>
-}
+    }
 
-@foreach (var item in Model.NewsCategoryViewModel)
-{
-    <div class="col-sm-6 col-xs-6">
-        <div class="thumbnail">
-            <div>
-                <a href="@Url.Action("Index","News",new { Name = item.Title.ConvertToUnSign(), Id = item.Id})">
-                    <img class="img-responsive" src="@item.ImagePath" />
-                </a>
+    @foreach (var item in Model.NewsCategoryViewModel)
+    {
+        <div class="col-sm-6 col-xs-6">
+            <div class="thumbnail">
+                <div>
+                    <a href="@Url.Action("Index","News",new { Name = item.Title.ConvertToUnSign(), Id = item.Id})">
+                        <img class="img-responsive" src="@item.ImagePath" />
+                    </a>
+                </div>
+                <h4><a href="@Url.Action("Index","News",new { Name = item.Title.ConvertToUnSign(), Id = item.Id})">@item.Title</a></h4>
+                <p>
+                    @item.Brief
+                </p>
             </div>
-            <h4><a href="@Url.Action("Index","News",new { Name = item.Title.ConvertToUnSign(), Id = item.Id})">@item.Title</a></h4>
-            <p>
-                @item.Brief
-            </p>
         </div>
-    </div>
-}
+    }
+
+</div>

@@ -224,30 +224,43 @@
 
                     </div>
                     <div class="tab-pane" id="news">
-                        <div> @Html.Partial("_PartialProductMapping", Model.CategoryProductModel)</div>
+                        @if (Model.Id == 0)
+                        {
+                            <p>You need to save the Category before you can add news for this news page.</p>
+                        }
+                        else
+                        {
+                            <div> @Html.Partial("_PartialProductMapping", Model.CategoryProductModel)</div>
+                        }
                     </div>
                     <div class="tab-pane" id="Picture">
-                        <p>You need to save the news before you can upload pictures for this news page.</p>
-                        <div id="tb_pic">
-                            @Html.Partial("_PartialAllPicture", Model.Category_Picture)
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="Picture">@Resource("Admin.Picture")</label>
-                            <div class="controls">
-                                <img class="imgsNews" src="" style="width:100px" />
-                                <input id="fileInput" name="fileInput" type="file">
-                                <input class="UrlPath" name="UrlPath" type="hidden">
+                        @if (Model.Id == 0)
+                        {
+                            <p>You need to save the Category before you can upload pictures for this news page.</p>
+                        }
+                        else
+                        {
+                            <div id="tb_pic">
+                                @Html.Partial("_PartialAllPicture", Model.Category_Picture)
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="Display order:">@Resource("Admin.DisplayOrder")</label>
-                            <div class="controls">
-                                <input id="picOrder" name="DisplayOrder" type="number" value="1">
+                            <div class="control-group">
+                                <label class="control-label" for="Picture">@Resource("Admin.Picture")</label>
+                                <div class="controls">
+                                    <img class="imgsNews" src="" style="width:100px" />
+                                    <input id="fileInput" name="fileInput" type="file">
+                                    <input class="UrlPath" name="UrlPath" type="hidden">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-actions">
-                            <button id="addPicture" type="button" class="btn btn-primary">@Resource("Admin.AddNewsPicture")</button>
-                        </div>
+                            <div class="control-group">
+                                <label class="control-label" for="Display order:">@Resource("Admin.DisplayOrder")</label>
+                                <div class="controls">
+                                    <input id="picOrder" name="DisplayOrder" type="number" value="1">
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button id="addPicture" type="button" class="btn btn-primary">@Resource("Admin.AddNewsPicture")</button>
+                            </div>
+                        }
                     </div>
                 </div>
             }

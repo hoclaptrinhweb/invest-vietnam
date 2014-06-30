@@ -15,7 +15,7 @@
         {
             <tr>
                 <td>
-                    @news.NewsName
+                    <a href="@Url.Action("Edit", "News", new { id = @news.NewsId })">@news.NewsName</a>
                 </td>
                 <td class="center">
                     @news.DisplayOrder1
