@@ -21,4 +21,11 @@
 
 
 @section ScriptCustom {
+    <!-- select or dropdown enhancer -->
+    <script src="~/Content/js/jquery.chosen.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('[data-rel="chosen"],[rel="chosen"]').chosen();
+        });
+    </script>
 }
