@@ -114,6 +114,13 @@
                                 </div>
                             </div>
                             <div class="control-group">
+                                @Html.LabelFor(model => model.CategoryType, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.DropDownListFor(model => model.CategoryType, new SelectList(ViewBag.AllCategoryType, "Value", "Text"), new { @data_rel = "chosen" })
+                                    @Html.ValidationMessageFor(model => model.CategoryType)
+                                </div>
+                            </div>
+                            <div class="control-group">
                                 @Html.LabelFor(model => model.DisplayOrder, new { @class = "control-label" })
                                 <div class="controls">
                                     @Html.EditorFor(model => model.DisplayOrder, new { @class = "span4 typeahead" })
@@ -127,14 +134,6 @@
                                     @Html.ValidationMessageFor(model => model.IncludeInTopMenu)
                                 </div>
                             </div>
-                            <div class="control-group">
-                                @Html.LabelFor(model => model.CategoryType, new { @class = "control-label" })
-                                <div class="controls">
-                                    @Html.EditorFor(model => model.CategoryType, new { @class = "span4 typeahead" })
-                                    @Html.ValidationMessageFor(model => model.CategoryType)
-                                </div>
-                            </div>
-
                             <div class="control-group hidden">
                                 @Html.LabelFor(model => model.CreatedDate, new { @class = "control-label" })
                                 <div class="controls">
@@ -142,7 +141,6 @@
                                     @Html.ValidationMessageFor(model => model.CreatedDate)
                                 </div>
                             </div>
-
                             <div class="control-group hidden">
                                 @Html.LabelFor(model => model.UpdatedDate, new { @class = "control-label" })
                                 <div class="controls">
@@ -150,7 +148,6 @@
                                     @Html.ValidationMessageFor(model => model.UpdatedDate)
                                 </div>
                             </div>
-
                             <div class="form-actions">
                                 <button id="btnSave" type="submit" class="btn btn-primary">@Resource("Save")</button>
                                 <a class="btn btn-cancel" href="@Url.Action("", "Category", new { area = "Admin" },null)">@Resource("Admin.Exit")</a>
