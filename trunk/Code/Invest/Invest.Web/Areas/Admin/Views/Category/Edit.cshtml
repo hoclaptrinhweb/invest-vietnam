@@ -21,7 +21,7 @@
 
             @using (Html.BeginForm("Edit", "Language", FormMethod.Post, new { @class = "form-horizontal" }))
             {
-                <div class="tab-content">
+                <div class="tab-content" style="overflow:hidden">
                     <div class="tab-pane active" id="edit">
 
                         @Html.AntiForgeryToken()
@@ -91,15 +91,7 @@
                                 </div>
                             </div>
 
-                            <div class="control-group">
-                                @Html.LabelFor(model => model.ParentCategoryId, new { @class = "control-label" })
-                                <div class="controls">
-                                    @Html.DropDownListFor(model => model.ParentCategoryId, new SelectList(Model.AvailableCategoryTemplates, "Value", "Text"), new { @data_rel = "chosen" })
-                                    @Html.ValidationMessageFor(model => model.ParentCategoryId)
-                                </div>
-                            </div>
-
-                            <div class="control-group">
+                            <div class="control-group hidden">
                                 @Html.LabelFor(model => model.PictureId, new { @class = "control-label" })
                                 <div class="controls">
                                     @Html.EditorFor(model => model.PictureId, new { @class = "span4 typeahead" })
@@ -107,22 +99,20 @@
                                 </div>
                             </div>
 
-                            <div class="control-group">
+                            <div class="control-group hidden">
                                 @Html.LabelFor(model => model.ShowOnHomePage, new { @class = "control-label" })
                                 <div class="controls">
                                     @Html.EditorFor(model => model.ShowOnHomePage, new { @class = "span4 typeahead" })
                                     @Html.ValidationMessageFor(model => model.ShowOnHomePage)
                                 </div>
                             </div>
-
                             <div class="control-group">
-                                @Html.LabelFor(model => model.IncludeInTopMenu, new { @class = "control-label" })
+                                @Html.LabelFor(model => model.ParentCategoryId, new { @class = "control-label" })
                                 <div class="controls">
-                                    @Html.EditorFor(model => model.IncludeInTopMenu, new { @class = "span4 typeahead" })
-                                    @Html.ValidationMessageFor(model => model.IncludeInTopMenu)
+                                    @Html.DropDownListFor(model => model.ParentCategoryId, new SelectList(Model.AvailableCategoryTemplates, "Value", "Text"), new { @data_rel = "chosen" })
+                                    @Html.ValidationMessageFor(model => model.ParentCategoryId)
                                 </div>
                             </div>
-
                             <div class="control-group">
                                 @Html.LabelFor(model => model.DisplayOrder, new { @class = "control-label" })
                                 <div class="controls">
@@ -130,7 +120,13 @@
                                     @Html.ValidationMessageFor(model => model.DisplayOrder)
                                 </div>
                             </div>
-
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.IncludeInTopMenu, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.EditorFor(model => model.IncludeInTopMenu, new { @class = "span4 typeahead" })
+                                    @Html.ValidationMessageFor(model => model.IncludeInTopMenu)
+                                </div>
+                            </div>
                             <div class="control-group">
                                 @Html.LabelFor(model => model.CategoryType, new { @class = "control-label" })
                                 <div class="controls">
@@ -139,7 +135,7 @@
                                 </div>
                             </div>
 
-                            <div class="control-group">
+                            <div class="control-group hidden">
                                 @Html.LabelFor(model => model.CreatedDate, new { @class = "control-label" })
                                 <div class="controls">
                                     @Html.EditorFor(model => model.CreatedDate, new { @class = "span4 typeahead" })
@@ -147,7 +143,7 @@
                                 </div>
                             </div>
 
-                            <div class="control-group">
+                            <div class="control-group hidden">
                                 @Html.LabelFor(model => model.UpdatedDate, new { @class = "control-label" })
                                 <div class="controls">
                                     @Html.EditorFor(model => model.UpdatedDate, new { @class = "span4 typeahead" })

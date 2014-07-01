@@ -32,7 +32,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
+                <a href="@Url.Action("Edit", "News", new { id = item.Id })">@Html.DisplayFor(modelItem => item.Title)</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LanguageName)

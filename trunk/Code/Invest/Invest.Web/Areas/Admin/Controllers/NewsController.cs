@@ -32,10 +32,28 @@ namespace Invest.Web.Areas.Admin.Controllers
             ViewBag.AllLanguages = _languageService.GetAll().Select(x => new SelectListItem
             {
                 Text = x.Name,
-                Value = x.Id.ToString()
+                Value = x.Id.ToString(),
+                Selected = x.Id.ToString() == Request.QueryString["languageid"],
             }).ToList();
             var invest = new InvestContext();
-            var result = invest.News.Select(n => new NewsModel()
+            int LangID = 0;
+            if (!string.IsNullOrEmpty(Request.QueryString["languageid"]))
+            {
+                LangID = int.Parse(Request.QueryString["languageid"]);
+                var result = invest.News.Where(n => n.LanguageId == LangID).Select(n => new NewsModel()
+                {
+                    Id = n.Id,
+                    LanguageId = n.LanguageId,
+                    Title = n.Title,
+                    LanguageName = n.Language.Name,
+                    Published = n.Published,
+                    CommentCount = n.CommentCount,
+                    CreatedDate = n.CreatedDate
+                }).OrderBy(n => n.CreatedDate);
+                return View(result.ToPagedList(pageNumber, pageSize));
+            }
+
+            var result1 = invest.News.Select(n => new NewsModel()
             {
                 Id = n.Id,
                 LanguageId = n.LanguageId,
@@ -45,7 +63,8 @@ namespace Invest.Web.Areas.Admin.Controllers
                 CommentCount = n.CommentCount,
                 CreatedDate = n.CreatedDate
             }).OrderBy(n => n.CreatedDate);
-            return View(result.ToPagedList(pageNumber, pageSize));
+            return View(result1.ToPagedList(pageNumber, pageSize));
+
         }
 
         public ActionResult Edit(int id = 0)
