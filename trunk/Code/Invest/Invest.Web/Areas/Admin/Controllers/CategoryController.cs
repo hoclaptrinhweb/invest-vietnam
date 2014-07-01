@@ -69,7 +69,8 @@ namespace Invest.Web.Areas.Admin.Controllers
                 Value = "2",
                 Selected = "2" == Request.QueryString["CategoryType"]
             });
-            ViewBag.CategoryType = reasons.Select(x => new SelectListItem { 
+            ViewBag.CategoryType = reasons.Select(x => new SelectListItem
+            {
                 Text = x.Text,
                 Value = x.Value,
                 Selected = x.Selected
@@ -120,6 +121,14 @@ namespace Invest.Web.Areas.Admin.Controllers
                 locale.MetaTitle = category.GetLocalized(x => x.MetaTitle, languageId, false, false);
                 locale.Published = category.GetLocalized(x => x.Published, languageId, false, false);
             });
+
+            ViewBag.AllCategoryType = new CategoryType().GetAll(false).Select(c => new SelectListItem()
+            {
+                Text = c.Name,
+                Value = c.Value
+            }).ToList();
+
+
             PrepareTemplatesModel(model);
 
             if (model == null)
@@ -243,6 +252,7 @@ namespace Invest.Web.Areas.Admin.Controllers
         {
             if (model == null)
                 throw new ArgumentNullException("model");
+
             var catService = new CategoryServices();
 
             var result = catService.GetAll();
