@@ -79,7 +79,7 @@
                                 </div>
                             </div>
 
-                            <div class="control-group">
+                            <div class="control-group hidden">
                                 @Html.LabelFor(model => model.AllowComments, new { @class = "control-label" })
                                 <div class="controls">
                                     @Html.EditorFor(model => model.AllowComments, new { @class = "span6 typeahead" })
@@ -95,7 +95,7 @@
                                 </div>
                             </div>
 
-                            <div class="control-group">
+                            <div class="control-group hidden">
                                 @Html.LabelFor(model => model.EndDate, new { @class = "control-label" })
                                 <div class="controls">
                                     @Html.TextBoxFor(model => model.EndDate, new { @class = "span6 typeahead" })
