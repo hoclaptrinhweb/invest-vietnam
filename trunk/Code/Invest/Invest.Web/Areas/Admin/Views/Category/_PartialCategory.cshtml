@@ -11,17 +11,10 @@
 </div>
 <div class="span3 pull-right">
     <div class="btn-group pull-right">
-        <a class="btn btn-cancel" href="#">@Resource("Admin.Actions")</a>
-        <a class="btn btn-cancel dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a id="btnChangeStatusSupp"><i class="icon-pencil"></i>@Resource("Admin.StatusChange")</a></li>
-            <li class="divider"></li>
-        </ul>
+        @Html.DropDownList("cat", (IEnumerable<SelectListItem>)ViewBag.CategoryType, new { @data_rel = "chosen", onchange = "onSelected(this.value);" })
     </div>
 </div>
-
 <div style="clear:both;margin-bottom:10px"></div>
-
 <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
     <tr>
         <th class="center">@Html.CheckBox("Select", false, new { id = "suppCheckALL" })</th>
@@ -61,7 +54,7 @@
             </td>
             <td class="center">
                 <a class="btn btn-info" href="@Url.Action("Edit", "Category", new { id = item.Id })"><i class="icon-edit icon-white"></i></a>
-                <a class="btn btn-danger" id="deleteSupp_@item.Id" name="@item.Name"><i class="icon-trash icon-white"></i></a>
+                <a class="btn btn-danger" id="delete@(item.Id)" name="@item.Name"><i class="icon-trash icon-white"></i></a>
             </td>
         </tr>
     }
@@ -80,3 +73,44 @@
             }
     )
 
+<script type="text/javascript">
+    function onSelected(t) {
+        window.location.href = "@Url.Action("", "Category")" + "?CategoryType=" + t;
+    }
+
+    $(document).ready(function () {
+
+        var checkboxSuppList = $("input[id^='selectSupp_']");
+
+        $('a[id^="delete"]').click(function (event) {
+            if (!confirm('@Resource("Admin.ConfirmDelete")'))
+                return;
+            event.preventDefault();
+            var span = $(this);
+            var idArr = new Array();
+            idArr[0] = $(this).attr('id').substring(6);
+            DeleteNews(idArr);
+        });
+
+        function DeleteNews(idArray) {
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("Delete")',
+                data: { ids: idArray },
+                beforeSend: popUp(false, '@Resource("Admin.ConfirmSuccess")', false),
+                success: function (data) {
+                    if (data.success) {
+                        setTimeout(function () {
+                            location.reload();
+                        }, 1500);
+                    } else {
+                        popUp(true, data.message, false);
+                    }
+                },
+                dataType: 'JSON',
+                traditional: true
+            });
+        }
+    });
+</script>

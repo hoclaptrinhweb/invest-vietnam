@@ -57,6 +57,14 @@ namespace Invest.Services
             var sortedCategories = unsortedCategories.SortCategoriesForTree();
             return sortedCategories;
         }
+
+        public IEnumerable<Category> GetAll(int CategoryType)
+        {
+            var invest = new InvestContext();
+            var unsortedCategories = invest.Category.Where(c => c.CategoryType == CategoryType).OrderBy(c => c.ParentCategoryId).ThenBy(c => c.DisplayOrder).ToList();
+            var sortedCategories = unsortedCategories.SortCategoriesForTree();
+            return sortedCategories;
+        }
         public void Delete(int id)
         {
             var invest = new InvestContext();

@@ -29,7 +29,51 @@ namespace Invest.Web.Areas.Admin.Controllers
             ViewBag.CurrentQ = qr;
 
             var CategoryServices = new CategoryServices();
-            var result = CategoryServices.GetAll();
+            int CategoryType = -1;
+            if (!string.IsNullOrEmpty(Request.QueryString["CategoryType"]))
+                CategoryType = int.Parse(Request.QueryString["CategoryType"]);
+            IEnumerable<Category> result;
+            List<SelectListItem> reasons = new List<SelectListItem>();
+            if (CategoryType != -1)
+            {
+                result = CategoryServices.GetAll(CategoryType);
+                reasons.Add(new SelectListItem
+                {
+                    Text = "All",
+                    Value = "-1",
+                    Selected = false
+
+                });
+            }
+            else
+            {
+                result = CategoryServices.GetAll();
+                reasons.Add(new SelectListItem
+                {
+                    Text = "All",
+                    Value = "-1",
+                    Selected = true
+
+                });
+            }
+            reasons.Add(new SelectListItem
+            {
+                Text = "News",
+                Value = "1",
+                Selected = "1" == Request.QueryString["CategoryType"]
+
+            });
+            reasons.Add(new SelectListItem
+            {
+                Text = "Maps",
+                Value = "2",
+                Selected = "2" == Request.QueryString["CategoryType"]
+            });
+            ViewBag.CategoryType = reasons.Select(x => new SelectListItem { 
+                Text = x.Text,
+                Value = x.Value,
+                Selected = x.Selected
+            }).ToList();
             var data = result.Select(c =>
              {
                  var categoryModel = c.ToModel();
@@ -37,7 +81,7 @@ namespace Invest.Web.Areas.Admin.Controllers
                  return categoryModel;
              }).ToList();
 
-            
+
             return View(data.ToPagedList(pageNumber, pageSize));
         }
 

@@ -187,7 +187,10 @@
     <script src="~/Content/js/jquery.cookie.js"></script>
     <!-- library for advanced tooltip -->
     <script src="~/Content/js/bootstrap-tooltip.js"></script>
-    @RenderSection("ScriptCustom")
+    @if (IsSectionDefined("ScriptCustom"))
+    {
+        @RenderSection("ScriptCustom")
+    }
     <!-- custom dropdown library -->
     <script src="~/Content/js/bootstrap-dropdown.js"></script>
     <!-- accordion library (optional, not used in demo) -->
@@ -202,7 +205,7 @@
         <script src="~/Content/js/bootstrap-popover.js"></script>
         <!-- button enhancer library -->
         <script src="~/Content/js/bootstrap-button.js"></script>
-        
+
         <!-- carousel slideshow library (optional, not used in demo) -->
         <script src="~/Content/js/bootstrap-carousel.js"></script>
         <!-- autocomplete library -->
