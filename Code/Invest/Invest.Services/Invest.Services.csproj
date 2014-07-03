@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="CategoryExtensions.cs" />
     <Compile Include="CategoryServices.cs" />
+    <Compile Include="SliderBarServices.cs" />
     <Compile Include="LanguageServices.cs" />
     <Compile Include="LocaleStringResourceServices.cs" />
     <Compile Include="LocalizationExtentions.cs" />

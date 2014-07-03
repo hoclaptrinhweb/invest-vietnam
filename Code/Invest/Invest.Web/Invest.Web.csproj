@@ -1257,6 +1257,7 @@
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SliderBar\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SliderBar\_PartialSiderBar.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_PartialPaging.cshtml" />
     <None Include="Properties\PublishProfiles\Invest.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

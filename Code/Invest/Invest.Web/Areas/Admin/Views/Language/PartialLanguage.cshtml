@@ -5,19 +5,7 @@
         <a class="btn btn-small" href="@Url.Action("Create", "Language", new { area ="Admin"},null)"><i class="icon icon-color icon-add"></i>@Resource("Admin.CreateNew")</a>
     </div>
 </div>
-<div class="span3 pull-right">
-    <div class="btn-group pull-right">
-        <a class="btn btn-cancel" href="#">@Resource("Admin.Actions")</a>
-        <a class="btn btn-cancel dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a id="btnChangeStatusSupp"><i class="icon-pencil"></i>@Resource("Admin.StatusChange")</a></li>
-            <li class="divider"></li>
-        </ul>
-    </div>
-</div>
-
 <div style="clear:both;margin-bottom:10px"></div>
-
 <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
     <thead>
         <tr>
@@ -71,14 +59,6 @@
             DeleteSupp(idArr);
         });
 
-        $('span[id^="statusSupp_"]').click(function (event) {
-            event.preventDefault()
-            var span = $(this);
-            var idArr = new Array();
-            idArr[0] = $(this).attr('id').substring(11);
-            ChangeStatusSupp(idArr);
-        });
-
         $('input#suppCheckALL').change(function () {
             var isCheck = $(this).is(":checked");
             checkboxSuppList.each(function () {
@@ -91,19 +71,6 @@
                     $('#uniform-' + $(this).attr('id') + ' span:first').removeClass('checked');
                 }
             });
-        });
-
-        $('a#btnChangeStatusSupp').click(function (event) {
-            event.preventDefault();
-            var idArr = new Array();
-            var stt = 0;
-            checkboxSuppList.each(function (index) {
-                if ($(this).is(":checked")) {
-                    idArr[stt] = parseInt($(this).attr('id').substring(11));
-                    stt++;
-                }
-            });
-            ChangeStatusSupp(idArr);
         });
 
         $('a#btnDeleteSupp').click(function (event) {
@@ -125,41 +92,6 @@
 
             DeleteSupp(idArr);
         });
-
-        function ChangeStatusSupp(idArray) {
-
-            $.ajax({
-                type: "POST",
-                url: '@Url.Action("ChangeStatus")',
-                data: { ids: idArray },
-                success: function (data) {
-                    if (data.success) {
-
-                        for (var i = 0; i < idArray.length; i++) {
-                            var item = $('#statusSupp_' + idArray[i]);
-                            if (item.hasClass("icon-check"))
-                                item.attr("class", "icon icon-color icon-cross");
-                            else
-                                item.attr("class", "icon icon-color icon-check");
-                        }
-
-                        checkboxSuppList.each(function () {
-                            $(this).prop('checked', false);
-                            $('#uniform-' + $(this).attr('id') + ' span:first').removeClass('checked');
-                        });
-
-                        $('input#suppCheckALL').prop('checked', false);
-                        $('#uniform-suppCheckALL span:first').removeClass('checked');
-
-                        popUp(false, "Cập nhật thành công!", false);
-                    } else {
-                        popUp(true, data.message, false);
-                    }
-                },
-                dataType: 'JSON',
-                traditional: true
-            });
-        }
 
         function DeleteSupp(idArray) {
 

@@ -1,0 +1,15 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<dynamic>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { qr = ViewBag.CurrentFilter, key = ViewBag.SearchKey, page }),
+            new PagedListRenderOptions
+            {
+                LinkToFirstPageFormat = Resource("Admin.First"),
+                LinkToLastPageFormat = Resource("Admin.End"),
+                LinkToNextPageFormat = Resource("Admin.Last"),
+                LinkToPreviousPageFormat = Resource("Admin.Next"),
+                DisplayLinkToNextPage = PagedListDisplayMode.Always,
+                DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+                ContainerDivClasses = new string[] { "pagination", "pagination-centered" }
+            }
+    )
