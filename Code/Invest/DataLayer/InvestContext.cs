@@ -29,5 +29,8 @@ namespace DataLayer
 
         public DbSet<LocalizedProperty> LocalizedProperty { get; set; }
         public DbSet<LocaleStringResource> LocaleStringResource { get; set; }
+
+        public DbSet<SliderBar> SliderBar { get; set; }
+
     }
 }
