@@ -1,0 +1,30 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<SliderBarModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.Partial("Breadcrumb", new Dictionary<string, string> { { @Resource("Admin.SliderBar"), Url.Action("", "SliderBar", new { area = "Admin" }, null) } })
+
+
+<div class="row-fluid">
+    <div class="box span12">
+        <div class="box-header well">
+            <h2>@Resource("Admin.SliderBar")</h2>
+        </div>
+        <div class="box-content">
+            @Html.Partial("_PartialSiderBar", Model)
+        </div>
+    </div>
+</div>
+
+
+@section ScriptCustom {
+    <script src="~/Content/js/jquery.chosen.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('[data-rel="chosen"],[rel="chosen"]').chosen();
+        });
+    </script>
+}
