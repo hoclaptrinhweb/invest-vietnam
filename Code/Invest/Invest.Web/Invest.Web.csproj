@@ -1235,7 +1235,6 @@
     <Content Include="Areas\Admin\Views\Language\PartialLanguage.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\Breadcrumb.cshtml" />
     <Content Include="Areas\Admin\Views\Language\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Category\_PartialCategory.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
@@ -1252,6 +1251,8 @@
     <Content Include="Content\fonts\flexslider-icon.eot" />
     <Content Include="Content\fonts\flexslider-icon.ttf" />
     <Content Include="Content\fonts\flexslider-icon.woff" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <None Include="Properties\PublishProfiles\Invest.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

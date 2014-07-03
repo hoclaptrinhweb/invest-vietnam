@@ -18,6 +18,7 @@ namespace DataLayer
 
 
         public DbSet<News> News { get; set; }
+        public DbSet<User> User { get; set; }
         public DbSet<NewsTag> NewsTags { get; set; }
         public DbSet<NewsComment> NewsComment { get; set; }
         public DbSet<Picture> Picture { get; set; }

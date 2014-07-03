@@ -8,11 +8,10 @@ namespace Invest.Web.Areas.Admin.Controllers
 {
     public class LoginController : Controller
     {
-        //
-        // GET: /Admin/Login/
+        // GET: Admin/Login
         public ActionResult Index()
         {
             return View();
         }
-	}
+    }
 }
