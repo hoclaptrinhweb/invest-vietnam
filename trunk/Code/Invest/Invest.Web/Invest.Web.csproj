@@ -368,7 +368,9 @@
     <Compile Include="Areas\Admin\Controllers\LanguageController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SliderBarController.cs" />
     <Compile Include="Areas\Admin\MappingExtensions.cs" />
+    <Compile Include="Areas\Admin\Models\Catalog\SliderBarModel.cs" />
     <Compile Include="Areas\Admin\Models\Catalog\CategoryModel.cs" />
     <Compile Include="Areas\Admin\Models\Catalog\Category_Picture_MappingModel.cs" />
     <Compile Include="Areas\Admin\Models\Catalog\LanguageResourceModel.cs" />
@@ -1253,6 +1255,8 @@
     <Content Include="Content\fonts\flexslider-icon.woff" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SliderBar\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SliderBar\_PartialSiderBar.cshtml" />
     <None Include="Properties\PublishProfiles\Invest.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

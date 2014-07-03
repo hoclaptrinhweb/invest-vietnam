@@ -126,7 +126,7 @@
                         <li><a class="ajax-link" href="@Url.Action("", "category", new { area="Admin" },null)"><i class="icon-list-alt"></i><span class="hidden-tablet">@Resource("Admin.Category")</span></a></li>
                         <li><a class="ajax-link" href="@Url.Action("", "news", new { area="Admin" },null)"><i class="icon-pencil"></i><span class="hidden-tablet">@Resource("Admin.News")</span></a></li>
                         <li class="nav-header hidden-tablet">@Resource("Admin.Configuration")</li>
-                        <li><a class="ajax-link" href="@Url.Action("", "language", new { area="Admin" },null)"><i class="icon-globe"></i><span class="hidden-tablet">@Resource("Admin.Languages")</span></a></li>
+                        <li><a class="ajax-link" href="@Url.Action("", "sliderbar", new { area="Admin" },null)"><i class="icon-picture"></i><span class="hidden-tablet">@Resource("Admin.SliderBar")</span></a></li>
                         <li><a class="ajax-link" href="@Url.Action("", "", new { area="Admin" },null)"><i class="icon-wrench"></i><span class="hidden-tablet">@Resource("Admin.Setting")</span></a></li>
                         <li><a class="ajax-link" href="@Url.Action("", "", new { area="Admin" },null)"><i class="icon-exclamation-sign"></i><span class="hidden-tablet">@Resource("Admin.Log")</span></a></li>
                     </ul>
@@ -160,15 +160,11 @@
                 <a href="#" class="btn btn-primary">Save changes</a>
             </div>
         </div>
-
         <footer>
-            <p class="pull-left">&copy; <a href="http://usman.it" target="_blank">Invest-VietNam</a> 2014</p>
+            <p class="pull-left">&copy; <a href="@Url.Content("~/")" target="_blank">Invest-VietNam.vn</a> 2014</p>
             <p class="pull-right">Powered by: <a href="http://www.hoclaptrinhweb.com">HocLapTrinhWeb</a></p>
         </footer>
-
-    </div><!--/.fluid-container-->
-
-
+    </div>
     <div class="noty_bar noty_theme_default noty_layout_top noty_error" id="divPopupError" style="cursor: pointer;">
         <div class="noty_message"><span id="spanError" class="noty_text">This is a success information</span></div>
     </div>
