@@ -1,9 +1,7 @@
 ﻿@model PagedList.IPagedList<CategoryModel>
-@using PagedList.Mvc;
 @{
     var count = 0;
 }
-
 <div class="span3 pull-left">
     <div class="btn-group">
         <a class="btn btn-small" href="@Url.Action("Edit", "Category", new { area ="Admin"},null)"><i class="icon icon-color icon-add"></i>@Resource("Admin.CreateNew")</a>
@@ -60,18 +58,7 @@
     }
 </table>
 
-@Html.PagedListPager(Model, page => Url.Action("Index", new { qr = ViewBag.CurrentFilter, key = ViewBag.SearchKey, page }),
-            new PagedListRenderOptions
-            {
-                LinkToFirstPageFormat = @Resource("Admin.First"),
-                LinkToLastPageFormat = @Resource("Admin.End"),
-                LinkToNextPageFormat = @Resource("Admin.Last"),
-                LinkToPreviousPageFormat = @Resource("Admin.Next"),
-                DisplayLinkToNextPage = PagedListDisplayMode.Always,
-                DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
-                ContainerDivClasses = new string[] { "pagination", "pagination-centered" }
-            }
-    )
+@Html.Partial("_PartialPaging", Model)
 
 <script type="text/javascript">
     function onSelected(t) {

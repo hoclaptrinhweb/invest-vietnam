@@ -46,7 +46,6 @@ namespace Invest.Services
             return result;
         }
 
-
         public void Add(News news)
         {
             if (news.Id == 0)
