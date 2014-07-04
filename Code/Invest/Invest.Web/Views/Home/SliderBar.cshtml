@@ -1,0 +1,78 @@
+﻿@model IEnumerable<SliderBarModel>
+<style>
+    .list_carousel ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: block;
+    }
+
+    .list_carousel li {
+        text-align: center;
+        height: 65px;
+        width: 110px;
+        padding: 3px 3px 3px 0px;
+        display: block;
+        float: left;
+    }
+
+        .list_carousel li:first-child {
+            padding-left: 3px;
+        }
+
+        .list_carousel li img {
+            width: 100%;
+            border: 3px solid #eee;
+        }
+
+    .list_carousel.responsive {
+        width: 90%;
+        margin: auto;
+        position: relative;
+    }
+
+    .clearfix {
+        float: none;
+        clear: both;
+    }
+
+    .prev {
+        float: left;
+        margin-left: 10px;
+    }
+
+    .next {
+        float: right;
+        margin-right: 10px;
+    }
+
+    #prev, #next {
+        display: block;
+        margin-top: -60px;
+        position: absolute;
+        z-index: 2;
+        font-size: 50px;
+        color: #CCCCCC;
+    }
+
+    #prev {
+        left: -50px;
+    }
+
+    #next {
+        right: -50px;
+    }
+</style>
+<div class="container">
+    <div class="list_carousel responsive">
+        <ul id="foo4">
+            @foreach (var item in Model)
+            {
+                <li><a href="@item.ImageLink"><img src="@(Url.Content("~"+item.ImageUrl))" alt="@item.ImageAlt" /></a></li>
+            }
+        </ul>
+        <a href="#" id="prev"><span class="glyphicon glyphicon glyphicon-chevron-left"></span></a>
+        <a href="#" id="next"><span class="glyphicon glyphicon glyphicon-chevron-right"></span></a>
+        <div class="clearfix"></div>
+    </div>
+</div>

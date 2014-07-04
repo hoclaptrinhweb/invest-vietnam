@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using Invest.Services;
 
 namespace Invest.Web.Areas.Admin.Controllers
 {
@@ -38,5 +39,46 @@ namespace Invest.Web.Areas.Admin.Controllers
             return View(result1.ToPagedList(pageNumber, pageSize));
 
         }
+
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Edit(SliderBarModel model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var News = model.ToEntity();
+                    var SliderSvc = new SliderBarServices();
+                    SliderSvc.Add(News);
+                    return base.jsonResult();
+                }
+                throw new Exception("lỗi");
+            }
+            catch (Exception ex)
+            {
+                return base.jsonResult(false, ex.Message);
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult Delete(List<int> ids = null)
+        {
+            try
+            {
+                if (ids == null)
+                    throw new Exception("Bạn chưa chọn Ngôn ngữ!");
+                var Slidersvc = new SliderBarServices();
+                Slidersvc.Delete(ids.First());
+                return jsonResult();
+            }
+            catch (Exception ex)
+            {
+                return jsonResult(false, ex.Message);
+            }
+        }
+
     }
 }

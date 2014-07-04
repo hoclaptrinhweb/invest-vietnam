@@ -1,13 +1,9 @@
 ﻿@using PagedList.Mvc;
 @model PagedList.IPagedList<CategoryModel>
-
 @{
     ViewBag.Title = "Index";
 }
-
 @Html.Partial("Breadcrumb", new Dictionary<string, string> { { @Resource("Admin.Category"), Url.Action("", "Category", new { area = "Admin" }, null) } })
-
-
 <div class="row-fluid">
     <div class="box span12">
         <div class="box-header well">
@@ -18,10 +14,7 @@
         </div>
     </div>
 </div>
-
-
 @section ScriptCustom {
-    <!-- select or dropdown enhancer -->
     <script src="~/Content/js/jquery.chosen.min.js"></script>
     <script>
         $(document).ready(function () {

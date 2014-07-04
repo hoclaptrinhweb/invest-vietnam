@@ -8,6 +8,11 @@ namespace Invest.Core
 {
     public partial class SliderBar : BaseEntity
     {
+        public SliderBar()
+        {
+            CreatedDate = DateTime.Now;
+            DisplayOrder = 0;
+        }
         public string ImageAlt { get; set; }
         public string ImageUrl { get; set; }
         public string ImageLink { get; set; }

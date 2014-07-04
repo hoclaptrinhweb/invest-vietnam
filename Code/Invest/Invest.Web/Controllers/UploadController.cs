@@ -23,7 +23,18 @@ namespace Invest.Web.Controllers
         {
             var savedFilename = "";
             var postedFileBase = Request.Files["Filedata"];
-            savedFilename = ConfigurationManager.AppSettings["NewsImage_UploadPath"] + DateTime.Now.ToString("hhmmssddMMyy") + postedFileBase.FileName;
+            switch (Request.Form.GetValues("type")[0])
+            {   
+                case "1":
+                savedFilename = ConfigurationManager.AppSettings["NewsImage_UploadPath"] + DateTime.Now.ToString("hhmmssddMMyy") + postedFileBase.FileName;
+                    break;
+                case "2":
+                    savedFilename = ConfigurationManager.AppSettings["SlideImage_UploadPath"] + DateTime.Now.ToString("hhmmssddMMyy") + postedFileBase.FileName;
+                    break;
+                default :
+                    savedFilename = ConfigurationManager.AppSettings["TmpImage_UploadPath"] + DateTime.Now.ToString("hhmmssddMMyy") + postedFileBase.FileName;
+                    break;
+            }
             postedFileBase.SaveAs(Server.MapPath(savedFilename));
             return Content(Url.Content(savedFilename));
         }

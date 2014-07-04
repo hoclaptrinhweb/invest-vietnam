@@ -13,6 +13,7 @@ namespace Invest.Web
     {
         public SliderBarModel()
         {
+            CreatedDate = DateTime.Now;
         }
         public string ImageAlt { get; set; }
         public string ImageUrl { get; set; }

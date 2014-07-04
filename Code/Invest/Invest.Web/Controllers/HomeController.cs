@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Invest.Services;
 using Invest.Web.Framework;
+using DataLayer;
 
 namespace Invest.Web.Controllers
 {
@@ -14,7 +15,6 @@ namespace Invest.Web.Controllers
         {
             return View();
         }
-
         public ActionResult HeadMenu()
         {
             var csv = new CategoryServices();
@@ -33,19 +33,33 @@ namespace Invest.Web.Controllers
             Response.AppendCookie(langCookie);
             return RedirectToAction("Index", "Home", new { culture = lang.Substring(0, 2) });
         }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
-
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult SliderBar()
+        {
+            var invest = new InvestContext();
+            var result = invest.SliderBar.Select(n => new SliderBarModel()
+            {
+                Id = n.Id,
+                ImageAlt = n.ImageAlt,
+                ImageUrl = n.ImageUrl,
+                ImageLink = n.ImageLink,
+                CreatedDate = n.CreatedDate,
+                DisplayOrder = n.DisplayOrder
+            }).OrderBy(n => n.DisplayOrder);
+
+            return PartialView(result);
         }
     }
 }

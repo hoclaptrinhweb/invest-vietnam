@@ -21,10 +21,25 @@
 
 
 @section ScriptCustom {
+    <script src="~/Content/js/jquery.uploadify-3.1.min.js"></script>
     <script src="~/Content/js/jquery.chosen.min.js"></script>
     <script>
         $(document).ready(function () {
             $('[data-rel="chosen"],[rel="chosen"]').chosen();
+            $('#fileInput').uploadify({
+                'swf': '@Url.Content("~/content/js/flash/uploadify.swf")',
+                'uploader': "@Url.Action("UploadFiles", "Upload", new { area = "" }, null)",
+                'multi': false,
+                'fileExt': '*.jpg;*.jpeg;*.gif;*.png',
+                'formData':
+                {
+                    'type': 2
+                },
+                'onUploadSuccess': function (file, data, response) {
+                    $(".imgsNews").attr('src', data);
+                    $("#ImageUrl").val(data);
+                }
+            });
         });
     </script>
 }
