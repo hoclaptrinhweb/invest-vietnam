@@ -1,7 +1,7 @@
 ﻿@model PagedList.IPagedList<SliderBarModel>
 <div class="span3 pull-left">
     <div class="btn-group">
-        <a class="btn btn-small" href="@Url.Action("Create", "SliderBar", new { area ="Admin"},null)"><i class="icon icon-color icon-add"></i>@Resource("Admin.CreateNew")</a>
+        <a href="#myModal" role="button" class="btn btn-small" data-toggle="modal"><i class="icon icon-color icon-add"></i>@Resource("Admin.CreateNew")</a>
     </div>
 </div>
 <div style="clear:both;margin-bottom:10px"></div>
@@ -17,21 +17,117 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                <img class="img-responsive" src="@(Url.Content("~/" + item.ImageUrl))" />
-            </td>
-            <td>
-                <a href="@item.ImageLink">@item.ImageLink</a>
-            </td>
-            <td class="center">
-                @item.DisplayOrder
-            </td>
-            <td class="center">
-                <a class="btn btn-danger" id="deleteNews_@item.Id" name="@item.Id"><i class="icon-trash icon-white"></i></a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    <img class="img-responsive" src="@(Url.Content("~/" + item.ImageUrl))" />
+                </td>
+                <td>
+                    <a href="@item.ImageLink">@item.ImageLink</a>
+                </td>
+                <td class="center">
+                    @item.DisplayOrder
+                </td>
+                <td class="center">
+                    <a class="btn btn-danger" id="delete@(item.Id)" name="@item.Id"><i class="icon-trash icon-white"></i></a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
 @Html.Partial("_PartialPaging", Model)
+
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Add Picture in SliderBar</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label" for="Picture">@Resource("Admin.Picture")</label>
+                    <div class="controls">
+                        <img class="imgsNews" src="" style="width:120px;padding:15px;" />
+                        <input id="fileInput" name="fileInput" type="file">
+                        @Html.HiddenFor(model => model.FirstOrDefault().ImageUrl, new { @class = "span6 typeahead", @id = "ImageUrl" })
+                    </div>
+                </div>
+                <div class="control-group">
+                    @Html.LabelFor(model => model.FirstOrDefault().ImageLink, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.TextBoxFor(model => model.FirstOrDefault().ImageLink, new { @class = "span6 typeahead" })
+                        @Html.ValidationMessageFor(model => model.FirstOrDefault().ImageLink)
+                    </div>
+                </div>
+                <div class="control-group">
+                    @Html.LabelFor(model => model.FirstOrDefault().ImageAlt, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.TextBoxFor(model => model.FirstOrDefault().ImageAlt, new { @class = "span6 typeahead" })
+                        @Html.ValidationMessageFor(model => model.FirstOrDefault().ImageAlt)
+                    </div>
+                </div>
+                <div class="control-group">
+                    @Html.LabelFor(model => model.FirstOrDefault().DisplayOrder, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.EditorFor(model => model.FirstOrDefault().DisplayOrder, new { @class = "span6 typeahead" })
+                        @Html.ValidationMessageFor(model => model.FirstOrDefault().DisplayOrder)
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary" id="addPicture">Save changes</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function onSelected(t) {
+        window.location.href = "@Url.Action("", "Category")" + "?CategoryType=" + t;
+    }
+
+    $(document).ready(function () {
+        $('#addPicture').click(function () {
+            $.post('@Url.Action("Edit", "SliderBar")', $('.form-horizontal').serialize(), function (data) {
+                if (data.success) {
+                    $('#myModal').modal('hide');
+                    popUp(false, '@Resource("Admin.UpdateSuccess")', true, document.location.href);
+                } else {
+                    popUp(true, data.message, false);
+                }
+            });
+
+
+        });
+        $('a[id^="delete"]').click(function (event) {
+            if (!confirm('@Resource("Admin.ConfirmDelete")'))
+                return;
+            event.preventDefault();
+            var span = $(this);
+            var idArr = new Array();
+            idArr[0] = $(this).attr('id').substring(6);
+            DeleteNews(idArr);
+        });
+        function DeleteNews(idArray) {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("Delete")',
+                data: { ids: idArray },
+                beforeSend: popUp(false, '@Resource("Admin.ConfirmSuccess")', false),
+                success: function (data) {
+                    if (data.success) {
+                        setTimeout(function () {
+                            location.reload();
+                        }, 1500);
+                    } else {
+                        popUp(true, data.message, false);
+                    }
+                },
+                dataType: 'JSON',
+                traditional: true
+            });
+        }
+    });
+</script>

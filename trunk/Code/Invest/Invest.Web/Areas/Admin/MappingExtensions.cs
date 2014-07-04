@@ -29,5 +29,15 @@ namespace Invest.Web
         {
             return Mapper.DynamicMap<NewsModel, News>(model);
         }
+
+        public static SliderBarModel ToModel(this SliderBar entity)
+        {
+            return Mapper.DynamicMap<SliderBar, SliderBarModel>(entity);
+        }
+
+        public static SliderBar ToEntity(this SliderBarModel model)
+        {
+            return Mapper.DynamicMap<SliderBarModel, SliderBar>(model);
+        }
     }
 }

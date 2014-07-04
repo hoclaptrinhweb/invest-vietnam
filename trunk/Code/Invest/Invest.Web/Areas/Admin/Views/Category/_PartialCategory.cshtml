@@ -64,11 +64,7 @@
     function onSelected(t) {
         window.location.href = "@Url.Action("", "Category")" + "?CategoryType=" + t;
     }
-
     $(document).ready(function () {
-
-        var checkboxSuppList = $("input[id^='selectSupp_']");
-
         $('a[id^="delete"]').click(function (event) {
             if (!confirm('@Resource("Admin.ConfirmDelete")'))
                 return;
@@ -78,9 +74,7 @@
             idArr[0] = $(this).attr('id').substring(6);
             DeleteNews(idArr);
         });
-
         function DeleteNews(idArray) {
-
             $.ajax({
                 type: "POST",
                 url: '@Url.Action("Delete")',
