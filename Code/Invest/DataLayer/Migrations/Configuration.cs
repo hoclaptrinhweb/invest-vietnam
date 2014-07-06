@@ -13,7 +13,7 @@
         {
             AutomaticMigrationsEnabled = true;
             // if model changes involve data lose
-            AutomaticMigrationDataLossAllowed = false;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(DataLayer.InvestContext context)
@@ -22,11 +22,11 @@
             try
             {
                 var invest = new InvestContext();
-              //  invest.Database.ExecuteSqlCommand(File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "App_Data\\script.sql"));
+                //  invest.Database.ExecuteSqlCommand(File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "App_Data\\script.sql"));
             }
             catch
             {
-              
+
             }
 
         }
