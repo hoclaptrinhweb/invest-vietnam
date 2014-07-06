@@ -39,5 +39,15 @@ namespace Invest.Web
         {
             return Mapper.DynamicMap<SliderBarModel, SliderBar>(model);
         }
+
+        public static UserModel ToModel(this User entity)
+        {
+            return Mapper.DynamicMap<User, UserModel>(entity);
+        }
+
+        public static User ToEntity(this UserModel model)
+        {
+            return Mapper.DynamicMap<UserModel, User>(model);
+        }
     }
 }
