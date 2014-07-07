@@ -1,12 +1,9 @@
 ﻿@using PagedList.Mvc;
 @model PagedList.IPagedList<UserModel>
-
 @{
     ViewBag.Title = "Index";
 }
-
-@Html.Partial("Breadcrumb", new Dictionary<string, string> { { @Resource("Admin.SliderBar"), Url.Action("", "SliderBar", new { area = "Admin" }, null) } })
-
+@Html.Partial("Breadcrumb", new Dictionary<string, string> { { @Resource("Admin.User"), Url.Action("", "User", new { area = "Admin" }, null) } })
 <div class="row-fluid">
     <div class="box span12">
         <div class="box-header well">
@@ -17,8 +14,6 @@
         </div>
     </div>
 </div>
-
-
 @section ScriptCustom {
     <script src="~/Content/js/jquery.uploadify-3.1.min.js"></script>
     <script src="~/Content/js/jquery.chosen.min.js"></script>

@@ -34,6 +34,8 @@ namespace Invest.Web
         public string MetaDescription { get; set; }
         public string MetaTitle { get; set; }
         public DateTime CreatedDate { get; set; }
+        public string Longitude { get; set; }
+        public string Latitude { get; set; }
 
         public IList<SelectListItem> AvailableLanguages { get; set; }
         public IList<News_Picture_MappingModel> News_Picture { get; set; }

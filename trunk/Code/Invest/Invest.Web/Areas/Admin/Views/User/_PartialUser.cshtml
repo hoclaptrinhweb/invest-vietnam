@@ -9,6 +9,7 @@
     <thead>
         <tr>
             <th>@Html.DisplayNameFor(model => model.FirstOrDefault().UserName)</th>
+            <th>@Html.DisplayNameFor(model => model.FirstOrDefault().IsActive)</th>
             <th class="center">@Resource("Admin.Actions")</th>
         </tr>
     </thead>
@@ -18,6 +19,16 @@
             <tr>
                 <td class="center">
                     @item.UserName
+                </td>
+                <td class="center">
+                    @if (item.IsActive)
+                    {
+                        <span class="label label-success">@Resource("Admin.Active")</span>
+                    }
+                    else
+                    {
+                        <span class="label">@Resource("Admin.Inactive")</span>
+                    }
                 </td>
                 <td class="center">
                     <a class="btn btn-danger" id="delete@(item.Id)" name="@item.Id"><i class="icon-trash icon-white"></i></a>

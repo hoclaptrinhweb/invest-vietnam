@@ -5,9 +5,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using Invest.Services;
 namespace Invest.Web.Areas.Admin.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         public ActionResult Index(string currentFilter, string qr, int? key, int? page)
         {
@@ -33,6 +34,23 @@ namespace Invest.Web.Areas.Admin.Controllers
             }).OrderBy(n => n.CreatedDate);
             return View(result1.ToPagedList(pageNumber, pageSize));
 
+        }
+
+        [HttpPost]
+        public ActionResult Delete(List<int> ids = null)
+        {
+            try
+            {
+                if (ids == null)
+                    throw new Exception("Bạn chưa chọn !");
+                var Slidersvc = new UserServices();
+                Slidersvc.Delete(ids.First());
+                return jsonResult();
+            }
+            catch (Exception ex)
+            {
+                return jsonResult(false, ex.Message);
+            }
         }
     }
 }
