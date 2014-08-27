@@ -74,8 +74,6 @@
                         <li><a data-value="united" href="#"><i class="icon-blank"></i> United</a></li>
                     </ul>
                 </div>
-                <!-- theme selector ends -->
-                <!-- user dropdown starts -->
                 <div class="btn-group pull-right">
                     @if (Request.IsAuthenticated)
                     {
@@ -92,8 +90,6 @@
                         </ul>
                     }
                 </div>
-                <!-- user dropdown ends -->
-                <!-- theme selector starts -->
                 <div class="btn-group pull-right theme-container">
                     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="icon-th-list"></i><span class="hidden-phone">@Resource("Admin.Languages")</span>
@@ -105,7 +101,6 @@
                         <li><a data-value="ko-KR" href="@Url.Action("LanguageSelected", "Common", new { area = "admin", customerlanguage = 3 }, null)"><i class="icon-blank"></i> @Resource("Korea")</a></li>
                     </ul>
                 </div>
-                <!-- theme selector ends -->
                 <div class="top-nav nav-collapse">
                     <ul class="nav">
                         <li>
@@ -114,14 +109,12 @@
                             </form>
                         </li>
                     </ul>
-                </div><!--/.nav-collapse -->
+                </div>
             </div>
         </div>
     </div>
-    <!-- topbar ends -->
     <div class="container-fluid">
         <div class="row-fluid">
-            <!-- left menu starts -->
             <div class="span2 main-menu-span">
                 <div class="well nav-collapse sidebar-nav">
                     <ul class="nav nav-tabs nav-stacked main-menu">
@@ -138,10 +131,9 @@
                     <label id="for-is-ajax" class="hidden-tablet" for="is-ajax"><input id="is-ajax" type="checkbox">@Resource("Admin.AjaxMenu")</label>
                 </div>
             </div>
-            <!-- left menu ends -->
             <noscript>
                 <div class="alert alert-block span10">
-                    <h4 class="alert-heading">Warning!</h4>
+                    <h4 class="alert alert-heading">Warning!</h4>
                     <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
                 </div>
             </noscript>
