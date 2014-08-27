@@ -7,14 +7,12 @@ using Invest.Web.Areas.Admin.Models;
 
 namespace Invest.Web.Areas.Admin.Controllers
 {
-    public class IndexController : Controller
+    public class IndexController : BaseController
     {
-        //
-        // GET: /Admin/Index/
         public ActionResult Index()
         {
             var test = new TestLanguage();
             return View(test);
         }
-	}
+    }
 }
