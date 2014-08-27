@@ -8,6 +8,7 @@ using Invest.Web.Framework;
 
 namespace Invest.Web.Areas.Admin.Controllers
 {
+    [Authorize]
     public abstract partial class BaseController : Controller
     {
         public JsonResult jsonResult(bool success = true, string message = "", bool allowGet = true)

@@ -16,5 +16,6 @@ namespace Invest.Web
         public string Password { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreatedDate { get; set; }
+        public bool RememberMe { get; set; }
     }
 }

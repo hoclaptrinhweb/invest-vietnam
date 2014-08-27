@@ -465,6 +465,10 @@ float:right !important;
 .remember{
 margin-top:3px;
 }
+input#remember {
+margin-top: 0px;
+margin-right: 5px;
+}
 .green {
 color: #458746;
 }
