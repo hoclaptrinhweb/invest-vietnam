@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using Invest.Services;
+using Invest.Core;
 namespace Invest.Web.Areas.Admin.Controllers
 {
     public class UserController : BaseController
@@ -34,6 +35,34 @@ namespace Invest.Web.Areas.Admin.Controllers
             }).OrderBy(n => n.CreatedDate);
             return View(result1.ToPagedList(pageNumber, pageSize));
 
+        }
+
+        public ActionResult Edit(int id = 0)
+        {
+            var userSv = new UserServices();
+            var result = userSv.GetByID(id);
+            if (result == null)
+                result = new User();
+            return View(result);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(User user)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var userSv = new UserServices();
+                    userSv.Add(user);
+                    return base.jsonResult();
+                }
+                throw new Exception("lỗi");
+            }
+            catch (Exception ex)
+            {
+                return base.jsonResult(false, ex.Message);
+            }
         }
 
         [HttpPost]

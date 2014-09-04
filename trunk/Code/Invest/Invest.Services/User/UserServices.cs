@@ -23,6 +23,13 @@ namespace Invest.Services
             }
         }
 
+        public User GetByID(int id)
+        {
+            var invest = new InvestContext();
+            var result = invest.User.Where(l => l.Id == id).FirstOrDefault();
+            return result;
+        }
+
         public void Add(User language)
         {
             var invest = new InvestContext();

@@ -1,0 +1,83 @@
+﻿@model Invest.Core.User
+@Html.Partial("Breadcrumb", new Dictionary<string, string> { { @Resource("User"), "/Admin/User" }, { @Resource("Edit"), "#" } })
+<div class="row-fluid">
+    <div class="box span12">
+        <div class="box-header well">
+            <h2>Edit User</h2>
+        </div>
+        <div class="box-content">
+            @using (Html.BeginForm("Edit", "User", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <fieldset>
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.Id)
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.UserName, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(model => model.UserName, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.UserName)
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.Email, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(model => model.Email, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.Password, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.HiddenFor(model => model.Password, new { @class = "span4 typeahead", @id = "password", @type = "password" })
+                            @Html.ValidationMessageFor(model => model.Password)
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.CreatedDate, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(model => model.CreatedDate, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.CreatedDate)
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.IsActive, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.EditorFor(model => model.IsActive, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.IsActive)
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.RememberMe, new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.EditorFor(model => model.RememberMe, new { @class = "span4 typeahead" })
+                            @Html.ValidationMessageFor(model => model.RememberMe)
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button id="btnSave" type="submit" class="btn btn-primary">@Resource("Save")</button>
+                        <a class="btn btn-cancel" href="@Url.Action("", "User", new { area = "Admin" },null)">@Resource("Exit")</a>
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.btn-primary').click(function (event) {
+            showPopUpStatus("Đang cập nhật dữ liệu");
+            event.preventDefault();
+            $.post('@Url.Action("Edit", "User")', $('form').serialize(), function (data) {
+                if (data.success) {
+                    popUp(false, "Cập nhật thành công! Trở về trang trước", true, "@Url.Action("", "User", new { area = "Admin" },null)");
+                } else {
+                    popUp(true, data.message, false);
+                }
+            });
+        });
+
+    });
+</script>
+@section ScriptCustom {
+}
