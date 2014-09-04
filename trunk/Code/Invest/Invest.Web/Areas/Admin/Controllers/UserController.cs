@@ -28,6 +28,7 @@ namespace Invest.Web.Areas.Admin.Controllers
                 Id = n.Id,
                 UserName = n.UserName,
                 Password = n.Password,
+                Email = n.Email,
                 IsActive = n.IsActive,
                 CreatedDate = n.CreatedDate
             }).OrderBy(n => n.CreatedDate);
