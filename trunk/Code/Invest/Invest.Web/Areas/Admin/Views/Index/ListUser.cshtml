@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Invest.Web.UserModel>
+<div class="box-content">
+    <div class="box-content">
+        <ul class="dashboard-list">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a href="#">
+                        <img class="dashboard-avatar" alt="Usman" src="http://www.gravatar.com/avatar/f0ea51fa1e4fae92608d8affee12f67b.png?s=50">
+                    </a>
+                    <strong>Name:</strong> <a href="#">
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </a><br>
+                    <strong>Since:</strong> @Html.DisplayFor(modelItem => item.CreatedDate)<br>
+                    <strong>Status:</strong> <span class="label label-success">@Html.DisplayFor(modelItem => item.IsActive)</span>
+                </li>
+            }
+
+        </ul>
+    </div>
+</div>

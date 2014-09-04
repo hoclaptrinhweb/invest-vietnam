@@ -1245,6 +1245,7 @@
     <Content Include="Areas\Admin\Views\Shared\_PartialPaging.cshtml" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Areas\Admin\Views\User\_PartialUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Index\ListUser.cshtml" />
     <None Include="Properties\PublishProfiles\Invest.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
