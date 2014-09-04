@@ -16,7 +16,6 @@ namespace Invest.Web.Areas.Admin.Controllers
         // GET: /Admin/News/
         public ActionResult Index(string currentFilter, string qr, int? key, int? page)
         {
-            int temSize = 0;
             int pageSize = 10;
             int pageNumber = (page ?? 1);
             if (qr != null)
