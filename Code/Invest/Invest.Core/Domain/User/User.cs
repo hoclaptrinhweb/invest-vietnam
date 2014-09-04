@@ -14,13 +14,13 @@ namespace Invest.Core
         {
             CreatedDate = DateTime.Now;
         }
-
         [StringLength(256)]
-        [Index("UserName", IsUnique = true)]
+        //[Index("UserName", IsUnique = true)]
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreatedDate { get; set; }
+        public bool RememberMe { get; set; }
     }
 }
