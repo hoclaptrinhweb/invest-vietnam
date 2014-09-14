@@ -1297,6 +1297,7 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Shared\PartialLeftMenu.cshtml" />
     <Content Include="Views\Home\SliderBar.cshtml" />
+    <Content Include="Views\Common\GoogleAnalytic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Common\" />
