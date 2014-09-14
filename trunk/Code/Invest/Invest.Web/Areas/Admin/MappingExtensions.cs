@@ -47,6 +47,7 @@ namespace Invest.Web
 
         public static User ToEntity(this UserModel model)
         {
+            model.Password = Invest.Helpers.SHA1.Encode(model.Password);
             return Mapper.DynamicMap<UserModel, User>(model);
         }
     }
