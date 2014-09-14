@@ -1134,6 +1134,7 @@
     <Content Include="Content\js\jquery.uploadify-3.1.min.js" />
     <Content Include="Content\js\modernizr.js" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Uploads\ImagesNews\Form mua hang %281%29.jpg" />
     <Content Include="Content\Uploads\Images\News\022515130514resons_1.jpg" />
     <Content Include="Content\Uploads\Images\News\032551080514resons_1.jpg" />
     <Content Include="Content\Uploads\Images\News\034329110514industry1.jpg" />
@@ -1165,11 +1166,22 @@
     <Content Include="Content\Uploads\Images\News\041500110514resources3.jpg" />
     <Content Include="Content\Uploads\Images\News\041549110514resources4.jpg" />
     <Content Include="Content\Uploads\Images\News\041628110514resources5.jpg" />
+    <Content Include="Content\Uploads\Images\News\065458170614Form mua hang %281%29.jpg" />
+    <Content Include="Content\Uploads\Images\News\103134040714Kich ban mua som gia hoi.png" />
+    <Content Include="Content\Uploads\Images\News\103149300614131040_scan1_1357828362vonhatnam_1.jpg" />
     <Content Include="Content\Uploads\Images\News\110913080514whyKorea1_img[2].jpg" />
     <Content Include="Content\Uploads\Images\News\111001080514whyKorea2_img.jpg" />
     <Content Include="Content\Uploads\Images\News\111044080514whyKorea3_img.jpg" />
     <Content Include="Content\Uploads\Images\News\111625110514resons_2.jpg" />
     <Content Include="Content\Uploads\Images\News\111859110514resons_2.jpg" />
+    <Content Include="Content\Uploads\Images\SliderBar\111959040714doitac.jpg" />
+    <Content Include="Content\Uploads\Images\SliderBar\112041040714doitac1.jpg" />
+    <Content Include="Content\Uploads\Images\SliderBar\112056040714doitac2.jpg" />
+    <Content Include="Content\Uploads\Images\SliderBar\112110040714doitac3.jpg" />
+    <Content Include="Content\Uploads\Images\SliderBar\112133040714doitac4.jpg" />
+    <Content Include="Content\Uploads\Images\SliderBar\112149040714doitac5.gif" />
+    <Content Include="Content\Uploads\Images\SliderBar\112201040714doitac6.gif" />
+    <Content Include="Content\Uploads\Images\SliderBar\112213040714doitac7.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1301,8 +1313,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Common\" />
-    <Folder Include="Content\Uploads\ImagesNews\" />
-    <Folder Include="Content\Uploads\Images\SliderBar\" />
     <Folder Include="Content\Uploads\Images\Tmp\" />
     <Folder Include="Theme\" />
     <Folder Include="Views\Upload\" />
