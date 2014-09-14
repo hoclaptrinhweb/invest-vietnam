@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using AutoMapper;
 using Invest.Core;
+using Invest.Helpers;
 
 namespace Invest.Web
 {
@@ -47,7 +48,7 @@ namespace Invest.Web
 
         public static User ToEntity(this UserModel model)
         {
-            model.Password = Invest.Helpers.SHA1.Encode(model.Password);
+            model.Password = SHA1.Encode(model.Password);
             return Mapper.DynamicMap<UserModel, User>(model);
         }
     }
