@@ -1323,6 +1323,10 @@
       <Project>{babb0173-40b1-416b-9cf8-ef5d25dd583a}</Project>
       <Name>Invest.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Invest.Helpers\Invest.Helpers.csproj">
+      <Project>{abe3e54e-878a-40cd-87ae-397f37be6154}</Project>
+      <Name>Invest.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Invest.Services\Invest.Services.csproj">
       <Project>{51495a16-a27a-4b22-8659-eb26ab778727}</Project>
       <Name>Invest.Services</Name>
