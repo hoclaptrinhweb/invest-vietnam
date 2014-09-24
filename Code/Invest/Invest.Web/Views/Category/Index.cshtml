@@ -14,7 +14,7 @@
             <ol class="breadcrumb">
                 @foreach (var item in (List<Invest.Core.Category>)ViewBag.TreeMenu)
                 {
-                <li><a href="">@item.Name</a></li>
+                    <li><a href="">@item.Name</a></li>
                 }
             </ol>
             @*<div class="row">
@@ -71,3 +71,17 @@
         </div>
     </div>
 </div>
+@section JS_INC{
+    <script>
+        $(document).ready(function () {
+            $('.divcenter .thumbnail').hover(
+                function () {
+                    $(this).find('.caption').slideDown(250);
+                },
+                function () {
+                    $(this).find('.caption').slideUp(250);
+                }
+            );
+        });
+    </script>
+}
