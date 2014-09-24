@@ -1,20 +1,9 @@
-﻿
-@section META_INC
-    {
-    <title>@ViewBag.Title | Invest-Vietnam.vn</title>
-    <meta name="keywords" content="@ViewBag.Keyword" />
-    <meta name="description" content="@ViewBag.Description" />
-    <meta property="og:url" itemprop="url" content="@Request.Url.AbsoluteUri" />
-    <meta property="og:title" content="@ViewBag.Title">
-    <meta property="og:description" itemprop="description" content="@ViewBag.Description" />
-    <meta property="og:image" content="@ViewBag.Image" />
-    <meta itemprop="image" content="@ViewBag.Image" />
+﻿@section META_INC
+{
+    @Html.Partial("~/Views/Common/_MetaInfo.cshtml", new MetaNewsInfoModel() { Title = ViewBag.Title, Keyword = ViewBag.Keyword, Description = ViewBag.Description, OgImage = ViewBag.Image })
 }
-
 @model List<CategoryModel>
-
 <link href="~/Content/bootstrap-select.css" rel="stylesheet" />
-
 <div class="container" id="container">
     <div class="row">
         <div class="col-sm-3">
@@ -25,28 +14,28 @@
             <ol class="breadcrumb">
                 @foreach (var item in (List<Invest.Core.Category>)ViewBag.TreeMenu)
                 {
-                    <li><a href="">@item.Name</a></li>
+                <li><a href="">@item.Name</a></li>
                 }
             </ol>
             @*<div class="row">
-                <div class="col-sm-12">
-                    <div class="input-group">
-                        <div class="input-group-btn ">
-                            <select id="bs3Select" class="selectpicker show-tick form-control" data-live-search="true">
-                                <option>cow fds</option>
-                                <option>bul fsdfl</option>
-                                <option class="get-class" disabled>ox</option>
-                                <optgroup label="test" data-subtext="another test" data-icon="icon-ok">
-                                    <option>ASD fsdfd</option>
-                                    <option selected>Bla</option>
-                                    <option>Ble fsdf</option>
-                                </optgroup>
-                            </select>
-                        </div><!-- /btn-group -->
-                        <input type="text" class="form-control">
-                    </div><!-- /input-group -->
-                </div><!-- /.col-lg-6 -->
-            </div>*@
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <div class="input-group-btn ">
+                                <select id="bs3Select" class="selectpicker show-tick form-control" data-live-search="true">
+                                    <option>cow fds</option>
+                                    <option>bul fsdfl</option>
+                                    <option class="get-class" disabled>ox</option>
+                                    <optgroup label="test" data-subtext="another test" data-icon="icon-ok">
+                                        <option>ASD fsdfd</option>
+                                        <option selected>Bla</option>
+                                        <option>Ble fsdf</option>
+                                    </optgroup>
+                                </select>
+                            </div><!-- /btn-group -->
+                            <input type="text" class="form-control">
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                </div>*@
             <div class="row">
                 @Html.Action("ContentCategory", "Category", new { area = "", id = ViewBag.Id })
             </div>

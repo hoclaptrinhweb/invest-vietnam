@@ -1,0 +1,16 @@
+﻿@model MetaNewsInfoModel
+<title>@Model.Title | Invest-Vietnam.vn</title>
+<meta name="keywords" content="@Model.Keyword" />
+<meta name="description" content="@Model.Description" />
+<meta property="og:url" itemprop="url" content="@Request.Url.AbsoluteUri" />
+<meta property="og:title" content="@Model.Title">
+<meta property="og:description" itemprop="description" content="@Model.Description" />
+<meta property="og:image" content="@Model.OgImage" />
+<meta itemprop="image" content="@Model.OgImage" />/>
+@if (Model.UpdatedDate != null)
+{
+    <meta property="article:modified_time" content="@Model.UpdatedDate" />
+}
+<meta property="article:section" content="@Model.Manufacturer" />
+<meta property="article:tag" content="@Model.Tag" />
+<meta name="RATING" content="GENERAL" />
