@@ -159,6 +159,10 @@
             });
         });
     </script>
+    @if (IsSectionDefined("JS_INC"))
+    {
+        @RenderSection("JS_INC")
+    }
     @Html.Partial("~/Views/Common/GoogleAnalytic.cshtml")
 </body>
 </html>
