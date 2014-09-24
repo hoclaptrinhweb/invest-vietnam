@@ -92,7 +92,6 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-
                     </div>
                     @Html.Action("HeadMenu", "Home")
                 </div>
@@ -116,28 +115,7 @@
         @RenderBody()
         @Html.Action("SliderBar", "Home")
     </div>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <a href="@Url.Content("~/")">
-                        <img class="img-responsive" src="~/content/img/banner/logo.png">
-                    </a>
-                </div>
-                <div class="col-sm-8">
-                    <p>
-                        <h3>Công ty Cổ phần Invest-VietNam</h3>
-                        <div>
-                            Ấp 3, Xã Long Hậu, Huyện Cần Giuộc, Tỉnh Long An<br>
-                            Điện thoại: <a href="tel:+848 37818929">(08) 3781 8929</a> - <a href="tel:+848 3781 8929">(08) 3781 8929</a> - Fax: (08) 3781 8940<br>
-                            Phòng Tiếp Thị Kinh Doanh: <a href="tel:+848 3937 559">(08) 3937 5599</a> &nbsp;<br>
-                            Email: <a href="mailto:info@invest-vietnam">info@invest-vietnam</a>
-                        </div>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    @Html.Partial("~/Views/Common/_Footer.cshtml")
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="~/Content/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
     <script src="~/Content/js/jquery.carouFredSel-6.2.1-packed.js"></script>
@@ -175,7 +153,6 @@
             });
 
         });
-
         $(window).on('load', function () {
             $('.selectpicker').selectpicker({
                 'selectedText': 'cat'

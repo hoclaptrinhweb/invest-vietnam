@@ -382,6 +382,7 @@
     <Compile Include="Areas\Admin\Models\TestLanguage.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NetAdvImageController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -393,6 +394,8 @@
     <Compile Include="Models\CategoryContentModel.cs" />
     <Compile Include="Models\CategoryType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MetaHeader\MetaNewsInfoModel.cs" />
+    <Compile Include="Models\MetaHeader\MetaInfoModel.cs" />
     <Compile Include="Models\NetAdvImageModels.cs" />
     <Compile Include="Models\NewsShortModel.cs" />
     <Compile Include="Models\News\NewsCategoryViewModel.cs" />
@@ -1327,6 +1330,8 @@
     <Content Include="Views\Shared\PartialLeftMenu.cshtml" />
     <Content Include="Views\Home\SliderBar.cshtml" />
     <Content Include="Views\Common\GoogleAnalytic.cshtml" />
+    <Content Include="Views\Common\_Footer.cshtml" />
+    <Content Include="Views\Common\_MetaInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Common\" />
