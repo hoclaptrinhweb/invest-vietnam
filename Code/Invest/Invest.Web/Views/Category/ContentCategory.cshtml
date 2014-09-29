@@ -8,31 +8,40 @@
                 @{
         var imgPath = item.Category_Picture != null ? item.Category_Picture.FirstOrDefault().UrlPath : "http://placehold.it/320x130";
                 }
-                <div class="caption">
-                    <a href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})">
-                        <p>@item.Description.ToStringCount(140)</p>
-                    </a>
-                    <p><a href="#" class="btn btn-inverse" rel="tooltip" title="Preview"><i class="icon-eye-open"></i></a> <a href="#" rel="tooltip" title="Visit Website" class="btn btn-inverse"><i class="icon-share"></i></a></p>
-                </div>
+                @if (!string.IsNullOrEmpty(item.Description))
+                {
+                    <div class="caption">
+                        <a href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})">
+                            <p>@Html.Raw(item.Description.StripTagsRegexCompiled().ToStringCount(140))</p>
+                        </a>
+                        <p><a href="#" class="btn btn-inverse" rel="tooltip" title="Preview"><i class="icon-eye-open"></i></a> <a href="#" rel="tooltip" title="Visit Website" class="btn btn-inverse"><i class="icon-share"></i></a></p>
+                    </div>
+                }
                 <img class="img-responsive" width="320" height="130" src="@imgPath" />
             </div>
-            <h4><a href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})">@item.Name</a></h4>
+            <h4><a href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})">@item.Name.ToStringCount(80)</a></h4>
         </div>
     }
-    @foreach (var item in Model.NewsCategoryViewModel)
+    @if (Model.Category == null || Model.Category.Count() == 0)
     {
-        <div class="col-sm-6 col-xs-6">
-            <div class="thumbnail">
-                <div class="caption">
-                    <a href="@Url.Action("Index","News",new { Name = item.Title.ConvertToUnSign(), Id = item.Id})">
-                        <p>@item.Brief.ToStringCount(140)</p>
-                    </a>
-                    <p><a href="#" class="btn btn-inverse" rel="tooltip" title="Preview"><i class="icon-eye-open"></i></a> <a href="#" rel="tooltip" title="Visit Website" class="btn btn-inverse"><i class="icon-share"></i></a></p>
+        foreach (var item in Model.NewsCategoryViewModel)
+        {
+            <div class="col-sm-6 col-xs-6">
+                <div class="thumbnail">
+                    @if (!string.IsNullOrEmpty(item.Brief))
+                    {
+                        <div class="caption">
+                            <a href="@Url.Action("Index","News",new { Name = item.Title.ConvertToUnSign(), Id = item.Id})">
+                                <p>@Html.Raw(item.Brief.StripTagsRegexCompiled().ToStringCount(140))</p>
+                            </a>
+                            <p><a href="#" class="btn btn-inverse" rel="tooltip" title="Preview"><i class="icon-eye-open"></i></a> <a href="#" rel="tooltip" title="Visit Website" class="btn btn-inverse"><i class="icon-share"></i></a></p>
+                        </div>
+                    }
+                    <img class="img-responsive" width="320" height="130" src="@item.ImagePath" />
                 </div>
-                <img class="img-responsive" width="320" height="130" src="@item.ImagePath" />
+                <h4><a href="@Url.Action("Index","News",new { Name = item.Title.ConvertToUnSign(), Id = item.Id})">@item.Title.ToStringCount(80)</a></h4>
             </div>
-            <h4><a href="@Url.Action("Index","News",new { Name = item.Title.ConvertToUnSign(), Id = item.Id})">@item.Title</a></h4>
-        </div>
+        }
     }
 </div>
 <style>
@@ -54,8 +63,9 @@
         width: 100%;
         height: 100%;
     }
-    .caption a{
-        color: #fff !important;
-        text-decoration:none;
-    }
+
+        .caption a {
+            color: #fff !important;
+            text-decoration: none;
+        }
 </style>
