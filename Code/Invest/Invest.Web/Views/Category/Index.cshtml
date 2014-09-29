@@ -14,7 +14,7 @@
             <ol class="breadcrumb">
                 @foreach (var item in (List<Invest.Core.Category>)ViewBag.TreeMenu)
                 {
-                    <li><a href="">@item.Name</a></li>
+                    <li typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})">@item.Name</a></li>
                 }
             </ol>
             @*<div class="row">

@@ -406,6 +406,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\script.sql" />
+    <Content Include="BingSiteAuth.xml" />
     <Content Include="Content\2013.2.611\Black\editor.png" />
     <Content Include="Content\2013.2.611\Black\imagebrowser.png" />
     <Content Include="Content\2013.2.611\Black\loading.gif" />
