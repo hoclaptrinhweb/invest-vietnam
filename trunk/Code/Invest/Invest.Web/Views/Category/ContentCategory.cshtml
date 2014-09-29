@@ -1,4 +1,5 @@
 ﻿@model CategoryContentModel
+@using Extensions.String;
 <div class="divcenter">
     @foreach (var item in Model.Category)
     {
@@ -8,11 +9,12 @@
         var imgPath = item.Category_Picture != null ? item.Category_Picture.FirstOrDefault().UrlPath : "http://placehold.it/320x130";
                 }
                 <div class="caption">
-                    <h4><a href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})">@item.Name</a></h4>
-                    <p>@item.Description</p>
+                    <a href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})">
+                        <p>@item.Description.ToStringCount(140)</p>
+                    </a>
                     <p><a href="#" class="btn btn-inverse" rel="tooltip" title="Preview"><i class="icon-eye-open"></i></a> <a href="#" rel="tooltip" title="Visit Website" class="btn btn-inverse"><i class="icon-share"></i></a></p>
                 </div>
-                <img class="img-responsive" src="http://placehold.it/320x130" />
+                <img class="img-responsive" width="320" height="130" src="@imgPath" />
             </div>
             <h4><a href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})">@item.Name</a></h4>
         </div>
@@ -22,12 +24,12 @@
         <div class="col-sm-6 col-xs-6">
             <div class="thumbnail">
                 <div class="caption">
-                    <h4><a href="@Url.Action("Index","News",new { Name = item.Title.ConvertToUnSign(), Id = item.Id})">@item.Title</a></h4>
-                    <p>@item.Brief</p>
+                    <a href="@Url.Action("Index","News",new { Name = item.Title.ConvertToUnSign(), Id = item.Id})">
+                        <p>@item.Brief.ToStringCount(140)</p>
+                    </a>
                     <p><a href="#" class="btn btn-inverse" rel="tooltip" title="Preview"><i class="icon-eye-open"></i></a> <a href="#" rel="tooltip" title="Visit Website" class="btn btn-inverse"><i class="icon-share"></i></a></p>
                 </div>
-                @*<img class="img-responsive" src="@item.ImagePath" />*@
-                <img class="img-responsive" src="http://placehold.it/320x130" />
+                <img class="img-responsive" width="320" height="130" src="@item.ImagePath" />
             </div>
             <h4><a href="@Url.Action("Index","News",new { Name = item.Title.ConvertToUnSign(), Id = item.Id})">@item.Title</a></h4>
         </div>
@@ -48,9 +50,12 @@
         position: absolute;
         top: 0;
         left: 0;
-        background: rgba(0,0,0,0.4);
+        background: rgba(0,0,0,.85);
         width: 100%;
         height: 100%;
+    }
+    .caption a{
         color: #fff !important;
+        text-decoration:none;
     }
 </style>
