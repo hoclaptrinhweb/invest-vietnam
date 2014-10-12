@@ -1357,7 +1357,7 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\ContentCategory.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\Shared\PartialLeftMenu.cshtml" />
+    <Content Include="Views\Category\PartialLeftMenu.cshtml" />
     <Content Include="Views\Home\SliderBar.cshtml" />
     <Content Include="Views\Common\GoogleAnalytic.cshtml" />
     <Content Include="Views\Common\_Footer.cshtml" />
@@ -1365,6 +1365,7 @@
     <Content Include="Views\Home\_boxNewsContent.cshtml" />
     <Content Include="Views\Home\_boxLeft.cshtml" />
     <Content Include="Views\Home\_boxRight.cshtml" />
+    <Content Include="Views\Category\PartailLeftMenuTypeMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Common\" />

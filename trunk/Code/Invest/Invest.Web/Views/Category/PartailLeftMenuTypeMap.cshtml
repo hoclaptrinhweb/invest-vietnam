@@ -1,0 +1,84 @@
+﻿<div class="col-xs-12 padding_none">
+    <div class="panel-group-ba" id="filters">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#categories">
+                        Categories
+                    </a>
+                </h4>
+            </div>
+            <div id="categories" class="panel-collapse collapse in">
+                <div class="panel-body">
+
+                    <select name="category" class="form-control ajax">
+                        <option value="">All</option>
+                        <option value="admin">Admin &amp; Dashboards</option>
+                        <option value="landing-pages">Landing pages</option>
+                        <option value="business">Business &amp; corporate</option>
+                        <option value="portfolios">Portfolios</option>
+                        <option value="resumes-cv">Resumes &amp; CV</option>
+                        <option value="e-commerce">E-commerce</option>
+                        <option value="components">Components</option>
+                        <option value="blogs-magazines">Blogs &amp; magazines</option>
+                        <option value="wordpress">Wordpress</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#sort">
+                        Sort
+                    </a>
+                </h4>
+            </div>
+            <div id="sort" class="panel-collapse collapse in">
+                <div class="panel-body">
+
+                    <select name="sort" class="form-control ajax">
+                        <option value="featured">Featured</option>
+                        <option value="bestselling" selected="">Bestselling</option>
+                        <option value="price-low">Price (low)</option>
+                        <option value="price-high">Price (high)</option>
+                    </select>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#branches">
+                        Branch
+                    </a>
+                </h4>
+            </div>
+            <div id="branches" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="ajax" name="branches[]" value="bs3" checked="">
+                            Bootstrap 3
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="ajax" name="branches[]" value="bs2" checked="">
+                            Bootstrap 2
+                        </label>
+                    </div>
+
+                    <span class="select-all">Select all</span> |
+                    <span class="deselect-all">Deselect all</span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
