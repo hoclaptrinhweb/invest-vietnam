@@ -7,35 +7,38 @@
 <div class="container" id="container">
     <div class="row">
         <div class="col-sm-3">
-            @Html.Action("PartialLeftMenu", "Category", new { area = "", id = ViewBag.Id })
+            @if (ViewBag.CategoryType == 3)
+            {
+                @Html.Action("PartailLeftMenuTypeMap")
+            }
+            else
+            {
+                @Html.Action("PartialLeftMenu", "Category", new { area = "", id = ViewBag.Id })
+            }
         </div>
         <div class="col-sm-7">
-            <h2>@ViewBag.CurrTitle</h2>
+            @if (ViewBag.CategoryType == 2)
+            {
+                <h2 style="position:relative">
+                    @ViewBag.CurrTitle
+                    <a href="javascript:void(0)" class="btn btn-success btn-sm" style="position: absolute;right:0;">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                    </a>
+                </h2>
+            }
+            else
+            {
+                <h2>@ViewBag.CurrTitle</h2>
+            }
             <ol class="breadcrumb">
                 @foreach (var item in (List<Invest.Core.Category>)ViewBag.TreeMenu)
                 {
                     <li typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})">@item.Name</a></li>
                 }
             </ol>
-            @*<div class="row">
-                    <div class="col-sm-12">
-                        <div class="input-group">
-                            <div class="input-group-btn ">
-                                <select id="bs3Select" class="selectpicker show-tick form-control" data-live-search="true">
-                                    <option>cow fds</option>
-                                    <option>bul fsdfl</option>
-                                    <option class="get-class" disabled>ox</option>
-                                    <optgroup label="test" data-subtext="another test" data-icon="icon-ok">
-                                        <option>ASD fsdfd</option>
-                                        <option selected>Bla</option>
-                                        <option>Ble fsdf</option>
-                                    </optgroup>
-                                </select>
-                            </div><!-- /btn-group -->
-                            <input type="text" class="form-control">
-                        </div><!-- /input-group -->
-                    </div><!-- /.col-lg-6 -->
-                </div>*@
+            <div class="row">
+                <div id="map"></div>
+            </div>
             <div class="row">
                 @Html.Action("ContentCategory", "Category", new { area = "", id = ViewBag.Id })
             </div>
