@@ -20,6 +20,9 @@
             @Html.DisplayNameFor(model => model.FirstOrDefault().LanguageName)
         </th>
         <th>
+            View
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().Published)
         </th>
         <th>
@@ -30,9 +33,12 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        <tr class='@(item.UpdatedDate.ToString("ddMMyy") == DateTime.Now.ToString("ddMMyy") ? "today" : "")'>
             <td>
                 <a href="@Url.Action("Edit", "News", new { id = item.Id })">@Html.DisplayFor(modelItem => item.Title)</a>
+            </td>
+            <td>
+                <a href="@Url.Action("Index", "News", new { area = "", Name = item.Title.ConvertToUnSign(), Id = item.Id })">View</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LanguageName)
@@ -86,7 +92,7 @@
                 type: "POST",
                 url: '@Url.Action("Delete")',
                 data: { ids: idArray },
-                beforeSend : popUp(false, '@Resource("Admin.ConfirmSuccess")', false),
+                beforeSend: popUp(false, '@Resource("Admin.ConfirmSuccess")', false),
                 success: function (data) {
                     if (data.success) {
                         setTimeout(function () {

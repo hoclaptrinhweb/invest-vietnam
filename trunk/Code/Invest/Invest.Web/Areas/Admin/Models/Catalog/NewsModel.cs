@@ -12,6 +12,7 @@ namespace Invest.Web
         public NewsModel()
         {
             CreatedDate = DateTime.Now;
+            UpdatedDate = DateTime.Now;
             AllowComments = true;
             Published = true;
             CommentCount = 0;
@@ -34,6 +35,7 @@ namespace Invest.Web
         public string MetaDescription { get; set; }
         public string MetaTitle { get; set; }
         public DateTime CreatedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
         public string Longitude { get; set; }
         public string Latitude { get; set; }
 

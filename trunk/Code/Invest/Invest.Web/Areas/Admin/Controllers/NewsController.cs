@@ -47,8 +47,9 @@ namespace Invest.Web.Areas.Admin.Controllers
                     LanguageName = n.Language.Name,
                     Published = n.Published,
                     CommentCount = n.CommentCount,
-                    CreatedDate = n.CreatedDate
-                }).OrderBy(n => n.CreatedDate);
+                    CreatedDate = n.CreatedDate,
+                    UpdatedDate = n.UpdatedDate
+                }).OrderByDescending(n => n.CreatedDate);
                 return View(result.ToPagedList(pageNumber, pageSize));
             }
 
@@ -60,8 +61,9 @@ namespace Invest.Web.Areas.Admin.Controllers
                 LanguageName = n.Language.Name,
                 Published = n.Published,
                 CommentCount = n.CommentCount,
-                CreatedDate = n.CreatedDate
-            }).OrderBy(n => n.CreatedDate);
+                CreatedDate = n.CreatedDate,
+                UpdatedDate = n.UpdatedDate
+            }).OrderByDescending(n => n.CreatedDate);
             return View(result1.ToPagedList(pageNumber, pageSize));
 
         }
@@ -86,7 +88,7 @@ namespace Invest.Web.Areas.Admin.Controllers
                     Id = n.Id
                 }).OrderBy(n => n.DisplayOrder).ToList();
 
-            model.News_Category = invest.News_Category_Mapping.Where(c => c.NewsId == id).Select(c=> new News_Category_MappingModel()
+            model.News_Category = invest.News_Category_Mapping.Where(c => c.NewsId == id).Select(c => new News_Category_MappingModel()
                 {
                     CategoryName = c.Category.Name,
                     DisplayOrder = c.DisplayOrder,
