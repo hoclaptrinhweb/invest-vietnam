@@ -20,6 +20,7 @@ namespace Invest.Web
 
         public int LanguageId { get; set; }
         public int CategoryId { get; set; }
+        public string Image { get; set; }
         public string LanguageName { get; set; }
         public string Title { get; set; }
         public string Short { get; set; }
@@ -44,7 +45,7 @@ namespace Invest.Web
         public IList<News_Category_MappingModel> News_Category { get; set; }
         public IList<SelectListItem> AvailableCategory { get; set; }
 
-        
+
 
     }
 }

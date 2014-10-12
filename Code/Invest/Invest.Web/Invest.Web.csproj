@@ -1363,6 +1363,8 @@
     <Content Include="Views\Common\_Footer.cshtml" />
     <Content Include="Views\Common\_MetaInfo.cshtml" />
     <Content Include="Views\Home\_boxNewsContent.cshtml" />
+    <Content Include="Views\Home\_boxLeft.cshtml" />
+    <Content Include="Views\Home\_boxRight.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Common\" />
