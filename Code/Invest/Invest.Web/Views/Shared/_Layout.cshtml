@@ -34,7 +34,7 @@
         (function () { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(as, s); })();
     </script>
     <noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=izJ6k1a0Sn0081" style="display:none" height="1" width="1" alt="" /></noscript>
-    <!-- End Alexa Certify Javascript -->  
+    <!-- End Alexa Certify Javascript -->
 </head>
 <body>
     <div class="header-top">
@@ -107,7 +107,9 @@
                 <div class="container-fluid">
                     <div class="row-fluid">
                         <div class="col-xs-4">
-                            <img class="img-responsive" src="~/content/img/banner/why.jpg" />
+                            <a href="@Url.Action("Index", "Category", new { Name = "why-vietnam", Id = 1 })">
+                                <img class="img-responsive" src="~/content/img/banner/why.jpg" />
+                            </a>
                         </div>
                         <div class="col-xs-4">
                             <img class="img-responsive" src="~/content/img/banner/where.jpg" />

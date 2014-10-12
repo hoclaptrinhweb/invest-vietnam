@@ -35,6 +35,7 @@ namespace Invest.Core
         public string MetaDescription { get; set; }
         public string MetaTitle { get; set; }
         public DateTime CreatedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
         public string Longitude { get; set; }
         public string Latitude { get; set; }
 
