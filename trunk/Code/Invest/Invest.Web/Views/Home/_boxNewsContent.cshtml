@@ -19,18 +19,21 @@
         Brief = n.Short
     }
    ).ToList();
+    var news3 = newsServices.GetNewsByCategory(30, EngineContext.WorkingLanguage.Id, true).Select(n =>
+    new NewsCategoryViewModel()
+    {
+        Id = n.Id,
+        Title = n.Title,
+        Brief = n.Short
+    }
+   ).ToList();
 }
 <div class="col-sm-4">
     <div class="row">
         <div class="col-sm-12 col-xs-12">
             <div class="panel panel-danger">
                 <div class="panel-heading">Online Consulting</div>
-                <ul class="list-group">
-                    <li class="list-group-item">FDI business type requirements </li>
-                    <li class="list-group-item">Selling online in Korea </li>
-                    <li class="list-group-item">Investment in a restaurant </li>
-                    <li class="list-group-item">Investment in a restaurant </li>
-                </ul>
+                @CreateListNew(news3)
             </div>
         </div>
         <div class="col-sm-12 col-xs-12">
