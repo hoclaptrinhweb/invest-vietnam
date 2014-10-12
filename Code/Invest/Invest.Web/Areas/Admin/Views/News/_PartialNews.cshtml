@@ -1,5 +1,4 @@
 ﻿@model PagedList.IPagedList<NewsModel>
-
 <div class="span3 pull-left">
     <div class="btn-group">
         <a class="btn btn-small" href="@Url.Action("Edit", "News", new { area = "Admin" }, null)"><i class="icon icon-color icon-add"></i>@Resource("Admin.CreateNew")</a>
@@ -17,10 +16,10 @@
             @Html.DisplayNameFor(model => model.FirstOrDefault().Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstOrDefault().LanguageName)
+            View
         </th>
         <th>
-            View
+            @Html.DisplayNameFor(model => model.FirstOrDefault().LanguageName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FirstOrDefault().Published)
@@ -30,7 +29,6 @@
         </th>
         <th class="center">@Resource("Admin.Actions")</th>
     </tr>
-
     @foreach (var item in Model)
     {
         <tr class='@(item.UpdatedDate.ToString("ddMMyy") == DateTime.Now.ToString("ddMMyy") ? "today" : "")'>
@@ -38,7 +36,7 @@
                 <a href="@Url.Action("Edit", "News", new { id = item.Id })">@Html.DisplayFor(modelItem => item.Title)</a>
             </td>
             <td>
-                <a href="@Url.Action("Index", "News", new { area = "", Name = item.Title.ConvertToUnSign(), Id = item.Id })">View</a>
+                <a target="_blank" href="@Url.Action("Index", "News", new { area = "", Name = item.Title.ConvertToUnSign(), Id = item.Id })">View</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LanguageName)
@@ -62,20 +60,14 @@
             </td>
         </tr>
     }
-
 </table>
-
 @Html.Partial("_PartialPaging", Model)
-
 <script>
     function onLocaleResourceLanguageSelected(t) {
         window.location.href = "@Url.Action("", "News")" + "?languageid=" + t;
     }
-
     $(document).ready(function () {
-
         var checkboxSuppList = $("input[id^='selectSupp_']");
-
         $('a[id^="delete"]').click(function (event) {
             if (!confirm('@Resource("Admin.ConfirmDelete")'))
                 return;
@@ -85,9 +77,7 @@
             idArr[0] = $(this).attr('id').substring(6);
             DeleteNews(idArr);
         });
-
         function DeleteNews(idArray) {
-
             $.ajax({
                 type: "POST",
                 url: '@Url.Action("Delete")',

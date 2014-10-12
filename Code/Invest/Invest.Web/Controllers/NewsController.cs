@@ -20,8 +20,12 @@ namespace Invest.Web.Controllers
             var nsv = new NewsServices();
             var data = nsv.GetNewsByID(Id);
             var result = data.ToModel();
-            result.CategoryId = data.News_Category_Mapping.FirstOrDefault().CategoryId;
 
+            //Thông tin Categogy theo NewsId
+            var objCat = data.News_Category_Mapping.FirstOrDefault();
+            if(objCat == null)
+                throw new HttpException(404, "Not found");
+            result.CategoryId = data.News_Category_Mapping.FirstOrDefault().CategoryId;
             var CurrCat = csv.GetCategoryByID(result.CategoryId);
             ViewBag.TreeMenu = GetCategoryByParent(CurrCat, new List<Category>()); ;
             //Check Seo
