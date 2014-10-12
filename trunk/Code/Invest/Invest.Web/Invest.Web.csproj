@@ -1337,6 +1337,7 @@
     <Content Include="Views\Common\GoogleAnalytic.cshtml" />
     <Content Include="Views\Common\_Footer.cshtml" />
     <Content Include="Views\Common\_MetaInfo.cshtml" />
+    <Content Include="Views\Home\_boxNewsContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Common\" />
