@@ -13,6 +13,14 @@ namespace Invest.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            #region Ajax
+            routes.MapRoute(
+               "Calling-Ajax",
+               "ajax/{controller}/{action}/{*q}",
+                   new[] { "Invest.Web.Controllers" }
+            );
+            #endregion
+
             //Register Route Plugin 
             routes.MapRoute(
                 "NetAdvImage",
