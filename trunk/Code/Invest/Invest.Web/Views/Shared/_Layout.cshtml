@@ -112,7 +112,9 @@
                             </a>
                         </div>
                         <div class="col-xs-4">
-                            <img class="img-responsive" src="~/content/img/banner/where.jpg" />
+                            <a href="@Url.Action("Index", "Category", new { Name = "why-vietnam", Id = 1 })">
+                                <img class="img-responsive" src="~/content/img/banner/where.jpg" />
+                            </a>
                         </div>
                         <div class="col-xs-4">
                             <img class="img-responsive" src="~/content/img/banner/what.jpg" />
@@ -161,11 +163,6 @@
                 }
             });
 
-        });
-        $(window).on('load', function () {
-            $('.selectpicker').selectpicker({
-                'selectedText': 'cat'
-            });
         });
     </script>
     @if (IsSectionDefined("JS_INC"))
