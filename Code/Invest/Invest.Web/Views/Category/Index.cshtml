@@ -7,14 +7,7 @@
 <div class="container" id="container">
     <div class="row">
         <div class="col-sm-3">
-            @if (ViewBag.CategoryType == 3)
-            {
-                @Html.Action("PartailLeftMenuTypeMap")
-            }
-            else
-            {
-                @Html.Action("PartialLeftMenu", "Category", new { area = "", id = ViewBag.Id })
-            }
+            @Html.Action("PartialLeftMenu", "Category", new { area = "", id = ViewBag.Id })
         </div>
         <div class="col-sm-7">
             @if (ViewBag.CategoryType == 2)
@@ -100,7 +93,7 @@
             });
             $.ajax({
                 url: '/ajax/Category/GetAllNewsByCategory',
-                data: { iCat: 3, iPageSize: 1, iPageIndex: 1 },
+                data: { iCat: @ViewBag.Id, iPageSize: 1, iPageIndex: 1 },
                 type: 'POST',
                 cache: false,
                 beforeSend: function () {
