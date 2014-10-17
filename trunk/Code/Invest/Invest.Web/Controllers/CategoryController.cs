@@ -131,5 +131,24 @@ namespace Invest.Web.Controllers
             else
                 return CheckParent(result, allCat);
         }
+
+        public ActionResult GetAllNewsByCategory(int iCat, int iPagesize, int iPageIndex)
+        {
+            var invest = new InvestContext();
+            var newsServices = new NewsServices();
+
+            var model = newsServices.GetNewsByCategory(iCat, EngineContext.WorkingLanguage.Id, true).Select(n =>
+                     new
+                     {
+                         Id = n.Id,
+                         Title = n.Title,
+                         Brief = n.Short,
+                         Latitude = n.Latitude,
+                         Longitude = n.Longitude,
+                         ImagePath = invest.Picture.Where(p => invest.News_Picture_Mapping.Any(m => m.PictureId == p.Id && m.NewsId == n.Id)).Select(p => p.PathUrl).FirstOrDefault()
+                     }
+                    ).ToList();
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
     }
 }
