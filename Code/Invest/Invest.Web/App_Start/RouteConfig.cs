@@ -13,13 +13,7 @@ namespace Invest.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            #region Ajax
-            routes.MapRoute(
-               "Calling-Ajax",
-               "ajax/{controller}/{action}/{*q}",
-                   new[] { "Invest.Web.Controllers" }
-            );
-            #endregion
+
 
             //Register Route Plugin 
             routes.MapRoute(
@@ -53,6 +47,13 @@ namespace Invest.Web
                },
                   new[] { "Invest.Web.Controllers" }
          );
+            #region Ajax
+            routes.MapRoute(
+               "Calling-Ajax",
+               "ajax/{controller}/{action}/{*q}",
+                   new[] { "Invest.Web.Controllers" }
+            );
+            #endregion
 
             routes.MapRoute(
                 name: "Default",
