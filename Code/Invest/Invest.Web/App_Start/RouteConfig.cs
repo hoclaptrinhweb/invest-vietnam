@@ -13,7 +13,19 @@ namespace Invest.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            #region Search
 
+            routes.MapRoute(
+                "Search",
+                "{culture}/Search/{*q}",
+                new
+                {
+                    controller = "Common",
+                    action = "Search"
+                },
+                   new[] { "Invest.Web.Controllers" }
+          );
+            #endregion
 
             //Register Route Plugin 
             routes.MapRoute(
