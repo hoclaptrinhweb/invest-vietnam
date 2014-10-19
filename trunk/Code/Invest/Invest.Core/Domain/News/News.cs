@@ -12,6 +12,7 @@ namespace Invest.Core
         {
             this.NewsComments = new HashSet<NewsComment>();
             this.News_Category_Mapping = new HashSet<News_Category_Mapping>();
+            this.News_Picture_Mapping = new HashSet<News_Picture_Mapping>();
 
             this.CreatedDate = DateTime.Now;
             this.StartDate = DateTime.Now;
@@ -42,5 +43,6 @@ namespace Invest.Core
         public virtual Language Language { get; set; }
         public virtual ICollection<NewsComment> NewsComments { get; set; }
         public virtual ICollection<News_Category_Mapping> News_Category_Mapping { get; set; }
+        public virtual ICollection<News_Picture_Mapping> News_Picture_Mapping { get; set; }
     }
 }

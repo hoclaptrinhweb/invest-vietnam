@@ -6,12 +6,7 @@ using System.Web.Mvc;
 
 namespace Invest.Web.Controllers
 {
-    public class CommonController : BaseController
+    public class BaseController : Controller
     {
-
-        public ActionResult Search()
-        {
-            return View();
-        }
     }
 }
