@@ -9,7 +9,7 @@ namespace Invest.Web.Controllers
     public class CommonController : BaseController
     {
 
-        public ActionResult Search()
+        public ActionResult Search(string key)
         {
             return View();
         }
