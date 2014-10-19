@@ -3,20 +3,52 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container" id="container">
+<div class="container" id="container" style="padding-top:20px;padding-bottom:20px">
     <div class="row">
         <div class="col-sm-3">
+            <div class="panel-group-ba" id="filters">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#categories">
+                                Categories
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="categories" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <select name="category" class="form-control">
+                                <option value="">All</option>
+                                <option value="admin">Admin &amp; Dashboards</option>
+                                <option value="landing-pages">Landing pages</option>
+                                <option value="business">Business &amp; corporate</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#sort">
+                                Sort
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="sort" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <select name="sort" class="form-control ajax">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Old</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-sm-7">
             <div class="row">
-                <div class="col-sm-5 col-md-5">
-                    <select name="category" class="form-control">
-                        <option value="">All</option>
-                        <option value="admin">Admin &amp; Dashboards</option>
-                        <option value="landing-pages">Landing pages</option>
-                    </select>
-                </div>
-                <div class="col-sm-7 col-md-7">
+
+                <div class="col-sm-12 col-md-12">
                     <form role="search">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search" name="key">
@@ -50,7 +82,6 @@
         </div>
         <div class="col-sm-2 padding_none">
             <div class="col-xs-12 padding_none">
-                <h2>Side</h2>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         Support Online
@@ -79,3 +110,28 @@
         </div>
     </div>
 </div>
+<style>
+    .divcenter .thumbnail {
+        position: relative;
+    }
+
+    #hover-cap-4col .thumbnail {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .caption {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,.85);
+        width: 100%;
+        height: 100%;
+    }
+
+        .caption a {
+            color: #fff !important;
+            text-decoration: none;
+        }
+</style>
