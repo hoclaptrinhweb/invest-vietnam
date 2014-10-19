@@ -48,7 +48,6 @@
         </div>
         <div class="col-sm-7">
             <div class="row">
-
                 <div class="col-sm-12 col-md-12">
                     <form role="search">
                         <div class="input-group">
@@ -111,6 +110,20 @@
         </div>
     </div>
 </div>
+@section JS_INC{
+    <script>
+        $(document).ready(function () {
+            $('#container .thumbnail').hover(
+                function () {
+                    $(this).find('.caption').slideDown(250);
+                },
+                function () {
+                    $(this).find('.caption').slideUp(250);
+                }
+            );
+        });
+    </script>
+}
 <style>
     .divcenter .thumbnail {
         position: relative;
