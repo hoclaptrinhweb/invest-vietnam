@@ -416,6 +416,7 @@
     <Compile Include="Models\NetAdvImageModels.cs" />
     <Compile Include="Models\NewsShortModel.cs" />
     <Compile Include="Models\News\NewsCategoryViewModel.cs" />
+    <Compile Include="Models\Search\SearchOptionModel.cs" />
     <Compile Include="Models\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
