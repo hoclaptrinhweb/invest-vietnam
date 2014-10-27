@@ -11,6 +11,8 @@ namespace Invest.Web
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            routes.IgnoreRoute("{*ImagesHandler}", new { ImagesHandler = @"(.*/)?thumbnail.ashx(/.*)?" });
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             #region Search

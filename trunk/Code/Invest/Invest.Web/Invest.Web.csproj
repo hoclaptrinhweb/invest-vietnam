@@ -403,6 +403,7 @@
     <Compile Include="Controllers\NetAdvImageController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
+    <Compile Include="Core\Handler\ImagesHandler.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
