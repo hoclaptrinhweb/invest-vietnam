@@ -23,7 +23,8 @@
             {
                 <h2>@ViewBag.CurrTitle</h2>
             }
-            <ol class="breadcrumb">
+            <ol class="breadcrumb" xmlns:v="http://rdf.data-vocabulary.org/#">
+                <li typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="/">Home</a></li>
                 @foreach (var item in (List<Invest.Core.Category>)ViewBag.TreeMenu)
                 {
                     <li typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="@Url.Action("Index","Category",new { Name = item.Name.ConvertToUnSign(), Id = item.Id})">@item.Name</a></li>
