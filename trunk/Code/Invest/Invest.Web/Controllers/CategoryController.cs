@@ -145,7 +145,8 @@ namespace Invest.Web.Controllers
                          Brief = n.Short,
                          Latitude = n.Latitude,
                          Longitude = n.Longitude,
-                         ImagePath = invest.Picture.Where(p => invest.News_Picture_Mapping.Any(m => m.PictureId == p.Id && m.NewsId == n.Id)).Select(p => p.PathUrl).FirstOrDefault()
+                         ImagePath = invest.Picture.Where(p => invest.News_Picture_Mapping.Any(m => m.PictureId == p.Id && m.NewsId == n.Id)).Select(p => p.PathUrl).FirstOrDefault(),
+                         Link = Url.Action("Index", "News", new { Name = n.Title.ConvertToUnSign(), Id = n.Id })
                      }
                     ).ToList();
             return Json(model, JsonRequestBehavior.AllowGet);

@@ -49,9 +49,9 @@
                     <div class="panel-heading">
                         Support Online
                         @*<div class="btn-group pull-right" style="margin-top:-5px;">
-                            <a href="#" class="btn btn-success btn-sm"><i class="fa fa-pencil"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></a>
-                        </div>*@
+                                <a href="#" class="btn btn-success btn-sm"><i class="fa fa-pencil"></i></a>
+                                <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></a>
+                            </div>*@
                     </div>
                     <div class="panel-body">
                         <i class="fa fa-envelope-square"></i> vonhatnam@gmai.com
@@ -63,10 +63,10 @@
                 </div>
                 <hr>
                 @*<div class="panel panel-primary">
-                    <div class="panel-heading">Parner</div>
-                    <div class="panel-body"><img src="http://www.investkorea.org/publish/data/content/921/07/img//140402.jpg" class="img-responsive" /></div>
-                </div>
-                <hr>*@
+                        <div class="panel-heading">Parner</div>
+                        <div class="panel-body"><img src="http://www.investkorea.org/publish/data/content/921/07/img//140402.jpg" class="img-responsive" /></div>
+                    </div>
+                    <hr>*@
             </div>
         </div>
     </div>
@@ -113,8 +113,9 @@
                         });
                         google.maps.event.addListener(marker, 'click', (function (marker, i) {
                             return function () {
+                                var html = '<a target="_blank" href="'+data[i].Link+'">'+data[i].Title+'</a>';
                                 infowindow = new google.maps.InfoWindow({
-                                    content: data[i].Title
+                                    content: html
                                 });
                                 infowindow.open(map, marker);
                             }
