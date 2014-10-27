@@ -13,7 +13,9 @@ namespace Invest.Web.Core.Handler
         public void ProcessRequest(HttpContext context)
         {
             string imagePath = context.Request.QueryString["p"];
-            imagePath = context.Server.MapPath("~/"  + imagePath);
+            if (string.IsNullOrEmpty(imagePath))
+                imagePath = "Content/Uploads/Images/News/no_image_available.jpg";
+            imagePath = context.Server.MapPath("~/" + imagePath);
             var _widthImage = int.Parse(context.Request.QueryString["w"]);
             var _heightImage = int.Parse(context.Request.QueryString["h"]);
             // split the string on periods and read the last element, this is to ensure we have
@@ -54,11 +56,20 @@ namespace Invest.Web.Core.Handler
             if (width > 0 && width > height)
             {
                 factor = width / x;
+                if (factor * y > height)
+                {
+                    factor = height / y;
+                }
             }
             else if (height > 0)
             {
                 factor = height / y;
+                if (factor * y > width)
+                {
+                    factor = width / y;
+                }
             }
+
             System.IO.MemoryStream outStream = new System.IO.MemoryStream();
             Bitmap imgOut = new Bitmap((int)(x * factor), (int)(y * factor));
 
