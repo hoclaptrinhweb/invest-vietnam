@@ -74,9 +74,9 @@
                                     <p><a href="#" class="btn btn-inverse" rel="tooltip" title="Preview"><i class="icon-eye-open"></i></a> <a href="#" rel="tooltip" title="Visit Website" class="btn btn-inverse"><i class="icon-share"></i></a></p>
                                 </div>
                             }
-                            <img class="img-responsive" width="320" height="130" src="@item.ImagePath" />
+                            <img class="img-responsive" src="/thumbnail.ashx?p=@(item.ImagePath)&w=320&h=130" />
                         </div>
-                        <h4><a href="@Url.Action("Index","News",new { Name = item.Title.ConvertToUnSign(), Id = item.Id})">@item.Title.ToStringCount(80)</a></h4>
+                        <h4><a href="@Url.Action("Index","News",new { Name = item.Title.ConvertToUnSign(), Id = item.Id})">@item.Title.ToStringCount(75)</a></h4>
                     </div>
                 }
             </div>
@@ -87,9 +87,9 @@
                     <div class="panel-heading">
                         Support Online
                         @*<div class="btn-group pull-right" style="margin-top:-5px;">
-                            <a href="#" class="btn btn-success btn-sm"><i class="fa fa-pencil"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></a>
-                        </div>*@
+                                <a href="#" class="btn btn-success btn-sm"><i class="fa fa-pencil"></i></a>
+                                <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></a>
+                            </div>*@
                     </div>
                     <div class="panel-body">
                         <i class="fa fa-envelope-square"></i> vonhatnam@gmai.com
